@@ -14,7 +14,8 @@ class DashboardController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user })
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
   end
