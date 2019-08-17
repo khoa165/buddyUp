@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-gem 'bootsnap', require: false
 gem 'devise'
+gem 'pundit'
+gem 'geocoder'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
+gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
