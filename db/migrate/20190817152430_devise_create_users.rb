@@ -43,6 +43,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.float :longitude
       t.string :gender
       t.boolean :premium_status
+      t.string :photo
 
       t.timestamps null: false
     end
