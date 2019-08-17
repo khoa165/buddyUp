@@ -36,6 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.integer :age
       t.string :occupation
+      t.string :address
+      t.string :city
+      t.string :country
       t.float :latitude
       t.float :longitude
       t.string :gender
