@@ -65,12 +65,22 @@ puts "---> Movies: #{movies.size}"
 puts "-------------------------------------"
 
 puts "---> Technical question"
-movie_question = Question.create(description: "Movie")
-movies = ["Programming", "Web development", "Full-stack", "Front-end", "Back-end", "Data science", "Machine learning", "Artificial intelligent (AI)", "Freelancing"]
-movies.each do |movie|
-  Response.create(answer: movie, question: movie_question)
+technical_question = Question.create(description: "Technical")
+technicals = ["Computer science", "Computer engineering", "Computer software", "Computer hardware", "Programming", "Web development", "Full-stack", "Front-end", "Back-end", "Data science", "Data analysis", "Machine learning", "Artificial Intelligent (AI)", "Software development", "Software engineering", "Information Technology (IT)", "Computer networking", "Information security", "Design", "User interface (UI)", "User experience (UX)", "Freelancing", "Cryptocurrency", "Data structures and algorithms (DSA)"]
+technicals.each do |technical|
+  Response.create(answer: technical, question: technical_question)
 end
-puts "---> Movies: #{movies.size}"
+puts "---> Technical: #{technicals.size}"
+
+puts "-------------------------------------"
+
+puts "---> Entrepreneur question"
+entrepreneur_question = Question.create(description: "Technical")
+entrepreneurs = ["Business", "Organization", "Multi-national company", "Startup", "Tech stack", "Organizing", "Finance", "Marketing", "Advertising", "Human resources", "Founder", "CEO", "Office working", "Remote working", "Teamwork"]
+entrepreneurs.each do |entrepreneur|
+  Response.create(answer: entrepreneur, question: entrepreneur_question)
+end
+puts "---> Entrepreneur: #{entrepreneurs.size}"
 
 puts "-------------------------------------"
 
