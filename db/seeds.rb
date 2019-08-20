@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 puts "Cleaning database"
 Question.destroy_all
 Response.destroy_all
@@ -81,6 +73,22 @@ entrepreneurs.each do |entrepreneur|
   Response.create(answer: entrepreneur, question: entrepreneur_question)
 end
 puts "---> Entrepreneur: #{entrepreneurs.size}"
+
+puts "-------------------------------------"
+
+puts "---> Show question"
+show_question = Question.create(description: "Show")
+shows = ["The Big Bang Theory", "Young Sheldon", "Star Trek", "The Good Fight", "Game of Thrones", "Friends", "Survivor", "Big Brother", "The Amazing Race", "Stranger Things", "The Walking Dead", "American Horror Story", "Breaking Bad", "Riverdale", "13 Reasons Why", "The Ranch"]
+shows.each do |show|
+  Response.create(answer: show, question: show_question)
+end
+puts "---> Show: #{shows.size}"
+
+puts "-------------------------------------"
+
+puts "--> Option field area for freely words"
+optional_field_question = Question.create(description: "Tell us whatever you have not got a chance to mention. It's best to put in keywords separated by comma.")
+Response.create(answer: "Write whatever you want!!!", question: optional_field_question)
 
 puts "-------------------------------------"
 
