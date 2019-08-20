@@ -3,7 +3,7 @@
     <h1>
       <%= question.description %>
     </h1>
-    <%= f.collection_check_boxes :response_ids, question.responses, :id, :answer %>
+    <%= f.collection_check_boxes :response_ids, question.responses, :id, :answer, item_label_class: "checkbox-button" %>
   <% end %>
   <%= f.submit %>
 <% end %>
