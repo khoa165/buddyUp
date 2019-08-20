@@ -3,7 +3,6 @@ class Connection < ApplicationRecord
   belongs_to :sender, class_name: 'User', foreign_key: 'sender_id'
   belongs_to :receiver, class_name: 'User', foreign_key: 'receiver_id'
   has_many :meetings, dependent: :destroy
-  has_many :conversations, dependent: :destroy
-  has_many :messages, through: :conversations
+  has_many :messages, dependent: :destroy
 
 end
