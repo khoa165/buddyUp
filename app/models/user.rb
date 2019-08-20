@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Associations
   has_many :messages
-
+  before_destroy :destroy_connections
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,5 +14,11 @@ class User < ApplicationRecord
 
   def connections
     Connection.where("receiver_id = #{id} OR sender_id = #{id}")
+  end
+
+  private
+
+  def destroy_connections
+    connections.destroy_all
   end
 end
