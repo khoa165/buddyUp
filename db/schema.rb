@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_093134) do
+ActiveRecord::Schema.define(version: 2019_08_20_094310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2019_08_20_093134) do
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_connections_on_receiver_id"
     t.index ["sender_id"], name: "index_connections_on_sender_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string "location"
+    t.date "date"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "connection_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_meetings_on_connection_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +64,5 @@ ActiveRecord::Schema.define(version: 2019_08_20_093134) do
 
   add_foreign_key "connections", "users", column: "receiver_id"
   add_foreign_key "connections", "users", column: "sender_id"
+  add_foreign_key "meetings", "connections"
 end
