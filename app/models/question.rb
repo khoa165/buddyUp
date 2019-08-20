@@ -1,3 +1,4 @@
 class Question < ApplicationRecord
-  has_many :responses
+  # Associations
+  has_many :responses, dependent: :destroy
 end
