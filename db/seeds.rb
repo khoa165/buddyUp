@@ -67,7 +67,7 @@ puts "---> Technical: #{technicals.size}"
 puts "-------------------------------------"
 
 puts "---> Entrepreneur question"
-entrepreneur_question = Question.create(description: "Technical")
+entrepreneur_question = Question.create(description: "Entrepreneur")
 entrepreneurs = ["Business", "Organization", "Multi-national company", "Startup", "Tech stack", "Organizing", "Finance", "Marketing", "Advertising", "Human resources", "Founder", "CEO", "Office working", "Remote working", "Teamwork"]
 entrepreneurs.each do |entrepreneur|
   Response.create(answer: entrepreneur, question: entrepreneur_question)
