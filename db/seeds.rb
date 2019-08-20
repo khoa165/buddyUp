@@ -129,10 +129,10 @@ Message.create(content: "Yes you do.", connection: km, user: khoa)
 Meeting.create(connection: dk, location: "Barcelona")
 Meeting.create(connection: km, location: "Badalona")
 
-puts "---> User: #{User.all}"
-puts "---> Connection: #{Connection.all}"
-puts "---> Meeting: #{Meeting.all}"
-puts "---> Message: #{Message.all}"
+puts "---> User: #{User.count}"
+puts "---> Connection: #{Connection.count}"
+puts "---> Meeting: #{Meeting.count}"
+puts "---> Message: #{Message.count}"
 
 puts "-------------------------------------"
 
