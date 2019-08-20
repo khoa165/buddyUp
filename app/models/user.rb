@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   # Associations
+  has_many :user_responses, dependent: :destroy
   has_many :messages
   before_destroy :destroy_connections
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
