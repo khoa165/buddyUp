@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 puts "Cleaning database..."
 Question.destroy_all
 Response.destroy_all
@@ -129,6 +128,11 @@ Message.create(content: "Yes you do.", connection: km, user: khoa)
 
 Meeting.create(connection: dk, location: "Barcelona")
 Meeting.create(connection: km, location: "Badalona")
+
+puts "---> User: #{User.all}"
+puts "---> Connection: #{Connection.all}"
+puts "---> Meeting: #{Meeting.all}"
+puts "---> Message: #{Message.all}"
 
 puts "-------------------------------------"
 
