@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   # Associations
-  has_many :connections, dependent: :destroy
   has_many :messages
 
   # Include default devise modules. Others available are:
@@ -12,4 +11,8 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def connections
+    Connection.where("receiver_id = #{id} OR sender_id = #{id}")
+  end
 end
