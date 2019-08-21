@@ -187,7 +187,7 @@ puts "-------------------------------------"
 
 categories = [music_question, sport_question, movie_question, technical_question, entrepreneur_question, show_question]
 
-[khoa, danko, melissa, arman].each do |user|
+User.all.each do |user|
   personality_question.responses.sample(rand(3..5)).each do |ur|
     UserResponse.create(user: user, response: ur)
   end
@@ -198,18 +198,6 @@ categories = [music_question, sport_question, movie_question, technical_question
     category.responses.sample(rand(0..5)).each do |ur|
       UserResponse.create(user: user, response: ur)
     end
-  end
-end
-
-personality_question.responses.sample(rand(3..5)).each do |ur|
-  UserResponse.create(user: ellyn, response: ur)
-end
-lifestyle_question.responses.sample(rand(3..5)).each do |ur|
-  UserResponse.create(user: ellyn, response: ur)
-end
-categories.each do |category|
-  category.responses.sample(rand(0..1)).each do |ur|
-    UserResponse.create(user: ellyn, response: ur)
   end
 end
 
