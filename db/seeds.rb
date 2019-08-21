@@ -145,28 +145,28 @@ puts "-------------------------------------"
 categories = [music_question, sport_question, movie_question, technical_question, entrepreneur_question, show_question]
 
 [khoa, danko, melissa, arman].each do |user|
-  rand(3..10).times do
-    UserResponse.create(user: user, response: personality_question.responses.sample)
+  personality_question.responses.sample(rand(3..5)).each do |ur|
+    UserResponse.create(user: user, response: ur)
   end
-  rand(3..10).times do
-    UserResponse.create(user: user, response: lifestyle_question.responses.sample)
+  lifestyle_question.responses.sample(rand(3..5)).each do |ur|
+    UserResponse.create(user: user, response: ur)
   end
   categories.each do |category|
-    rand(0..10).times do
-      UserResponse.create(user: user, response: category.responses.sample)
+    category.responses.sample(rand(0..5)).each do |ur|
+      UserResponse.create(user: user, response: ur)
     end
   end
 end
 
-rand(3..10).times do
-  UserResponse.create(user: ellyn, response: personality_question.responses.sample)
+personality_question.responses.sample(rand(3..5)).each do |ur|
+  UserResponse.create(user: ellyn, response: ur)
 end
-rand(3..10).times do
-  UserResponse.create(user: ellyn, response: lifestyle_question.responses.sample)
+lifestyle_question.responses.sample(rand(3..5)).each do |ur|
+  UserResponse.create(user: ellyn, response: ur)
 end
 categories.each do |category|
-  rand(0..2).times do
-    UserResponse.create(user: ellyn, response: category.responses.sample)
+  category.responses.sample(rand(0..1)).each do |ur|
+    UserResponse.create(user: ellyn, response: ur)
   end
 end
 
