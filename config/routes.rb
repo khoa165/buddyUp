@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
   resources :user_responses, only: [:create]
-  get '/profile/edit', to: 'dashboard#profile_edit'
+  get '/profile/edit', to: 'dashboard#edit'
   patch '/profile', to: 'dashboard#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
