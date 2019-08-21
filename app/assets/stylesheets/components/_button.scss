@@ -2,15 +2,19 @@
   background: rgb(2,195,154);
   background: linear-gradient(90deg, rgba(2,195,154,1) 5%, rgba(59,44,133,1) 68%, rgba(140,227,209,1) 100%);
   padding: 16px 32px;
-  width: 200px;
+  width: 100%;
   color: white;
   font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+}
 
+.bu-button-lg {
+  display: inline-block;
 }
 
 .bu-brand-button:hover {
-  background: rgb(140,227,209);
-  background: linear-gradient(90deg, rgba(140,227,209,1) 10%, rgba(2,195,154,1) 32%, rgba(59,44,133,1) 82%);
+  background: #02C39A;
   color: white;
   text-decoration: none;
 }
