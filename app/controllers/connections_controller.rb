@@ -25,7 +25,20 @@ class ConnectionsController < ApplicationController
   end
 
   def compute_score(target_user)
-    current_user.user_responses.joins(:response).group(:question_id)
+    UserResponse.joins(:responses).joins(:questions).group(:description).where(user: User.first)
+
+    arr = UserResponse.joins("INNER JOIN responses ON user_responses.response_id = responses.id").joins("INNER JOIN questions ON responses.question_id = questions.id").where(user: User.first).group('question.description')
+
+    arr = UserResponse.joins("INNER JOIN responses ON user_responses.response_id = responses.id").joins("INNER JOIN questions ON responses.question_id = questions.id").where(user: User.first).group('question.description = "Personality"')
+
+    Artist.select('artists.*, COUNT(tracks.name) AS track_count')
+        .joins(albums: { tracks: :genre })
+        .where(genres: { name: genre_name })
+        .group('artists.name')
+        .order('track_count DESC')
+        .limit(5)
+
+    Question.joins(:responses).group(:description).where(user: User.first)
 
     target_user.user_responses.joins(:response).group(:question_id)
   end
