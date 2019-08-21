@@ -1,18 +1,6 @@
-<h1>Connections#index</h1>
-<p>Find me in app/views/connections/index.html.erb</p>
 <%= current_user.first_name %>
-<ul>
-  <% current_user.user_responses.each do |ur| %>
-  <li><%= ur.response.answer %></li>
-  <% end %>
-</ul>
 
 <% @matches.each do |match| %>
 <p><%= match[0].first_name %> <%= match[0].last_name %></p>
-<ul>
-  <% match[0].user_responses.each do |ur| %>
-  <li><%= ur.response.answer %></li>
-  <% end %>
-</ul>
 <p><%= match[1] %></p>
 <% end %>

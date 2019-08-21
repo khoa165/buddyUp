@@ -52,13 +52,20 @@ class ConnectionsController < ApplicationController
     raw_score.each_with_index do |component_score, index|
       total_score += component_score * weights[index]
     end
+    total_weight = 0
+    weights.each do |weight|
+      total_weight += weight
+    end
+    total_score = total_score * 100 / total_weight
     return total_score.round
   end
 
   def compute_component_score(current_user_component_data, target_component_data)
     score = 0
     unless current_user_component_data.nil? || target_component_data.nil?
-      overlap_component_data = current_user_component_data & target_component_data
+      current = current_user_component_data.map { |ur| ur.response }
+      target = target_component_data.map { |ur| ur.response }
+      overlap_component_data = current & target
       score = overlap_component_data.size.to_f / current_user_component_data.size
     end
     return score
