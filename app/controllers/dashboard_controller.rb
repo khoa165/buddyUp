@@ -1,10 +1,11 @@
 class DashboardController < ApplicationController
-  def edit
-
+  def profile_edit
+    @user = current_user
   end
 
   def update
-
+    @user = User.find(params[:id])
+    @user.update(user_strong_params)
   end
 
   def search
@@ -26,5 +27,11 @@ class DashboardController < ApplicationController
         image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
+  end
+
+  private
+
+  def user_strong_params
+    params.require(:user).permit()
   end
 end

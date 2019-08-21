@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'connections/index'
   devise_for :users
   root to: 'pages#home'
   resources :questions, only: [:index, :show] do
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
     end
   end
   resources :user_responses, only: [:create]
-
+  get '/profile/edit', to: 'dashboard#profile_edit'
+  patch '/profile', to: 'dashboard#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
