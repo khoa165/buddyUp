@@ -162,6 +162,11 @@ puts "-------------------------------------"
   UserResponse.create(user: melissa, response: sport_question.responses.sample)
   UserResponse.create(user: arman, response: sport_question.responses.sample)
 
+  UserResponse.create(user: khoa, response: movie_question.responses.sample)
+  UserResponse.create(user: danko, response: movie_question.responses.sample)
+  UserResponse.create(user: melissa, response: movie_question.responses.sample)
+  UserResponse.create(user: arman, response: movie_question.responses.sample)
+
   UserResponse.create(user: khoa, response: technical_question.responses.sample)
   UserResponse.create(user: danko, response: technical_question.responses.sample)
   UserResponse.create(user: melissa, response: technical_question.responses.sample)
@@ -171,7 +176,14 @@ puts "-------------------------------------"
   UserResponse.create(user: danko, response: entrepreneur_question.responses.sample)
   UserResponse.create(user: melissa, response: entrepreneur_question.responses.sample)
   UserResponse.create(user: arman, response: entrepreneur_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: show_question.responses.sample)
+  UserResponse.create(user: danko, response: show_question.responses.sample)
+  UserResponse.create(user: melissa, response: show_question.responses.sample)
+  UserResponse.create(user: arman, response: show_question.responses.sample)
 end
+
+puts "---> UserResponse: #{UserResponse.count}"
 
 puts "-------------------------------------"
 
