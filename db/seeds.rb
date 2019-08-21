@@ -115,15 +115,15 @@ Connection.create(sender: danko, receiver: melissa)
 Connection.create(sender: arman, receiver: melissa)
 Connection.create(sender: arman, receiver: khoa)
 
-Message.create(content: "Hello how are you?", connection: dk, user: danko)
-Message.create(content: "I am fine thank you.", connection: dk, user: khoa)
-Message.create(content: "What is your nickname.", connection: dk, user: danko)
-Message.create(content: "Khoaqin", connection: dk, user: khoa)
-Message.create(content: "Hi i am Khoa bear.", connection: km, user: khoa)
-Message.create(content: "Nice to meet you.", connection: km, user: melissa)
-Message.create(content: "I am Melissa.", connection: km, user: melissa)
-Message.create(content: "I drink a loooot of coffe!!!", connection: km, user: melissa)
-Message.create(content: "Yes you do.", connection: km, user: khoa)
+Message.create(content: "Hi, I'm Danko. I suck at everything!", connection: dk, user: danko)
+Message.create(content: "Yeah silly you", connection: dk, user: khoa)
+Message.create(content: "Wanna be my coding buddy?", connection: dk, user: danko)
+Message.create(content: "Lemme think about that!!!", connection: dk, user: khoa)
+Message.create(content: "Hi I am Khoa :\">.", connection: km, user: khoa)
+Message.create(content: "Ohhhhh Khoa, don't you know I trash talking you everyday? Hehe :>", connection: km, user: melissa)
+Message.create(content: "Ahhhh, one more thing to keep in mind. I nap 3 hours everyday on Le Wagon's couch. Better don't disturb my sleep.", connection: km, user: melissa)
+Message.create(content: "Who are you though?.", connection: km, user: khoa)
+Message.create(content: "I am Melissaaaaaa, master of front end!", connection: km, user: melissa)
 
 Meeting.create(connection: dk, location: "Barcelona")
 Meeting.create(connection: km, location: "Badalona")
@@ -136,5 +136,45 @@ puts "---> Message: #{Message.count}"
 puts "-------------------------------------"
 
 puts "Finish users, connections, meetings and messages!"
+
+puts "Creating user responses..."
+
+puts "-------------------------------------"
+
+5.times do |r|
+  UserResponse.create(user: khoa, response: personality_question.responses.sample)
+  UserResponse.create(user: danko, response: personality_question.responses.sample)
+  UserResponse.create(user: melissa, response: personality_question.responses.sample)
+  UserResponse.create(user: arman, response: personality_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: lifestyle_question.responses.sample)
+  UserResponse.create(user: danko, response: lifestyle_question.responses.sample)
+  UserResponse.create(user: melissa, response: lifestyle_question.responses.sample)
+  UserResponse.create(user: arman, response: lifestyle_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: music_question.responses.sample)
+  UserResponse.create(user: danko, response: music_question.responses.sample)
+  UserResponse.create(user: melissa, response: music_question.responses.sample)
+  UserResponse.create(user: arman, response: music_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: sport_question.responses.sample)
+  UserResponse.create(user: danko, response: sport_question.responses.sample)
+  UserResponse.create(user: melissa, response: sport_question.responses.sample)
+  UserResponse.create(user: arman, response: sport_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: technical_question.responses.sample)
+  UserResponse.create(user: danko, response: technical_question.responses.sample)
+  UserResponse.create(user: melissa, response: technical_question.responses.sample)
+  UserResponse.create(user: arman, response: technical_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: entrepreneur_question.responses.sample)
+  UserResponse.create(user: danko, response: entrepreneur_question.responses.sample)
+  UserResponse.create(user: melissa, response: entrepreneur_question.responses.sample)
+  UserResponse.create(user: arman, response: entrepreneur_question.responses.sample)
+end
+
+puts "-------------------------------------"
+
+puts "Finish user responses!"
 
 puts "Finished!"

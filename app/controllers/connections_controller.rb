@@ -10,24 +10,23 @@ class ConnectionsController < ApplicationController
     else
       users = users.near([current_user.latitude, current_user.longitude], 20)
     end
+
     @matches = retrieve_buddies(users)
   end
 
   private
 
-  def connection_strong_params
-      params.require(:connection).permit()
-  end
-
   def retrieve_buddies(users)
     options = []
     users.each do |user|
-      options << [user, compute_score(current_user, user)]
+      options << [user, compute_score(user)]
     end
     options.sort_by { |option| -option[1] }
   end
 
-  def compute_score(current_user, target_user)
+  def compute_score(target_user)
+    current_user.user_responses.joins(:response).group(:question_id)
 
+    target_user.user_responses.joins(:response).group(:question_id)
   end
 end
