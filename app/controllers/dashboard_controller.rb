@@ -1,4 +1,12 @@
 class DashboardController < ApplicationController
+  def edit
+
+  end
+
+  def update
+
+  end
+
   def search
     @users = User.geocoded
 
