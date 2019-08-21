@@ -1,12 +1,13 @@
 .bu-brand-button {
-  background: rgb(2,195,154);
-  background: linear-gradient(90deg, rgba(2,195,154,1) 5%, rgba(59,44,133,1) 68%, rgba(140,227,209,1) 100%);
+  background: rgb(156,26,235);
+  background: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
   padding: 16px 32px;
   width: 100%;
   color: white;
   font-weight: bold;
   text-align: center;
   font-size: 16px;
+  border-radius: 3px;
 }
 
 .bu-button-lg {
