@@ -107,6 +107,7 @@ khoa = User.create!(first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com"
 danko = User.create!(first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", age: 29, occupation: "Inspector", gender: "Male")
 arman = User.create!(first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", age: 21, occupation: "Student", gender: "Male")
 melissa = User.create!(first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", age: 31, gender: "Female")
+ellyn = User.create!(first_name: "Ellyn", last_name: "Bouscasse", email: "ellyn@gmail.com", password: "ellyn123", age: 25, gender: "Female")
 
 dk = Connection.create(sender: danko, receiver: khoa, status: "buddied")
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied")
@@ -154,6 +155,18 @@ categories = [music_question, sport_question, movie_question, technical_question
     rand(0..10).times do
       UserResponse.create(user: user, response: category.responses.sample)
     end
+  end
+end
+
+rand(3..10).times do
+  UserResponse.create(user: ellyn, response: personality_question.responses.sample)
+end
+rand(3..10).times do
+  UserResponse.create(user: ellyn, response: lifestyle_question.responses.sample)
+end
+categories.each do |category|
+  rand(0..2).times do
+    UserResponse.create(user: ellyn, response: category.responses.sample)
   end
 end
 

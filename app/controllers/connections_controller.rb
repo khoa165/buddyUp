@@ -45,6 +45,8 @@ class ConnectionsController < ApplicationController
     target_data = target_user.user_responses.includes(:response).group_by {
       |ur| ur.response.question_id
     }
+    current_user_data.each_value do |responses_chosen|
 
+    end
   end
 end
