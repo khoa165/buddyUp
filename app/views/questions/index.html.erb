@@ -1,7 +1,9 @@
 <div class="container">
+  <h1 class="text-center my-4">Your Profile</h1>
+  <h3>Now tell us a few more details about yourself</h3>
   <%= simple_form_for :user_responses, url: user_responses_path, method: :post do |f| %>
     <% @questions.each do |question| %>
-      <h1 class="question"><%= question.description %><i class="fas fa-chevron-down"></i></h1>
+      <h5 class="question"><%= question.description %><i class="fas fa-chevron-down"></i></h5>
       <div class="responses hide">
         <% question.responses.each do |response| %>
           <input hidden type="checkbox" value="<%= response.id %>" name="user_responses[response_ids][]" id="user_responses_response_ids_<%= response.id %>">
