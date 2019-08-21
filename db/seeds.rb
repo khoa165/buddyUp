@@ -1,6 +1,11 @@
 puts "Cleaning database..."
+User.destroy_all
+Connection.destroy_all
+Meeting.destroy_all
+Message.destroy_all
 Question.destroy_all
 Response.destroy_all
+UserResponse.destroy_all
 
 puts "Creating questions, responses..."
 
@@ -94,20 +99,14 @@ puts "-------------------------------------"
 
 puts "Finish questions and responses!"
 
-puts "Cleaning database..."
-User.destroy_all
-Connection.destroy_all
-Meeting.destroy_all
-Message.destroy_all
-
 puts "Creating users, connections, meetings, messages..."
 
 puts "-------------------------------------"
 
-khoa = User.create!(first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", )
-danko = User.create!(first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", )
-arman = User.create!(first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", )
-melissa = User.create!(first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", )
+khoa = User.create!(first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", age: 19)
+danko = User.create!(first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", age: 29)
+arman = User.create!(first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", age: 21)
+melissa = User.create!(first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", age: 31)
 
 dk = Connection.create(sender: danko, receiver: khoa, status: "buddied")
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied")
