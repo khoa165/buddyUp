@@ -5,9 +5,10 @@ const responses = document.querySelectorAll(".js-response");
 // console.log(responses);
 
 const addCheckedStatus = (event) => {
-  event.target.classList.remove('btn-outline-primary');
-  event.target.classList.add('btn-primary');
+  event.target.classList.toggle('btn-outline-primary')
+  event.target.classList.toggle('btn-primary')
 }
+
 
 responses.forEach(response => {
   response.addEventListener("click", addCheckedStatus);
