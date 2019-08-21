@@ -1,6 +1,11 @@
 puts "Cleaning database..."
+User.destroy_all
+Connection.destroy_all
+Meeting.destroy_all
+Message.destroy_all
 Question.destroy_all
 Response.destroy_all
+UserResponse.destroy_all
 
 puts "Creating questions, responses..."
 
@@ -94,20 +99,14 @@ puts "-------------------------------------"
 
 puts "Finish questions and responses!"
 
-puts "Cleaning database..."
-User.destroy_all
-Connection.destroy_all
-Meeting.destroy_all
-Message.destroy_all
-
 puts "Creating users, connections, meetings, messages..."
 
 puts "-------------------------------------"
 
-khoa = User.create!(first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", )
-danko = User.create!(first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", )
-arman = User.create!(first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", )
-melissa = User.create!(first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", )
+khoa = User.create!(first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", age: 19, occupation: "Student", gender: "Male")
+danko = User.create!(first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", age: 29, occupation: "Inspector", gender: "Male")
+arman = User.create!(first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", age: 21, occupation: "Student", gender: "Male")
+melissa = User.create!(first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", age: 31, gender: "Female")
 
 dk = Connection.create(sender: danko, receiver: khoa, status: "buddied")
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied")
@@ -116,15 +115,15 @@ Connection.create(sender: danko, receiver: melissa)
 Connection.create(sender: arman, receiver: melissa)
 Connection.create(sender: arman, receiver: khoa)
 
-Message.create(content: "Hello how are you?", connection: dk, user: danko)
-Message.create(content: "I am fine thank you.", connection: dk, user: khoa)
-Message.create(content: "What is your nickname.", connection: dk, user: danko)
-Message.create(content: "Khoaqin", connection: dk, user: khoa)
-Message.create(content: "Hi i am Khoa bear.", connection: km, user: khoa)
-Message.create(content: "Nice to meet you.", connection: km, user: melissa)
-Message.create(content: "I am Melissa.", connection: km, user: melissa)
-Message.create(content: "I drink a loooot of coffe!!!", connection: km, user: melissa)
-Message.create(content: "Yes you do.", connection: km, user: khoa)
+Message.create(content: "Hi, I'm Danko. I suck at everything!", connection: dk, user: danko)
+Message.create(content: "Yeah silly you", connection: dk, user: khoa)
+Message.create(content: "Wanna be my coding buddy?", connection: dk, user: danko)
+Message.create(content: "Lemme think about that!!!", connection: dk, user: khoa)
+Message.create(content: "Hi I am Khoa :\">.", connection: km, user: khoa)
+Message.create(content: "Ohhhhh Khoa, don't you know I trash talking you everyday? Hehe :>", connection: km, user: melissa)
+Message.create(content: "Ahhhh, one more thing to keep in mind. I nap 3 hours everyday on Le Wagon's couch. Better don't disturb my sleep.", connection: km, user: melissa)
+Message.create(content: "Who are you though?.", connection: km, user: khoa)
+Message.create(content: "I am Melissaaaaaa, master of front end!", connection: km, user: melissa)
 
 Meeting.create(connection: dk, location: "Barcelona")
 Meeting.create(connection: km, location: "Badalona")
@@ -137,5 +136,57 @@ puts "---> Message: #{Message.count}"
 puts "-------------------------------------"
 
 puts "Finish users, connections, meetings and messages!"
+
+puts "Creating user responses..."
+
+puts "-------------------------------------"
+
+5.times do |r|
+  UserResponse.create(user: khoa, response: personality_question.responses.sample)
+  UserResponse.create(user: danko, response: personality_question.responses.sample)
+  UserResponse.create(user: melissa, response: personality_question.responses.sample)
+  UserResponse.create(user: arman, response: personality_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: lifestyle_question.responses.sample)
+  UserResponse.create(user: danko, response: lifestyle_question.responses.sample)
+  UserResponse.create(user: melissa, response: lifestyle_question.responses.sample)
+  UserResponse.create(user: arman, response: lifestyle_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: music_question.responses.sample)
+  UserResponse.create(user: danko, response: music_question.responses.sample)
+  UserResponse.create(user: melissa, response: music_question.responses.sample)
+  UserResponse.create(user: arman, response: music_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: sport_question.responses.sample)
+  UserResponse.create(user: danko, response: sport_question.responses.sample)
+  UserResponse.create(user: melissa, response: sport_question.responses.sample)
+  UserResponse.create(user: arman, response: sport_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: movie_question.responses.sample)
+  UserResponse.create(user: danko, response: movie_question.responses.sample)
+  UserResponse.create(user: melissa, response: movie_question.responses.sample)
+  UserResponse.create(user: arman, response: movie_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: technical_question.responses.sample)
+  UserResponse.create(user: danko, response: technical_question.responses.sample)
+  UserResponse.create(user: melissa, response: technical_question.responses.sample)
+  UserResponse.create(user: arman, response: technical_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: entrepreneur_question.responses.sample)
+  UserResponse.create(user: danko, response: entrepreneur_question.responses.sample)
+  UserResponse.create(user: melissa, response: entrepreneur_question.responses.sample)
+  UserResponse.create(user: arman, response: entrepreneur_question.responses.sample)
+
+  UserResponse.create(user: khoa, response: show_question.responses.sample)
+  UserResponse.create(user: danko, response: show_question.responses.sample)
+  UserResponse.create(user: melissa, response: show_question.responses.sample)
+  UserResponse.create(user: arman, response: show_question.responses.sample)
+end
+
+puts "---> UserResponse: #{UserResponse.count}"
+
+puts "-------------------------------------"
+
+puts "Finish user responses!"
 
 puts "Finished!"
