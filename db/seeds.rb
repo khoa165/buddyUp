@@ -141,46 +141,20 @@ puts "Creating user responses..."
 
 puts "-------------------------------------"
 
-5.times do |r|
-  UserResponse.create(user: khoa, response: personality_question.responses.sample)
-  UserResponse.create(user: danko, response: personality_question.responses.sample)
-  UserResponse.create(user: melissa, response: personality_question.responses.sample)
-  UserResponse.create(user: arman, response: personality_question.responses.sample)
+categories = [music_question, sport_question, movie_question, technical_question, entrepreneur_question, show_question]
 
-  UserResponse.create(user: khoa, response: lifestyle_question.responses.sample)
-  UserResponse.create(user: danko, response: lifestyle_question.responses.sample)
-  UserResponse.create(user: melissa, response: lifestyle_question.responses.sample)
-  UserResponse.create(user: arman, response: lifestyle_question.responses.sample)
-
-  UserResponse.create(user: khoa, response: music_question.responses.sample)
-  UserResponse.create(user: danko, response: music_question.responses.sample)
-  UserResponse.create(user: melissa, response: music_question.responses.sample)
-  UserResponse.create(user: arman, response: music_question.responses.sample)
-
-  UserResponse.create(user: khoa, response: sport_question.responses.sample)
-  UserResponse.create(user: danko, response: sport_question.responses.sample)
-  UserResponse.create(user: melissa, response: sport_question.responses.sample)
-  UserResponse.create(user: arman, response: sport_question.responses.sample)
-
-  UserResponse.create(user: khoa, response: movie_question.responses.sample)
-  UserResponse.create(user: danko, response: movie_question.responses.sample)
-  UserResponse.create(user: melissa, response: movie_question.responses.sample)
-  UserResponse.create(user: arman, response: movie_question.responses.sample)
-
-  UserResponse.create(user: khoa, response: technical_question.responses.sample)
-  UserResponse.create(user: danko, response: technical_question.responses.sample)
-  UserResponse.create(user: melissa, response: technical_question.responses.sample)
-  UserResponse.create(user: arman, response: technical_question.responses.sample)
-
-  UserResponse.create(user: khoa, response: entrepreneur_question.responses.sample)
-  UserResponse.create(user: danko, response: entrepreneur_question.responses.sample)
-  UserResponse.create(user: melissa, response: entrepreneur_question.responses.sample)
-  UserResponse.create(user: arman, response: entrepreneur_question.responses.sample)
-
-  UserResponse.create(user: khoa, response: show_question.responses.sample)
-  UserResponse.create(user: danko, response: show_question.responses.sample)
-  UserResponse.create(user: melissa, response: show_question.responses.sample)
-  UserResponse.create(user: arman, response: show_question.responses.sample)
+[khoa, danko, melissa, arman].each do |user|
+  rand(3..10).times do
+    UserResponse.create(user: user, response: personality_question.responses.sample)
+  end
+  rand(3..10).times do
+    UserResponse.create(user: user, response: lifestyle_question.responses.sample)
+  end
+  categories.each do |category|
+    rand(0..10).times do
+      UserResponse.create(user: user, response: category.responses.sample)
+    end
+  end
 end
 
 puts "---> UserResponse: #{UserResponse.count}"

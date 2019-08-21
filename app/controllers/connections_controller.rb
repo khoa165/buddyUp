@@ -17,19 +17,34 @@ class ConnectionsController < ApplicationController
   private
 
   def retrieve_buddies(users)
+    current_user_data = retrieve_current_user_data
+    weights = compute_weight(current_user_data)
     options = []
     users.each do |user|
-      options << [user, compute_score(user)]
+      options << [user, compute_total_score(current_user_data, weights, user)]
     end
     options.sort_by { |option| -option[1] }
   end
 
-  def compute_score(target_user)
-    current_user.user_responses.includes(:response).group_by {
+  def retrieve_current_user_data
+    current_user_data = current_user.user_responses.includes(:response).group_by {
       |ur| ur.response.question_id
     }
-    target_user.user_responses.includes(:response).group_by {
+    current_user_data
+  end
+
+  def compute_weight(current_user_data)
+    weights = []
+    current_user_data.each_value do |responses_chosen|
+      weights << responses_chosen.size
+    end
+    weights
+  end
+
+  def compute_total_score(current_user_data, weights, target_user)
+    target_data = target_user.user_responses.includes(:response).group_by {
       |ur| ur.response.question_id
     }
+
   end
 end
