@@ -103,11 +103,54 @@ puts "Creating users, connections, meetings, messages..."
 
 puts "-------------------------------------"
 
+puts "Creating team members..."
+
+puts "-------------------------------------"
+
 khoa = User.create!(first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", age: 19, occupation: "Student", gender: "Male", address: "Barcelona")
 danko = User.create!(first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", age: 29, occupation: "Inspector", gender: "Male", address: "Barcelona")
-arman = User.create!(first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", age: 21, occupation: "Student", gender: "Male")
+arman = User.create!(first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", age: 21, occupation: "Student", gender: "Male", address: "Barcelona")
 melissa = User.create!(first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", age: 31, gender: "Female", address: "Barcelona")
+
+puts "Creating teachers and TAs..."
+
+puts "-------------------------------------"
+
 ellyn = User.create!(first_name: "Ellyn", last_name: "Bouscasse", email: "ellyn@gmail.com", password: "ellyn123", age: 25, gender: "Female", address: "Barcelona")
+avalon = User.create!(first_name: "Avalon", last_name: "Van Der Horst", email: "avalon@gmail.com", password: "avalon123", age: 25, gender: "Female", address: "Barcelona")
+gus = User.create!(first_name: "Gus", last_name: "De Vita", email: "gus@gmail.com", password: "gus123", age: 25, gender: "Male", address: "Barcelona")
+daniel = User.create!(first_name: "Daniel", last_name: "Gordon", email: "daniel@gmail.com", password: "daniel123", age: 25, gender: "Male", address: "Barcelona")
+inou = User.create!(first_name: "Inou", last_name: "Ridder", email: "inou@gmail.com", password: "inou123", age: 25, gender: "Male", address: "Barcelona")
+valerie = User.create!(first_name: "Valerie", last_name: "Schraauwers", email: "valerie@gmail.com", password: "valerie123", age: 25, gender: "Female", address: "Barcelona")
+mirha = User.create!(first_name: "Mirha", last_name: "Masala", email: "mirha@gmail.com", password: "mirha123", age: 25, gender: "Female", address: "Barcelona")
+
+puts "Creating classmates..."
+
+puts "-------------------------------------"
+
+abs = User.create!(first_name: "Abs", last_name: "Yade", email: "abs@gmail.com", password: "abs123", age: 25, gender: "Male", address: "Barcelona")
+amine = User.create!(first_name: "Amine", last_name: "Boukhriss", email: "amine@gmail.com", password: "amine123", age: 25, gender: "Male", address: "Barcelona")
+barbara = User.create!(first_name: "Barbara", last_name: "Peric", email: "barbara@gmail.com", password: "barbara123", age: 25, gender: "Female", address: "Barcelona")
+cihad = User.create!(first_name: "Cihad", last_name: "Saglam", email: "cihad@gmail.com", password: "cihad123", age: 25, gender: "Male", address: "Barcelona")
+fahad = User.create!(first_name: "Fahad", last_name: "Al Rasheed", email: "fahad@gmail.com", password: "fahad123", age: 25, gender: "Male", address: "Barcelona")
+ferdinand = User.create!(first_name: "Ferdinand", last_name: "Croy", email: "ferdinand@gmail.com", password: "ferdinand123", age: 25, gender: "Male", address: "Barcelona")
+francois = User.create!(first_name: "Francois", last_name: "Adrien", email: "francois@gmail.com", password: "francois123", age: 25, gender: "Male", address: "Barcelona")
+glen = User.create!(first_name: "Glen", last_name: "Warren", email: "glen@gmail.com", password: "glen123", age: 25, gender: "Male", address: "Barcelona")
+jaime = User.create!(first_name: "Jaime", last_name: "Cruz", email: "jaime@gmail.com", password: "jaime123", age: 25, gender: "Male", address: "Barcelona")
+josephine = User.create!(first_name: "Josephine", last_name: "Geoghegan", email: "josephine@gmail.com", password: "josephine123", age: 25, gender: "Female", address: "Barcelona")
+kaveh = User.create!(first_name: "Kaveh", last_name: "Jalilian", email: "kaveh@gmail.com", password: "kaveh123", age: 25, gender: "Male", address: "Barcelona")
+maria = User.create!(first_name: "Maria", last_name: "Manninen", email: "maria@gmail.com", password: "maria123", age: 25, gender: "Female", address: "Barcelona")
+matthis = User.create!(first_name: "Matthis", last_name: "Parisot", email: "matthis@gmail.com", password: "matthis123", age: 25, gender: "Male", address: "Barcelona")
+mehdi = User.create!(first_name: "Mehdi", last_name: "Idrissi Kaitouni", email: "mehdi@gmail.com", password: "mehdi123", age: 25, gender: "Male", address: "Barcelona")
+nicolas = User.create!(first_name: "Nicolas", last_name: "Proto", email: "nicolas@gmail.com", password: "nicolas123", age: 25, gender: "Male", address: "Barcelona")
+nikita = User.create!(first_name: "Nikita", last_name: "Bandarevich", email: "nikita@gmail.com", password: "nikita123", age: 25, gender: "Male", address: "Barcelona")
+sy = User.create!(first_name: "Sy", last_name: "Rashid", email: "sy@gmail.com", password: "sy1234", age: 25, gender: "Male", address: "Barcelona")
+thomas = User.create!(first_name: "Thomas", last_name: "Bonnet", email: "thomas@gmail.com", password: "thomas123", age: 25, gender: "Male", address: "Barcelona")
+uri = User.create!(first_name: "Uri", last_name: "Serra", email: "uri@gmail.com", password: "uri123", age: 25, gender: "Male", address: "Barcelona")
+victor = User.create!(first_name: "Victor", last_name: "Padilla", email: "victor@gmail.com", password: "victor123", age: 25, gender: "Male", address: "Barcelona")
+wendela = User.create!(first_name: "Wendela", last_name: "Lovgren", email: "wendela@gmail.com", password: "wendela123", age: 25, gender: "Female", address: "Barcelona")
+xinyi = User.create!(first_name: "Xinyi", last_name: "Wu", email: "xinyi@gmail.com", password: "xinyi123", age: 25, gender: "Female", address: "Barcelona")
+zach = User.create!(first_name: "Zach", last_name: "Alvstad", email: "zach@gmail.com", password: "zach123", age: 25, gender: "Male", address: "Barcelona")
 
 dk = Connection.create(sender: danko, receiver: khoa, status: "buddied")
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied")
