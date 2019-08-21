@@ -11,7 +11,8 @@ class ConnectionsController < ApplicationController
     #   users = users.near([current_user.latitude, current_user.longitude], 20)
     # end
 
-    users = User.where.not(user: current_user)
+    users = User.all
+    users = users.delete(current_user)
     @matches = retrieve_buddies(users)
   end
 
