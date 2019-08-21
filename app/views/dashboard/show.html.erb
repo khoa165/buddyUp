@@ -1,0 +1,10 @@
+<div class="container">
+  <%= cl_image_tag @user.photo, style: "object-fit: cover; width: 90vw;" %>
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <p>Age: <%= @user.age %></p>
+  <p>Gender: <%= @user.gender %></p>
+  <p>Address: <%= @user.address %></p>
+  <p>City: <%= @user.city %></p>
+  <p>Country: <%= @user.country %></p>
+  <p><%= @user.occupation %></p>
+</div>
