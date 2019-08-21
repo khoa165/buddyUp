@@ -11,8 +11,7 @@ class ConnectionsController < ApplicationController
     #   users = users.near([current_user.latitude, current_user.longitude], 20)
     # end
 
-    users = User.all
-    users = users.delete(current_user)
+    users = User.all.select { |user| user != current_user}
     @matches = retrieve_buddies(users)
   end
 
@@ -47,7 +46,7 @@ class ConnectionsController < ApplicationController
     raw_score = []
     target_data = retrieve_all_data(target_user)
     current_user_data.each do |key, value|
-      raw_score << compute_component_score(value, target_data(key))
+      raw_score << compute_component_score(value, target_data[key])
     end
     total_score = 0
     raw_score.each_with_index do |component_score, index|
