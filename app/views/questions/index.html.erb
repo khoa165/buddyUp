@@ -1,7 +1,7 @@
 <div class="container">
   <%= simple_form_for :user_responses, url: user_responses_path, method: :post do |f| %>
     <% @questions.each do |question| %>
-      <h1 class="question"><%= question.description %></h1>
+      <h1 class="question"><%= question.description %><i class="fas fa-chevron-down"></i></h1>
       <div class="responses hide">
         <% question.responses.each do |response| %>
           <input hidden type="checkbox" value="<%= response.id %>" name="user_responses[response_ids][]" id="user_responses_response_ids_<%= response.id %>">
