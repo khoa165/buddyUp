@@ -7,9 +7,11 @@ Question.destroy_all
 Response.destroy_all
 UserResponse.destroy_all
 
+puts "---------------------------------------------------"
+
 puts "Creating questions, responses..."
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Personality question"
 personality_question = Question.create(description: "Personality", is_required: true)
@@ -19,7 +21,7 @@ personalities.each do |personality|
 end
 puts "---> Personalities: #{personalities.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Lifestyle question"
 lifestyle_question = Question.create(description: "Lifestyle", is_required: true)
@@ -29,7 +31,7 @@ lifestyles.each do |lifestyle|
 end
 puts "---> Lifestyles: #{lifestyles.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Music question"
 music_question = Question.create(description: "Music")
@@ -39,7 +41,7 @@ musics.each do |music|
 end
 puts "---> Musics: #{musics.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Sport question"
 sport_question = Question.create(description: "Sport")
@@ -49,7 +51,7 @@ sports.each do |sport|
 end
 puts "---> Sports: #{sports.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Movie question"
 movie_question = Question.create(description: "Movie")
@@ -59,7 +61,7 @@ movies.each do |movie|
 end
 puts "---> Movies: #{movies.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Technical question"
 technical_question = Question.create(description: "Technical")
@@ -69,7 +71,7 @@ technicals.each do |technical|
 end
 puts "---> Technical: #{technicals.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Entrepreneur question"
 entrepreneur_question = Question.create(description: "Entrepreneur")
@@ -79,7 +81,7 @@ entrepreneurs.each do |entrepreneur|
 end
 puts "---> Entrepreneur: #{entrepreneurs.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "---> Show question"
 show_question = Question.create(description: "Show")
@@ -89,23 +91,25 @@ shows.each do |show|
 end
 puts "---> Show: #{shows.size}"
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
-puts "--> Option field area for freely words"
+puts "---> Option field area for freely words"
 optional_field_question = Question.create(description: "Tell us whatever you have not got a chance to mention. It's best to put in keywords separated by comma.")
 Response.create(answer: "Write whatever you want!!!", question: optional_field_question)
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 puts "Finish questions and responses!"
 
-puts "Creating users, connections, meetings, messages..."
+puts "---------------------------------------------------"
 
-puts "-------------------------------------"
+puts "Creating users..."
+
+puts "---------------------------------------------------"
 
 puts "Creating team members..."
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 khoa = User.create!(first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", age: 19, occupation: "Student", gender: "Male", address: "Barcelona")
 danko = User.create!(first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", age: 29, occupation: "Inspector", gender: "Male", address: "Barcelona")
@@ -114,7 +118,7 @@ melissa = User.create!(first_name: "Melissa", last_name: "Lobuescher", email: "m
 
 puts "Creating teachers and TAs..."
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 ellyn = User.create!(first_name: "Ellyn", last_name: "Bouscasse", email: "ellyn@gmail.com", password: "ellyn123", age: 25, gender: "Female", address: "Barcelona")
 avalon = User.create!(first_name: "Avalon", last_name: "Van Der Horst", email: "avalon@gmail.com", password: "avalon123", age: 25, gender: "Female", address: "Barcelona")
@@ -126,7 +130,7 @@ mirha = User.create!(first_name: "Mirha", last_name: "Masala", email: "mirha@gma
 
 puts "Creating classmates..."
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 abs = User.create!(first_name: "Abs", last_name: "Yade", email: "abs@gmail.com", password: "abs123", age: 25, gender: "Male", address: "Barcelona")
 amine = User.create!(first_name: "Amine", last_name: "Boukhriss", email: "amine@gmail.com", password: "amine123", age: 25, gender: "Male", address: "Barcelona")
@@ -152,6 +156,27 @@ wendela = User.create!(first_name: "Wendela", last_name: "Lovgren", email: "wend
 xinyi = User.create!(first_name: "Xinyi", last_name: "Wu", email: "xinyi@gmail.com", password: "xinyi123", age: 25, gender: "Female", address: "Barcelona")
 zach = User.create!(first_name: "Zach", last_name: "Alvstad", email: "zach@gmail.com", password: "zach123", age: 25, gender: "Male", address: "Barcelona")
 
+puts "Creating random profiles..."
+
+popular_first_names = ["James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Thomas", "Charles", "Christopher", "Daniel", "Matthew", "Anthony", "Donald", "Mark", "Paul", "Steven", "Andrew", "Kenneth", "Joshua", "George", "Kevin", "Brian", "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan", "Jacob", "Gary", "Nicholas", "Eric", "Stephen", "Jonathan", "Larry", "Justin", "Scott", "Brandon", "Frank", "Benjamin", "Gregory", "Samuel", "Raymond", "Patrick", "Alexander", "Jack", "Dennis", "Jerry"]
+popular_last_names = ["Smith", "Johson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor", "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Robinson", "Clark", "Rodriguez", "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "Hernandez", "King", "Wright", "Lopez", "Hill", "Scott", "Green", "Adams", "Baker", "Gonzalez", "Nelson", "Carter", "Mitchell", "Perez", "Roberts", "Turner", "Phillips", "Campbell", "Parker", "Evans", "Edwards", "Collins"]
+
+popular_first_names.each_with_index do |fn, index|
+  ln = popular_last_names[index]
+  gender = rand(1..2) == 1 ? "Male" : "Female"
+  User.create!(first_name: fn, last_name: ln, email: "#{fn}#{ln}@gmail.com", password: "#{fn}#{ln}", age: 30, gender: gender)
+end
+
+puts "---------------------------------------------------"
+
+puts "Finish users!"
+
+puts "---------------------------------------------------"
+
+puts "Creating connections, meetings, messages..."
+
+puts "---------------------------------------------------"
+
 dk = Connection.create(sender: danko, receiver: khoa, status: "buddied")
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied")
 Connection.create(sender: danko, receiver: arman)
@@ -172,18 +197,13 @@ Message.create(content: "I am Melissaaaaaa, master of front end!", connection: k
 Meeting.create(connection: dk, location: "Barcelona")
 Meeting.create(connection: km, location: "Badalona")
 
-puts "---> User: #{User.count}"
-puts "---> Connection: #{Connection.count}"
-puts "---> Meeting: #{Meeting.count}"
-puts "---> Message: #{Message.count}"
+puts "Finish connections, meetings and messages!"
 
-puts "-------------------------------------"
-
-puts "Finish users, connections, meetings and messages!"
+puts "---------------------------------------------------"
 
 puts "Creating user responses..."
 
-puts "-------------------------------------"
+puts "---------------------------------------------------"
 
 categories = [music_question, sport_question, movie_question, technical_question, entrepreneur_question, show_question]
 
@@ -201,10 +221,20 @@ User.all.each do |user|
   end
 end
 
-puts "---> UserResponse: #{UserResponse.count}"
-
-puts "-------------------------------------"
-
 puts "Finish user responses!"
 
+puts "---------------------------------------------------"
+
+puts "---> User: #{User.count}"
+puts "---> Connection: #{Connection.count}"
+puts "---> Meeting: #{Meeting.count}"
+puts "---> Message: #{Message.count}"
+puts "---> Question: #{Question.count}"
+puts "---> Response: #{Response.count}"
+puts "---> UserResponse: #{UserResponse.count}"
+
+puts "---------------------------------------------------"
+
 puts "Finished!"
+
+puts "---------------------------------------------------"
