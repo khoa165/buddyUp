@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 offset-3 p-3 my-3">
+    <div class="col-10 offset-1 col-lg-6 offset-lg-3 p-3 my-3">
       <%= simple_form_for @user, url: profile_path do |f| %>
         <div class="form-group">
           <%= f.input :first_name, class: 'form-control' %>
@@ -14,9 +14,7 @@
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
-        <div class="text-center">
-          <%= f.submit class: 'btn button text-white' %>
-        </div>
+        <%= f.submit class: 'btn btn-primary text-white' %>
       <% end %>
     </div>
   </div>

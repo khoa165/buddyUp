@@ -1,14 +1,13 @@
 class DashboardController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
+
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    @user = current_user
     @user.update(user_strong_params)
   end
 
@@ -21,8 +20,6 @@ class DashboardController < ApplicationController
     # if species_query.present?
     #   @pets = @pets.where("species ILIKE ?", "%#{species_query}%").limit(20)
     # end
-
-
     @markers = @users.map do |user|
       {
         lat: user.latitude,
@@ -36,6 +33,10 @@ class DashboardController < ApplicationController
   private
 
   def user_strong_params
-    params.require(:user).permit(:first_name, :last_name, :age, :occupation, :gender, :address, :city, :photo)
+    params.require(:user).permit(:first_name, :last_name, :age, :occupation, :gender, :address, :city, :photo, :country)
+  end
+
+  def set_user
+    @user = current_user
   end
 end
