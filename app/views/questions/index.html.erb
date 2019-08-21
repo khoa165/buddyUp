@@ -1,10 +1,19 @@
 <%= simple_form_for :user_responses, url: user_responses_path, method: :post do |f| %>
   <% @questions.each do |question| %>
     <h1><%= question.description %></h1>
-
-    <%= f.collection_check_boxes :response_ids, question.responses, :id, :answer, item_label_class: "btn btn-outline-primary rounded checkbox-button" %>
+    <% question.responses.each do |response| %>
+      <span>
+        <input hidden type="checkbox" value="<%= response.id %>" name="user_responses[response_ids][]" id="user_responses_response_ids_<%= response.id %>">
+        <label class="js-response collection_check_boxes btn btn-outline-primary" for="user_responses_response_ids_<%= response.id %>">
+          <%= response.answer %>
+        </label>
+      </span>
+    <% end %>
   <% end %>
   <%= f.submit %>
 <% end %>
 
 
+<!-- event listener on the label -->
+<!-- click on the 'for' element -->
+<!-- grab the element by id the of the for attribute of the label, then click on this. element.click() -->
