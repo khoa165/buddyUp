@@ -30,7 +30,7 @@ class ConnectionsController < ApplicationController
     current_user_data = current_user.user_responses.includes(:response).group_by {
       |ur| ur.response.question_id
     }
-    current_user_data
+    return current_user_data
   end
 
   def compute_weight(current_user_data)
@@ -38,7 +38,7 @@ class ConnectionsController < ApplicationController
     current_user_data.each_value do |responses_chosen|
       weights << responses_chosen.size
     end
-    weights
+    return weights
   end
 
   def compute_total_score(current_user_data, weights, target_user)
