@@ -4,15 +4,13 @@
       <%= simple_form_for @user, url: profile_path do |f| %>
         <div class="form-group">
           <%= f.input :first_name, label: "FIRST NAME", class: 'form-control' %>
-          <%= f.input :last_name, label: "LAST NAME",class: 'form-control' %>
-          <%= f.input :gender, label: "GENDER",class: 'form-control' %>
-          <%= f.input :age, label: "AGE",class: 'form-control' %>
-          <%= f.input :occupation, label: "OCCUPATION",class: 'form-control' %>
-          <%= f.input :address, label: "ADDRESS",class: 'form-control' %>
-          <%= f.input :city, label: "CITY",class: 'form-control' %>
-          <%= f.country_select :country,label: "COUNTRY" %>
-          <br>
-          <br>
+          <%= f.input :last_name, label: "LAST NAME", class: 'form-control' %>
+          <%= f.input :gender, label: "GENDER", class: 'form-control' %>
+          <%= f.input :age, label: "AGE", class: 'form-control' %>
+          <%= f.input :occupation, label: "OCCUPATION", class: 'form-control' %>
+          <%= f.input :address, label: "ADDRESS", class: 'form-control' %>
+          <%= f.input :city, label: "CITY", class: 'form-control' %>
+          <%= f.input  :country,label: "COUNTRY", class: 'form-control' %>
           <div class="btn btn-outline-primary" id="imgBtn"><i class="fas fa-camera"></i> Upload Photo</div>
           <%= f.input :photo, label: false %>
           <%= f.input :photo_cache, as: :hidden %>
