@@ -1,0 +1,10 @@
+<span id="<%= response.id %>">
+  <% if user_response %>
+  <!-- DESTROY -->
+    <%= link_to response.answer, user_response_path(user_response), method: :delete, class: 'btn btn-outline-primary active', remote: true %>
+    </a>
+  <% else %>
+    <!-- CREATE -->
+    <%= link_to response.answer, response_user_responses_path(response), method: :post, class: 'btn btn-outline-primary', remote: true %>
+  <% end %>
+</span>
