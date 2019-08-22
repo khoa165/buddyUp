@@ -35,7 +35,6 @@
   text-align: center;
   flex-direction: column;
   padding: 0px 12px;
-  // justify-content: space-between;
   align-self: center;
   width: 200px;
   padding: 0px 8px;
@@ -45,7 +44,6 @@
 .profile-buddyup-header .profile-header-buddy-score {
   align-self: flex-end;
   display: flex;
-  // justify-content: space-between;
   width: 48px;
   height: 40px;
   opacity: 0.8;
@@ -53,12 +51,10 @@
   align-items: center;
   background: $bu-white;
   font-size: 16px;
-  // margin-left: auto;
   padding: 0px;
   border: 2px solid $bu-teal;
   border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
   border-image-slice: 1;
-
 }
 
 
@@ -69,3 +65,23 @@
 .profile-header-buddy-score > h6 {
   margin: 0px;
 }
+
+.profile-categories {
+  margin-top: 20px;
+}
+
+
+
+.profile-categories .profile-category-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  margin-bottom: 20px;
+}
+
+.category-tile {
+  margin: 2px 4px;
+}
+
+
+
