@@ -27,7 +27,7 @@ class ConnectionsController < ApplicationController
   def create_connections(matches)
     connections = []
     matches.each do |match|
-      connections << Connection.create(sender: current_user, receiver: match[0])
+      connections << Connection.create(sender: current_user, receiver: match[0], score: match[1], status: "connected")
     end
     return connections
   end

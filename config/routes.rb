@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
   end
   resources :user_responses, only: [:create]
+  get 'connections/search', to: 'connections#search'
   resources :connections, only: [:index, :create] do
     resources :messages, only: [:index]
   end
