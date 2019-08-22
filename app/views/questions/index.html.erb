@@ -2,20 +2,14 @@
   <h1 class="text-center my-4">Your Profile</h1>
   <h4 class="mb-4">Now tell us a few more details about yourself!</h4>
   <h6 class ="mb-4">The quality of your matches depends on the quality of your input. Please let us know what your interests are.</h6>
-  <%= simple_form_for :user_responses, url: user_responses_path, method: :post do |f| %>
     <% @questions.each do |question| %>
       <h5 class="question"><%= question.description %><i class="fas fa-chevron-down"></i></h5>
       <div class="responses hide">
         <% question.responses.each do |response| %>
-          <input hidden type="checkbox" value="<%= response.id %>" name="user_responses[response_ids][]" id="user_responses_response_ids_<%= response.id %>">
-          <label class="js-response collection_check_boxes btn btn-outline-primary" for="user_responses_response_ids_<%= response.id %>">
-              <%= response.answer %>
-          </label>
+          <%= render 'user_responses/user_response', user_response: response.of(current_user), response: response %>
         <% end %>
       </div>
     <% end %>
-    <%= f.submit %>
-  <% end %>
 </div>
 
 <!-- event listener on the label -->

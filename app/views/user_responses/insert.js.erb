@@ -1,0 +1,6 @@
+function insertUserResponse() {
+  const element = document.getElementById('<%= @response.id %>')
+  element.outerHTML = "<%= j render 'user_response', user_response: @user_response, response: @response %>"
+}
+
+insertUserResponse();
