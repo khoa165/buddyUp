@@ -1,5 +1,7 @@
-class DashboardController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  def index
+  end
 
   def show
   end
