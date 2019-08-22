@@ -13,3 +13,20 @@
   display: none;
 }
 
+.questions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questions h5 {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+
+.question-icon {
+  margin-right: 10px;
+  width: 30px;
+  text-align: center;
+}
+

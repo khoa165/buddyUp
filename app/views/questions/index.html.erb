@@ -3,15 +3,40 @@
   <h4 class="mb-4">Now tell us a few more details about yourself!</h4>
   <h6 class ="mb-4">The quality of your matches depends on the quality of your input. Please let us know what your interests are.</h6>
     <% @questions.each do |question| %>
-      <h5 class="question"><%= question.description %><i class="fas fa-chevron-down"></i></h5>
+      <% if question.id != 9 %>
+        <div class="questions">
+          <% if question.description == "Personality" %>
+            <i class="question-icon fas fa-user"></i>
+          <% elsif question.description == "Lifestyle" %>
+            <i class="question-icon fas fa-leaf"></i>
+          <% elsif question.description == "Music" %>
+            <i class="question-icon fas fa-music"></i>
+          <% elsif question.description == "Sports" %>
+            <i class="question-icon fas fa-futbol"></i>
+          <% elsif question.description == "Movies" %>
+            <i class="question-icon fas fa-film"></i>
+          <% elsif question.description == "Tech" %>
+            <i class="question-icon fas fa-laptop-code"></i>
+          <% elsif question.description == "Entrepreneurial" %>
+            <i class="question-icon fas fa-dollar-sign"></i>
+          <% elsif question.description == "Tv shows" %>
+            <i class="question-icon fas fa-tv"></i>
+          <% end %>
+        <h5 class="question"><%= question.description %></h5>
+        <i class="drop-arrow fas fa-chevron-down"></i>
+      </div>
       <div class="responses hide">
         <% question.responses.each do |response| %>
           <%= render 'user_responses/user_response', user_response: response.of(current_user), response: response %>
         <% end %>
       </div>
+      <% else %>
+        <h5><%= question.description %></h5>
+        <%= simple_form_for(@user_response, method: :post, url: response_user_responses_path(question.responses.first.id)) do |f| %>
+          <%= f.input :free_response %>
+          <%= f.submit 'Submit Response' %>
+        <% end %>
+      <% end %>
     <% end %>
 </div>
 
-<!-- event listener on the label -->
-<!-- click on the 'for' element -->
-<!-- grab the element by id the of the for attribute of the label, then click on this. element.click() -->
