@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   # Associations
   has_many :user_responses, dependent: :destroy
-  has_many :meetings, through: :connections
   has_many :messages
   before_destroy :destroy_connections
 
@@ -24,6 +23,17 @@ class User < ApplicationRecord
 
   def connections
     Connection.where("receiver_id = #{id} OR sender_id = #{id}")
+  end
+
+  def meetings
+    connections = Connection.where("receiver_id = #{id} OR sender_id = #{id}")
+    meetings = []
+    connections.each do |connection|
+      connection.meetings.each do |meeting|
+        meetings << meeting
+      end
+    end
+    meetings
   end
 
   private
