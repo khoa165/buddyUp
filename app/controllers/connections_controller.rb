@@ -15,6 +15,7 @@ class ConnectionsController < ApplicationController
     users = users.select { |user| user != current_user}
     @matches = retrieve_buddies(users).first(5)
     @connections = create_connections(@matches)
+    redirect_to connections_path
   end
 
   def index
