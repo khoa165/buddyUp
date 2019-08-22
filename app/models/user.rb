@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   # Associations
   has_many :user_responses, dependent: :destroy
+  has_many :meetings, through: :connections
   has_many :messages
   before_destroy :destroy_connections
 
