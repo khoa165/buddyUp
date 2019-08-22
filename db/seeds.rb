@@ -44,7 +44,7 @@ puts "---> Musics: #{musics.size}"
 puts "---------------------------------------------------"
 
 puts "---> Sport question"
-sport_question = Question.create(description: "Sport")
+sport_question = Question.create(description: "Sports")
 sports = ["American football", "Athletics", "Badminton", "Baseball", "Basketball", "Bodyboarding", "Bowling", "Bowls", "Boxing", "Canoeing", "Climbing", "Cricket", "Diving", "Football", "Go-karting", "Golf", "Gym", "Hiking", "Hockey", "Horse riding", "Martial arts", "Motorcycling", "Padel", "Pole dancing", "Rowing", "Rugby", "Running", "Skateboarding", "Skating", "Skiing", "Snowboarding", "Squash", "Surfing", "Swimming", "Table tennis", "Tennis", "Volleyball", "Water polo", "Windsurfing"]
 sports.each do |sport|
   Response.create(answer: sport, question: sport_question)
@@ -54,7 +54,7 @@ puts "---> Sports: #{sports.size}"
 puts "---------------------------------------------------"
 
 puts "---> Movie question"
-movie_question = Question.create(description: "Movie")
+movie_question = Question.create(description: "Movies")
 movies = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Fantasy", "Historical", "Horror", "Mystery", "Political", "Romance", "Saga", "Satire", "Sci-fi", "Thriller", "Western"]
 movies.each do |movie|
   Response.create(answer: movie, question: movie_question)
@@ -64,7 +64,7 @@ puts "---> Movies: #{movies.size}"
 puts "---------------------------------------------------"
 
 puts "---> Technical question"
-technical_question = Question.create(description: "Technical")
+technical_question = Question.create(description: "Tech")
 technicals = ["Computer science", "Computer engineering", "Computer software", "Computer hardware", "Programming", "Web development", "Full-stack", "Front-end", "Back-end", "Data science", "Data analysis", "Machine learning", "Artificial Intelligent (AI)", "Software development", "Software engineering", "Information Technology (IT)", "Computer networking", "Information security", "Design", "User interface (UI)", "User experience (UX)", "Freelancing", "Cryptocurrency", "Data structures and algorithms (DSA)"]
 technicals.each do |technical|
   Response.create(answer: technical, question: technical_question)
@@ -74,7 +74,7 @@ puts "---> Technical: #{technicals.size}"
 puts "---------------------------------------------------"
 
 puts "---> Entrepreneur question"
-entrepreneur_question = Question.create(description: "Entrepreneur")
+entrepreneur_question = Question.create(description: "Entrepreneurial")
 entrepreneurs = ["Business", "Organization", "Multi-national company", "Startup", "Tech stack", "Organizing", "Finance", "Marketing", "Advertising", "Human resources", "Founder", "CEO", "Office working", "Remote working", "Teamwork"]
 entrepreneurs.each do |entrepreneur|
   Response.create(answer: entrepreneur, question: entrepreneur_question)
@@ -84,7 +84,7 @@ puts "---> Entrepreneur: #{entrepreneurs.size}"
 puts "---------------------------------------------------"
 
 puts "---> Show question"
-show_question = Question.create(description: "Show")
+show_question = Question.create(description: "Tv shows")
 shows = ["The Big Bang Theory", "Young Sheldon", "Star Trek", "The Good Fight", "Game of Thrones", "Friends", "Survivor", "Big Brother", "The Amazing Race", "Stranger Things", "The Walking Dead", "American Horror Story", "Breaking Bad", "Riverdale", "13 Reasons Why", "The Ranch"]
 shows.each do |show|
   Response.create(answer: show, question: show_question)
