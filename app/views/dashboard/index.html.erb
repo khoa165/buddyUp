@@ -47,19 +47,30 @@
         <% buddy = meeting.connection.sender == current_user ? meeting.connection.receiver : meeting.connection.sender %>
         <div class="card-buddy">
           <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
-          <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80" class="avatar-medium"/>
           <div class="card-buddy-infos">
-           <h3>Zozzo</h3>
-            <p>Here are the five words</p>
+           <h3><%= buddy.first_name %></h3>
+            <p>Location: <%= meeting.location %></p>
           </div>
           <div class="card-buddy-score">
-            <h6>87%</h6>
+            <h6><%= meeting.connection.score %></h6>
             <p>MATCH</p>
           </div>
         </div>
-        <h4>Your buddyUp with <%= buddy.first_name %></h4>
-        <p></p>
-        <p>Location: <%= meeting.location %></p>
+        <div class="card-booking d-flex">
+        <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
+        <div class="mr-auto p-2">
+          <p><%= meeting.date.strftime("%A, %b %d") %></p>
+          <h2 class="my-1"><%= buddy.first_name %></h2>
+        </div>
+        <div class="py-1 pl-3 my-2 border-left">
+          <%= link_to meeting_path(meeting), class: 'text-secondary' do %>
+          <div class="d-flex justify-space-between align-items-center">
+            <i class="far fa-eye"></i>
+            <p class="ml-1"> View booking </p>
+          </div>
+          <% end %>
+        </div>
+      </div>
         <% end %>
       </div>
     </div>
