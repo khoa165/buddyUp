@@ -1,6 +1,11 @@
-<%= current_user.first_name %>
-
-<% @matches.each do |match| %>
-<p><%= match[0].first_name %> <%= match[0].last_name %></p>
-<p><%= match[1] %></p>
-<% end %>
+<h1>Connections#index</h1>
+<div class="container text-center">
+  <% @matches.each do |match| %>
+  <% Connection.new(user) %>
+  <div class="card">
+    <h3><%= match[0].first_name %> <%= match[0].last_name %></h3>
+    <p><%= match[1] %></p>
+    <%= link_to messages_path(user) class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
