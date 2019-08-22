@@ -1,2 +1,13 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<h3 class="p-2 text-center">Messages#index</h3>
+<div class="container">
+  <div class="p-2" id="messages">
+    <% @messages.each do |message| %>
+      <% if message.user == current_user %>
+      <%= render 'messages/show', message: message %>
+      <% else%>
+      <p class="text-right"><%= message.content %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render 'messages/form', connection: @connection, message: @message %>
+</div>
