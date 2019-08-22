@@ -1,12 +1,13 @@
-.navbar-lewagon {
+.navbar-buddyup {
   justify-content: space-between;
   background: white;
+  border-bottom: 1px solid $bu-light-grey;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-buddyup .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-buddyup .navbar-brand img {
+  height: 40px;
 }

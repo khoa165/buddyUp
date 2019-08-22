@@ -3,15 +3,18 @@
     <div class="col-10 offset-1 col-lg-6 offset-lg-3 p-3 my-3">
       <%= simple_form_for @user, url: profile_path do |f| %>
         <div class="form-group">
-          <%= f.input :first_name, class: 'form-control' %>
-          <%= f.input :last_name, class: 'form-control' %>
-          <%= f.input :gender, class: 'form-control' %>
-          <%= f.input :age, class: 'form-control' %>
-          <%= f.input :occupation, class: 'form-control' %>
-          <%= f.input :address, class: 'form-control' %>
-          <%= f.input :city, class: 'form-control' %>
-          <%= f.country_select :country, class: 'form-control' %>
-          <%= f.input :photo %>
+          <%= f.input :first_name, label: "FIRST NAME", class: 'form-control' %>
+          <%= f.input :last_name, label: "LAST NAME",class: 'form-control' %>
+          <%= f.input :gender, label: "GENDER",class: 'form-control' %>
+          <%= f.input :age, label: "AGE",class: 'form-control' %>
+          <%= f.input :occupation, label: "OCCUPATION",class: 'form-control' %>
+          <%= f.input :address, label: "ADDRESS",class: 'form-control' %>
+          <%= f.input :city, label: "CITY",class: 'form-control' %>
+          <%= f.country_select :country,label: "COUNTRY" %>
+          <br>
+          <br>
+          <div class="btn btn-outline-primary" id="imgBtn"><i class="fas fa-camera"></i> Upload Photo</div>
+          <%= f.input :photo, label: false %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
         <%= f.submit class: 'btn btn-primary text-white' %>
@@ -19,3 +22,5 @@
     </div>
   </div>
 </div>
+
+
