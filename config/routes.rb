@@ -1,26 +1,30 @@
 Rails.application.routes.draw do
+  # Default pages provided from the devise.
   devise_for :users
+  # Set root for the website.
   root to: 'pages#home'
-  resources :questions, only: [:index, :show] do
-    resources :responses, only: [:index]
-  end
-
-
+  # Questions.
+  resources :questions, only: [:index]
+  # Reponses.
   resources :responses, only: [] do
+    # Nested create of user responses
     resources :user_responses, only: [:create]
   end
-
+  # User responses.
   resources :user_responses, only: :destroy
-
-  get 'connections/search', to: 'connections#search'
+  # Connections.
   resources :connections, only: [:index, :create] do
+    # Custom route of search
+    collection do
+      get 'search'
+    end
+    # Nested create of user responses
     resources :messages, only: [:index, :create]
   end
-
-  get '/profile/show', to: 'dashboard#show'
-  get '/profile/edit', to: 'dashboard#edit'
-  patch '/profile', to: 'dashboard#update'
-  resources :connections, only: [:index]
-  # resources :dashboard, only: [:edit, :update, :show, :index]
+  # Dashboard.
+  get '/dashboard', to: 'dashboard#index'
+  get '/dashboard/profile', to: 'dashboard#show'
+  get '/dashboard/profile/edit', to: 'dashboard#edit'
+  patch '/dashboard', to: 'dashboard#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
