@@ -19,7 +19,7 @@ class ConnectionsController < ApplicationController
   end
 
   def index
-    @connections = Connection.where(sender: current_user).where(status: "connected")
+    @connections = Connection.where(sender: current_user)
   end
 
   private
