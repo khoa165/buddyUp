@@ -5,10 +5,10 @@
         <div class="d-flex flex-column align-items-center">
           <%= cl_image_tag current_user.photo, class: "round-img my-3" %>
           <h3 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h3>
-          <%= link_to "Edit profile", dashboard_profile_edit_path, class: "btn btn-danger" %>
+          <%= link_to "Edit profile", dashboard_profile_edit_path, class: "btn btn-outline-danger" %>
         </div>
-        <div class="card-body">
-          <hr>
+        <div class="card-body pb-0">
+          <hr class="mt-0">
           <div class="card-item d-flex justify-content-between">
             <h5 class="card-label">Age</h5>
             <p class="card-content"><%= current_user.age %></p>
@@ -29,8 +29,10 @@
             <h5 class="card-label">Country</h5>
             <p class="card-content"><%= current_user.country %></p>
           </div>
-          <hr>
-          <%= link_to "View details", dashboard_profile_path, class: "nav-link" %>
+          <hr class="mb-0">
+          <div class="d-flex justify-content-center m-0 p-0">
+            <%= link_to "View details", dashboard_profile_path, class: "nav-link" %>
+          </div>
         </div>
 
       </div>
