@@ -1,6 +1,6 @@
 class ConnectionsController < ApplicationController
   def index
-    users = User.geocoded
+    # users = User.geocoded
 
     # query = params[:location]
     # if query.present?
@@ -9,9 +9,10 @@ class ConnectionsController < ApplicationController
     # else
     #   users = users.near([current_user.latitude, current_user.longitude], 20)
     # end
-    users = User.near([current_user.latitude, current_user.longitude], 20)
+    # users = User.near([current_user.latitude, current_user.longitude], 20)
+    users = User.all
     users = users.select { |user| user != current_user}
-    @matches = retrieve_buddies(users).first(5)
+    @matches = retrieve_buddies(users)
   end
 
   private
