@@ -10,7 +10,7 @@
           <%= f.input :occupation, label: "OCCUPATION", collection: User::OCCUPATIONS, prompt: "Choose", class: 'form-control' %>
           <%= f.input :address, label: "ADDRESS", class: 'form-control' %>
           <%= f.input :city, label: "CITY", class: 'form-control' %>
-          <%= f.input  :country,label: "COUNTRY", class: 'form-control' %>
+          <%= f.input  :country,label: "COUNTRY", collection: User::COUNTRIES, prompt: "Choose", class: 'form-control' %>
           <div class="btn btn-outline-primary" id="imgBtn"><i class="fas fa-camera"></i> Upload Photo</div>
           <%= f.input :photo, label: false %>
           <%= f.input :photo_cache, as: :hidden %>
