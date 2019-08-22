@@ -56,17 +56,21 @@
             <p>MATCH</p>
           </div>
         </div>
-        <div class="card-booking d-flex">
+        <div class="card-booking d-flex align-items-center">
         <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
         <div class="mr-auto p-2">
           <p><%= meeting.date.strftime("%A, %b %d") %></p>
           <h2 class="my-1"><%= buddy.first_name %></h2>
         </div>
         <div class="py-1 pl-3 my-2 border-left">
-          <%= link_to meeting_path(meeting), class: 'text-secondary' do %>
+          <div class="card-buddy-score">
+            <h6><%= meeting.connection.score %></h6>
+            <p>MATCH</p>
+          </div>
+          <%= link_to root_path, class: 'text-secondary' do %>
           <div class="d-flex justify-space-between align-items-center">
             <i class="far fa-eye"></i>
-            <p class="ml-1"> View booking </p>
+            <p class="ml-1"> View your buddyUp </p>
           </div>
           <% end %>
         </div>

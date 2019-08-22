@@ -1,3 +1,28 @@
+// .card-booking {
+//   overflow: hidden;
+//   height: 120px;
+//   background: white;
+//   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   /* display: flex; */
+//   border: 1px solid ligthgrey;
+//   margin-bottom: 20px;
+//   padding: 12px;
+// }
+
+.card-booking a {
+  color: #FF4B4B;
+}
+
+.card-booking a:hover {
+  color: #FF4B4B;
+  text-decoration: none;
+}
+
+
+.card-booking .card-booking-infos {
+  padding: 16px;
+}
+
 .card-title {
   opacity: 0.7;
 }

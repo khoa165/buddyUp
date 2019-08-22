@@ -201,8 +201,8 @@ Message.create(content: "Ahhhh, one more thing to keep in mind. I nap 3 hours ev
 Message.create(content: "Who are you though?.", connection: km, user: khoa)
 Message.create(content: "I am Melissaaaaaa, master of front end!", connection: km, user: melissa)
 
-Meeting.create(connection: dk, location: "Barcelona")
-Meeting.create(connection: km, location: "Badalona")
+Meeting.create(connection: dk, location: "Barcelona", date: Date.today)
+Meeting.create(connection: km, location: "Badalona", date: Date.today)
 
 puts "Finish connections, meetings and messages!"
 
