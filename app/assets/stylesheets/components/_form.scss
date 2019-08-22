@@ -3,8 +3,21 @@
   border-bottom: 2px solid $bu-grey;
 }
 
+.form-photo-upload {
+  display: flex;
+}
+
+.form-photo-upload input {
+  background-color: $bu-white;
+  color: $bu-teal;
+  border-bottom: 2px solid $bu-grey;
+}
 
 .form-category {
   border: none;
   border-bottom: 2px solid $bu-grey;
+}
+
+#user_photo {
+  opacity: 0;
 }
