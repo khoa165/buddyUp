@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1 col-lg-6 offset-lg-3 p-3 my-3">
-      <%= simple_form_for @user, url: profile_path do |f| %>
+      <%= simple_form_for @user, url: user_path(@user) do |f| %>
         <div class="form-group">
           <%= f.input :first_name, label: "FIRST NAME", class: 'form-control' %>
           <%= f.input :last_name, label: "LAST NAME", class: 'form-control' %>
-          <%= f.input :gender, label: "GENDER", class: 'form-control' %>
+          <%= f.input :gender, label: "GENDER", collection: User::GENDERS, prompt: "Choose", class: 'form-control' %>
           <%= f.input :age, label: "AGE", class: 'form-control' %>
-          <%= f.input :occupation, label: "OCCUPATION", class: 'form-control' %>
+          <%= f.input :occupation, label: "OCCUPATION", collection: User::OCCUPATIONS, prompt: "Choose", class: 'form-control' %>
           <%= f.input :address, label: "ADDRESS", class: 'form-control' %>
           <%= f.input :city, label: "CITY", class: 'form-control' %>
           <%= f.input  :country,label: "COUNTRY", class: 'form-control' %>

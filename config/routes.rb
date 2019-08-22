@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
   # Users.
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :dashboard, only: [:index, :show, :edit, :update]
 
   # get '/profile/show', to: 'dashboard#show'
   # get '/profile/edit', to: 'dashboard#edit'
