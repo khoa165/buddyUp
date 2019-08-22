@@ -10,9 +10,17 @@ class MessagesController < ApplicationController
     @connection = Connection.find(params[:connection_id])
     @message.connection = @connection
     @message.user = current_user
-    @message.save
-    redirect_to connection_messages_path(@connection)
-
+    if @message.save
+      respond_to do |format|
+        format.html { redirect_to connection_messages_path(@connection) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'messages/show' }
+        format.js  # <-- idem
+      end
+    end
   end
 
   private

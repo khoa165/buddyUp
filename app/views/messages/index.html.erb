@@ -1,16 +1,13 @@
-<h1>Messages#index</h1>
-<div class="p-2">
-  <% @messages.each do |message| %>
-    <% if message.user == current_user %>
-      <p><%= message.content %></p>
-    <% else%>
+<h3 class="p-2 text-center">Messages#index</h3>
+<div class="container">
+  <div class="p-2" id="messages">
+    <% @messages.each do |message| %>
+      <% if message.user == current_user %>
+      <%= render 'messages/show', message: message %>
+      <% else%>
       <p class="text-right"><%= message.content %></p>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-<%= simple_form_for [@connection, @message], url: "#{connection_messages_path(@connection)}#message_field" do |f| %>
-  <div class="form-group" id="message_field">
-    <%= f.input :content, class: 'form-control' %>
   </div>
-  <%= f.submit class: 'btn btn-primary text-white' %>
-<% end %>
+  <%= render 'messages/form', connection: @connection, message: @message %>
+</div>
