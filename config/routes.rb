@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :questions, only: [:index, :show] do
-    resources :responses, only: [:index]
-  end
 
+  resources :questions, only: [:index]
 
   resources :responses, only: [] do
     resources :user_responses, only: [:create]
@@ -12,8 +10,10 @@ Rails.application.routes.draw do
 
   resources :user_responses, only: :destroy
 
-  get 'connections/search', to: 'connections#search'
   resources :connections, only: [:index, :create] do
+    collection do
+      get 'search'
+    end
     resources :messages, only: [:index]
   end
 
