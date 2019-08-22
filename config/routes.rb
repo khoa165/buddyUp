@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     # Nested create of user responses
     resources :messages, only: [:index, :create]
   end
-  # Dashboard.
-  # resources :dashboard, only: [:index, :show, :edit, :update]
+  # Users.
+  resources :users, only: [:index, :show, :edit, :update]
 
   # get '/profile/show', to: 'dashboard#show'
   # get '/profile/edit', to: 'dashboard#edit'
