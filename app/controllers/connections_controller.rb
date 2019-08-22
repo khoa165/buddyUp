@@ -1,17 +1,18 @@
 class ConnectionsController < ApplicationController
   def index
-    users = User.geocoded
-    users = users.where.not(user: current_user)
+    @users = User.all
+    # users = User.geocoded
+    # users = users.where.not(user: current_user)
 
-    query = params[:location]
-    if query.present?
-      # users = users.where("species ILIKE ?", "%#{query}%")
-      users = users.near(query, 20)
-    else
-      users = users.near([current_user.latitude, current_user.longitude], 20)
-    end
+    # query = params[:location]
+    # if query.present?
+    #   # users = users.where("species ILIKE ?", "%#{query}%")
+    #   users = users.near(query, 20)
+    # else
+    #   users = users.near([current_user.latitude, current_user.longitude], 20)
+    # end
 
-    @matches = retrieve_buddies(users)
+    # @matches = retrieve_buddies(users)
   end
 
   private
