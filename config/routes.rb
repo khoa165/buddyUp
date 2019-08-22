@@ -21,11 +21,9 @@ Rails.application.routes.draw do
     # Nested create of user responses
     resources :messages, only: [:index, :create]
   end
-  # Users.
-  resources :dashboard, only: [:index, :show, :edit, :update]
-
-  # get '/profile/show', to: 'dashboard#show'
-  # get '/profile/edit', to: 'dashboard#edit'
-  # patch '/profile', to: 'dashboard#update'
+  # Dashboard.
+  get '/dashboard', to: 'dashboard#index'
+  get '/profile/edit', to: 'dashboard#edit'
+  patch '/dashboard', to: 'dashboard#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
