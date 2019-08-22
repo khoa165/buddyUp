@@ -3,10 +3,15 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :questions, only: [:index, :show] do
     resources :responses, only: [:index] do
-      resources :user_responses, only: [:create]
+      resources :user_responses, only: [:create, :update]
     end
   end
-  resources :user_responses, only: [:create]
+  resources :user_responses, only: [:create] do
+    collection do
+      put :update
+      patch :update
+    end
+  end
   resources :connections, only: [:index] do
     resources :messages, only: [:index]
   end
