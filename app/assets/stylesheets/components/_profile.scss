@@ -1,50 +1,52 @@
-.card-title {
-  opacity: 0.7;
-}
 
-.card-buddy {
+.profile-buddyup-header {
   overflow: hidden;
   background: white;
-  display: flex;
-  align-items: flex-start;
   background-color: $bu-light-grey;
-  height: 104px;
-  padding: 8px;
+  height: 400px;
+  padding: 12px;
   margin: 12px 0px;
 }
 
-.card-buddy .avatar-medium {
-  align-self: center;
+.profile-buddyup-header .profile-buddyup-intro{
+  display:flex;
 }
 
-.card-buddy h3 {
+.profile-buddyup-intro .avatar-large {
+  display: flex;
+  position: relative;
+}
+
+.profile-buddyup-intro h3 {
   font-weight: bold;
   margin-bottom: 4px;
 }
 
-.card-buddy p {
+.profile-buddyup-intro p {
   opacity: .7;
   margin: 0;
 }
 
 
-.card-buddy .card-buddy-infos {
-  padding: 0px 8px;
+.profile-buddyup-intro .profile-header-infos {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
   justify-content: space-between;
-  align-self: flex-start;
+  align-self: flex-end;
+
   width: 200px;
+
 }
 
 
-.card-buddy .card-buddy-score {
+.profile-buddyup-intro .profile-header-buddy-score {
   display: flex;
-  align-self: flex-start;
-  justify-content: space-between;
   width: 48px;
   height: 40px;
   opacity: 0.8;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
   background: $bu-white;
   font-size: 16px;
   margin-left: auto;
@@ -54,10 +56,10 @@
   border-image-slice: 1;
 }
 
-.card-buddy-score > p {
+.profile-header-buddy-score > p {
   font-size: 12px;
 }
 
-.card-buddy-score > h6 {
+.profile-header-buddy-score > h6 {
   margin: 0px;
 }
