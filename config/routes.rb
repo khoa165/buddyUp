@@ -5,15 +5,18 @@ Rails.application.routes.draw do
     resources :responses, only: [:index]
   end
 
+
   resources :responses, only: [] do
     resources :user_responses, only: [:create]
   end
 
   resources :user_responses, only: :destroy
 
-  resources :connections, only: [:index] do
+  get 'connections/search', to: 'connections#search'
+  resources :connections, only: [:index, :create] do
     resources :messages, only: [:index]
   end
+
   get '/profile/show', to: 'dashboard#show'
   get '/profile/edit', to: 'dashboard#edit'
   patch '/profile', to: 'dashboard#update'

@@ -1,5 +1,6 @@
 class ConnectionsController < ApplicationController
-  def index
+
+  def search
     # users = User.geocoded
 
     # query = params[:location]
@@ -12,10 +13,24 @@ class ConnectionsController < ApplicationController
     # users = User.near([current_user.latitude, current_user.longitude], 20)
     users = User.all
     users = users.select { |user| user != current_user}
-    @matches = retrieve_buddies(users)
+    @matches = retrieve_buddies(users).first(5)
+    @connections = create_connections(@matches)
+    redirect_to connections_path
+  end
+
+  def index
+    @connections = Connection.where(sender: current_user).where(status: "connected")
   end
 
   private
+
+  def create_connections(matches)
+    connections = []
+    matches.each do |match|
+      connections << Connection.create(sender: current_user, receiver: match[0], score: match[1], status: "connected")
+    end
+    return connections
+  end
 
   def retrieve_buddies(users)
     current_user_data = retrieve_all_data(current_user)

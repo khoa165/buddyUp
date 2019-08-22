@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_095016) do
   create_table "connections", force: :cascade do |t|
     t.bigint "sender_id"
     t.bigint "receiver_id"
+    t.integer "score"
     t.string "status_receiver"
     t.string "status_sender"
     t.string "status"
