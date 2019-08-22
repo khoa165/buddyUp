@@ -5,7 +5,7 @@
   background-color: $bu-light-grey;
   height: 104px;
   padding: 8px;
-  margin: 12px;
+  margin: 12px 0px;
 }
 
 .card-buddy .avatar-medium {
@@ -14,7 +14,7 @@
 
 .card-buddy h3 {
   font-weight: bold;
-  margin: 0px;
+  margin-bottom: 4px;
 }
 
 .card-buddy p {
@@ -33,30 +33,29 @@
 
 
 .card-buddy-infos .card-buddy-score {
-//   display: flex;
-//   position: absolute;
-//   right: -60px;
-//   top: 0px;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: 0px;
-//   margin-left: 16px;
-// }
   display: flex;
   position: absolute;
-  right: -60px;
+  right: -80px;
   top: 0px;
-  width: 40px;
+  width: 48px;
   height: 40px;
   opacity: 0.8;
   border-radius: 20px;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items:center;
   background: $bu-white;
   font-size: 16px;
-  // margin: 0px;
-  // padding-left: 3px;
+  margin: 0px;
+  padding: 0px;
   border: 2px solid $bu-teal;
   border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
   border-image-slice: 1;
+}
+
+.card-buddy-score > p {
+  font-size: 12px;
+}
+
+.card-buddy-score > h6 {
+  margin: 0px;
 }
