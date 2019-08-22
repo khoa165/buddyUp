@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-3">
   <div class="row">
     <div class="col-12 col-lg-4">
       <div class="card">
@@ -40,10 +40,28 @@
       </div>
     </div>
     <div class="col-12 col-lg-8">
-      <h1>Upcoming meetings</h1>
-      <% current_user.meetings.each do |meeting| %>
-      <p>Location: <%= meeting.location %></p>
-      <% end %>
+      <div class="card p-3">
+        <h1>Upcoming meetings</h1>
+        <% current_user.meetings.each do |meeting| %>
+        <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
+        <% buddy = meeting.connection.sender == current_user ? meeting.connection.receiver : meeting.connection.sender %>
+        <div class="card-buddy">
+          <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
+          <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80" class="avatar-medium"/>
+          <div class="card-buddy-infos">
+           <h3>Zozzo</h3>
+            <p>Here are the five words</p>
+          </div>
+          <div class="card-buddy-score">
+            <h6>87%</h6>
+            <p>MATCH</p>
+          </div>
+        </div>
+        <h4>Your buddyUp with <%= buddy.first_name %></h4>
+        <p></p>
+        <p>Location: <%= meeting.location %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
