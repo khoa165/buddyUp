@@ -1,9 +1,10 @@
 <h1>Connections#index</h1>
 <div class="container text-center">
-  <% @users.each do |user| %>
-  <!-- <% Connection.new(user) %> -->
+  <% @matches.each do |match| %>
+  <% Connection.new(user) %>
   <div class="card">
-    <h3><%= user.first_name %> <%= user.last_name %></h3>
+    <h3><%= match[0].first_name %> <%= match[0].last_name %></h3>
+    <p><%= match[1] %></p>
     <%= link_to messages_path(user) class: "btn btn-primary" %>
   </div>
   <% end %>

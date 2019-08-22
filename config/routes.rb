@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/profile/show', to: 'dashboard#show'
   get '/profile/edit', to: 'dashboard#edit'
   patch '/profile', to: 'dashboard#update'
+  resources :connections, only: [:index]
   # resources :dashboard, only: [:edit, :update, :show, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
