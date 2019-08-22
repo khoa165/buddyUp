@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'connections/search', to: 'connections#search'
   resources :connections, only: [:index, :create] do
-    resources :messages, only: [:index]
+    resources :messages, only: [:index, :create]
   end
 
   get '/profile/show', to: 'dashboard#show'

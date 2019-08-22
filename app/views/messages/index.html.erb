@@ -1,10 +1,16 @@
 <h1>Messages#index</h1>
-<h3><% @messages.each do |message| %>
-  <input type="text">
-  <% if message.user == current_user %>
-    <p><%= message.content %></p>
-  <% else%>
-    <p class="text-center"><%= message.content %></p>
+<div class="p-2">
+  <% @messages.each do |message| %>
+    <% if message.user == current_user %>
+      <p><%= message.content %></p>
+    <% else%>
+      <p class="text-right"><%= message.content %></p>
+    <% end %>
   <% end %>
+</div>
+<%= simple_form_for [@connection, @message], url: "#{connection_messages_path(@connection)}#message_field" do |f| %>
+  <div class="form-group" id="message_field">
+    <%= f.input :content, class: 'form-control' %>
+  </div>
+  <%= f.submit class: 'btn btn-primary text-white' %>
 <% end %>
-</h3>
