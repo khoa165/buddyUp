@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-4">
+      <div class="card custom-card">
+        <div class="d-flex flex-column align-items-center">
+          <%= cl_image_tag current_user.photo, class: "round-img my-3" %>
+          <h3 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+        </div>
+        <div class="card-body">
+          <div class="card-item d-flex justify-content-between">
+            <h5 class="card-label">Age</h5>
+            <p class="card-content"><%= current_user.age %></p>
+          </div>
+          <div class="card-item d-flex justify-content-between">
+            <h5 class="card-label">Gender</h5>
+            <p class="card-content"><%= current_user.gender %></p>
+          </div>
+          <div class="card-item d-flex justify-content-between">
+            <h5 class="card-label">Address</h5>
+            <p class="card-content"><%= current_user.address %></p>
+          </div>
+          <div class="card-item d-flex justify-content-between">
+            <h5 class="card-label">City</h5>
+            <p class="card-content"><%= current_user.city %></p>
+          </div>
+          <div class="card-item d-flex justify-content-between">
+            <h5 class="card-label">Country</h5>
+            <p class="card-content"><%= current_user.country %></p>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8">
+
+    </div>
+  </div>
+</div>
