@@ -5,8 +5,10 @@
         <div class="d-flex flex-column align-items-center">
           <%= cl_image_tag current_user.photo, class: "round-img my-3" %>
           <h3 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+          <%= link_to "Edit profile", profile_edit_path, class: "btn btn-danger" %>
         </div>
         <div class="card-body">
+          <hr>
           <div class="card-item d-flex justify-content-between">
             <h5 class="card-label">Age</h5>
             <p class="card-content"><%= current_user.age %></p>
@@ -27,16 +29,10 @@
             <h5 class="card-label">Country</h5>
             <p class="card-content"><%= current_user.country %></p>
           </div>
+          <hr>
+          <%= link_to "View details", profile_edit_path, class: "nav-link" %>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
+
       </div>
     </div>
     <div class="col-12 col-lg-8">
