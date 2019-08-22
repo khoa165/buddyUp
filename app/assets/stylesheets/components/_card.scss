@@ -1,0 +1,62 @@
+.card-buddy {
+  overflow: hidden;
+  background: white;
+  display: flex;
+  background-color: $bu-light-grey;
+  height: 104px;
+  padding: 8px;
+  margin: 12px;
+}
+
+.card-buddy .avatar-medium {
+  align-items: center;
+}
+
+.card-buddy h3 {
+  font-weight: bold;
+  margin: 0px;
+}
+
+.card-buddy p {
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-buddy .card-buddy-infos {
+  padding: 0px 8px;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  width: 200px;
+}
+
+
+.card-buddy-infos .card-buddy-score {
+//   display: flex;
+//   position: absolute;
+//   right: -60px;
+//   top: 0px;
+//   flex-direction: column;
+//   align-items: center;
+//   padding: 0px;
+//   margin-left: 16px;
+// }
+  display: flex;
+  position: absolute;
+  right: -60px;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  background: $bu-white;
+  font-size: 16px;
+  // margin: 0px;
+  // padding-left: 3px;
+  border: 2px solid $bu-teal;
+  border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
+  border-image-slice: 1;
+}
