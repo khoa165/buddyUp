@@ -10,7 +10,12 @@ class DashboardController < ApplicationController
 
   def update
     current_user.update(user_strong_params)
-    redirect_to dashboard_path
+    if current_user.new_user?
+      current_user.mark_user_visited
+      redirect_to questions_path
+    else
+      redirect_to dashboard_path
+    end
   end
 
   private

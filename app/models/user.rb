@@ -36,6 +36,14 @@ class User < ApplicationRecord
     meetings
   end
 
+  def new_user?
+    first_time_visit
+  end
+
+  def mark_user_visited
+    first_time_visit = false
+  end
+
   private
 
   def destroy_connections
