@@ -1,15 +1,15 @@
-<div class="banner banner-lg d-flex flex-column justify-content-center" style="background-image: linear-gradient(81deg, rgba(156,26,235,0.3) 0%, rgba(76,112,242,0.3) 47%, rgba(2,195,154,0.3) 100%), url(https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
-  <div class="container">
+<div class="home banner banner-lg d-flex flex-column justify-content-center" style="background-image: linear-gradient(81deg, rgba(156,26,235,0.3) 0%, rgba(76,112,242,0.3) 47%, rgba(2,195,154,0.3) 100%), url(https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+  <div class="home container">
+    <h1 class="home-brand-proposition font-weight-light">Find a <span class="font-weight-bold mr-2">buddy</span> Rock <span class="font-weight-bold">together</span>!</h4>
+    <p class="home-brand-catch-phrase"><span id="banner-typed-text"></span></p>
     <% if user_signed_in? %>
-      <h1 class="home-brand-proposition font-weight-light">Find a <span class="font-weight-bold">buddy</span> <i class="fas fa-user-friends"></i> Rock <span class="font-weight-bold">together</span>!</h4>
-      <p class="home-brand-catch-phrase"><span id="banner-typed-text"></span></p>
       <form class="form-inline my-2 my-lg-0 d-flex align-items-center" action="/connections/search" method="get">
         <input class="form-control-lg mr-2" type="text" name="location" placeholder="Enter location..." aria-label="Search">
         <button class="btn btn-primary btn-lg bu-brand-button-sm" type="submit">Search</button>
       </form>
     <% else %>
-      <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Register now", dashboard_profile_edit_path, class: "btn btn-primary btn-lg bu-brand-button-sm" %>
+      <div class="d-flex justify-content-center">
+        <%= link_to "Register now", dashboard_profile_edit_path, class: "btn-register btn btn-primary btn-lg btn-register-block bu-brand-button-sm" %>
       </div>
     <% end %>
   </div>

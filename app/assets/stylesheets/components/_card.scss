@@ -1,3 +1,10 @@
+
+// ################################################################
+// This is the code for the meeting cards
+// ################################################################
+
+
+
 .card-meeting {
   overflow: hidden;
   background: white;
@@ -67,17 +74,36 @@
   }
 }
 
+// ################################################################
+// This is the code for the dashboard cards
+// ################################################################
+
+
+
 .card-dashboard {
   opacity: 0.6;
 }
 
+// ################################################################
+// This is the code for the search result cards
+// ################################################################
+
 .card-buddy {
   overflow: hidden;
   background: white;
+  display: flex;
+  align-items: flex-start;
   background-color: $bu-light-grey;
-  height: 120px;
-  border-radius: 10px;
+  height: 104px;
+  padding: 8px;
+  margin: 12px 0px;
+  color: black !important;
 }
+
+// .card-buddy:hover {
+//   text-decoration: none !important;
+//   color: black;
+// }
 
 .card-buddy .avatar-medium {
 

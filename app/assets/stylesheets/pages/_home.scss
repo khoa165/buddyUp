@@ -6,5 +6,19 @@ h1.home-brand-proposition {
 }
 
 p.home-brand-catch-phrase {
+  font-size: 18px;
   text-shadow: 1px 1px 5px black;
+}
+
+.home.banner {
+  position: relative;
+}
+
+.btn-register {
+  position: absolute;
+  bottom: 20px;
+}
+
+.btn-register-block {
+  width: 90%;
 }
