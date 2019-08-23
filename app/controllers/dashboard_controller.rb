@@ -18,6 +18,10 @@ class DashboardController < ApplicationController
     end
   end
 
+  def messages
+    @connections = current_user.connections
+  end
+
   private
 
   def user_strong_params

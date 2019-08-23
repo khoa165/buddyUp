@@ -27,5 +27,6 @@ Rails.application.routes.draw do
   get '/dashboard/profile', to: 'dashboard#show'
   get '/dashboard/profile/edit', to: 'dashboard#edit'
   patch '/dashboard', to: 'dashboard#update'
+  get '/messages', to: 'dashboard#messages'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
