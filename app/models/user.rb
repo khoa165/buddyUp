@@ -44,6 +44,18 @@ class User < ApplicationRecord
     first_time_visit = false
   end
 
+  def in_session?
+    in_session
+  end
+
+  def begin_session
+    in_session = true
+  end
+
+  def cancel_session
+    in_session = false
+  end
+
   private
 
   def destroy_connections
