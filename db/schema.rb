@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_095016) do
     t.datetime "remember_created_at"
     t.string "first_name"
     t.string "last_name"
+    t.string "intro"
     t.integer "age"
     t.string "occupation"
     t.string "address"
