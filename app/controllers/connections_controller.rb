@@ -22,6 +22,11 @@ class ConnectionsController < ApplicationController
     @connections = Connection.where(sender: current_user)
   end
 
+  def show
+    @connection = Connection.find(params[:id])
+    @buddy = @connection.receiver
+  end
+
   private
 
   def create_connections(matches)
