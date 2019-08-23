@@ -3,6 +3,7 @@ ruby '2.6.3'
 
 gem 'devise'
 gem 'pundit'
+gem 'country_select', '~> 4.0'
 gem 'geocoder'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
