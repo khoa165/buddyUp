@@ -1,98 +1,14 @@
-<div class="container">
-  <h1>H1 Pageshome</h1>
-  <h2>H2 Pageshome</h2>
-  <h3>H3 Pageshome</h3>
-  <h4>H4 Pageshome</h4>
-  <h5>H5 Pageshome</h5>
-  <h6>H6 Pageshome</h6>
-
-  <p>p Pageshome - Find me </p>
-
-
-
-<!--   This is the brand button, only used 1 time on each page for CTA
- -->
-  <a href="#" class="bu-brand-button bu-button-lg">Test!</a>
-
-
-
-
-<br>
-<br>
-
-<!-- This is the card for the search results page. CSS is in _card.scss -->
-  <div class="card-buddy">
-
-    <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80" class="avatar-medium"/>
-    <div class="card-buddy-infos">
-       <h3>Zozzo</h3>
-      <p>Here are the five words</p>
-    </div>
-    <div class="card-buddy-score">
-      <h6>87%</h6>
-      <p>MATCH</p>
-    </div>
+<div class="banner banner-lg d-flex flex-column justify-content-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(https://images.unsplash.com/photo-1446160657592-4782fb76fb99?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80);">
+  <div class="container">
+    <% if user_signed_in? %>
+      <h1>Find a <span class="font-weight-bold">buddy</span> to rock <span class="font-weight-bold">together</span>!</h1>
+      <p><span id="banner-typed-text"></span></p>
+      <form class="form-inline my-2 my-lg-0 d-flex align-items-center" action="/connections/search" method="get">
+        <input class="form-control-lg mr-sm-2" type="text" name="species" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-lg btn-red" type="submit">Search</button>
+      </form>
+    <% else %>
+      <%= link_to "Register now", dashboard_profile_edit_path, class: "bu-brand-button" %>
+    <% end %>
   </div>
-
-  <div class="card-buddy">
-    <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80" class="avatar-medium"/>
-    <div class="card-buddy-infos">
-      <h3>LongerName</h3>
-      <p>Veryveryvery longlong the fivefivefive words</p>
-    </div>
-    <div class="card-buddy-score">
-      <h6>17%</h6>
-      <p>MATCH</p>
-    </div>
-
-  </div>
-
-
-<br>
-<br>
-
-<!--   This is the HTML code for the profile page
- -->
-
-  <div class="profile-buddyup-header">
-      <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80" class="avatar-large"/>
-      <div class="profile-header-buddy-score">
-        <h6>17%</h6>
-        <p>MATCH</p>
-      </div>
-      <div class="profile-header-infos">
-        <h3>LongerName</h3>
-        <h6>BARCELONA</h6>
-        <p>Veryveryvery longlong the fivefivefive words</p>
-      </div>
-
-  </div>
-
-  <a href="#" class="bu-brand-button bu-button-lg">Chat with LongerName</a>
-
-  <div class="profile-categories">
-    <div class="category">
-
-      <h4>Personality</h4>
-      <div class="profile-category-tiles">
-        <div class="btn btn-outline-light category-tile">Calm</div>
-        <div class="btn btn-outline-primary category-tile">Enthusiastic</div>
-        <div class="btn btn-outline-light category-tile">Optimistic</div>
-        <div class="btn btn-outline-primary category-tile">Honest</div>
-        <div class="btn btn-outline-primary category-tile">Passionate</div>
-      </div>
-    </div>
-
-    <h4>Lifestyle</h4>
-    <h4>Music</h4>
-    <h4>Sports</h4>
-    <h4>Tech</h4>
-  </div>
-
-
-
-
-
-
-
 </div>

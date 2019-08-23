@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   # Set root for the website.
   root to: 'pages#home'
+  get '/components', to: 'pages#components'
   # Questions.
   resources :questions, only: [:index]
   # Reponses.
