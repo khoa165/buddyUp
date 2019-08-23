@@ -1,8 +1,20 @@
+.navbar-toggler-icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
 .navbar-buddyup {
   justify-content: space-between;
   background: white;
   // border-bottom: 1px solid $bu-light-grey;
   border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+.navbar-buddyup-transparent {
+  justify-content: space-between;
+  background: transparent;
+  color: white;
 }
 
 .navbar-buddyup .navbar-collapse {
