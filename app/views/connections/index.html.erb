@@ -1,6 +1,6 @@
 <h1>Connections#index</h1>
-<div class="container text-center">
-  <% @connections.each do |c| %>
+<div class="container">
+
     <div class="card">
       <h3><%= c.receiver.first_name %> <%= c.receiver.last_name %></h3>
       <p><%= c.score %></p>
@@ -8,3 +8,16 @@
     </div>
   <% end %>
 </div>
+
+  <% @connections.each do |c| %>
+    <div class="card-buddy">
+      <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80" class="avatar-medium"/>
+      <div class="card-buddy-infos">
+        <h3>c.receiver.first_name </h3>
+        <p>Here are the five words</p>
+      </div>
+    <div class="card-buddy-score">
+      <h6> c.score </h6>
+      <p>MATCH</p>
+    </div>
+  </div>
