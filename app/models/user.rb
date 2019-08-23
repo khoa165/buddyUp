@@ -25,6 +25,17 @@ class User < ApplicationRecord
     Connection.where("receiver_id = #{id} OR sender_id = #{id}")
   end
 
+  def meetings
+    connections = Connection.where("receiver_id = #{id} OR sender_id = #{id}")
+    meetings = []
+    connections.each do |connection|
+      connection.meetings.each do |meeting|
+        meetings << meeting
+      end
+    end
+    meetings
+  end
+
   private
 
   def destroy_connections

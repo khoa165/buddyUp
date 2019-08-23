@@ -186,23 +186,24 @@ puts "---------------------------------------------------"
 
 dk = Connection.create(sender: danko, receiver: khoa, status: "buddied")
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied")
-Connection.create(sender: danko, receiver: arman)
-Connection.create(sender: danko, receiver: melissa)
-Connection.create(sender: arman, receiver: melissa)
-Connection.create(sender: arman, receiver: khoa)
+# Connection.create(sender: danko, receiver: arman)
+# Connection.create(sender: danko, receiver: melissa)
+# Connection.create(sender: arman, receiver: melissa)
+# Connection.create(sender: arman, receiver: khoa)
 
-Message.create(content: "Hi, I'm Danko. I suck at everything!", connection: dk, user: danko)
-Message.create(content: "Yeah silly you", connection: dk, user: khoa)
-Message.create(content: "Wanna be my coding buddy?", connection: dk, user: danko)
-Message.create(content: "Lemme think about that!!!", connection: dk, user: khoa)
-Message.create(content: "Hi I am Khoa :\">.", connection: km, user: khoa)
+Message.create(content: "Hi, I'm Danko - master of JavaScript and jQuery!", connection: dk, user: danko)
+Message.create(content: "Weren't you the guy mistaken string interpolation of JS as jQuery symbol :P", connection: dk, user: khoa)
+Message.create(content: "Hmmm you a******", connection: dk, user: danko)
+Message.create(content: "You suck :\">", connection: dk, user: khoa)
+Message.create(content: "Hi I am Khoa :\">", connection: km, user: khoa)
 Message.create(content: "Ohhhhh Khoa, don't you know I trash talking you everyday? Hehe :>", connection: km, user: melissa)
-Message.create(content: "Ahhhh, one more thing to keep in mind. I nap 3 hours everyday on Le Wagon's couch. Better don't disturb my sleep.", connection: km, user: melissa)
-Message.create(content: "Who are you though?.", connection: km, user: khoa)
-Message.create(content: "I am Melissaaaaaa, master of front end!", connection: km, user: melissa)
+Message.create(content: "Btw, just so you know, I'm gonna overthrow your leadership and take over the BuddyUppppppp", connection: km, user: melissa)
+Message.create(content: "Awwwww, scary!?. Said who?", connection: km, user: khoa)
+Message.create(content: "Said Medussaaaaaa, master of front end!!!!", connection: km, user: melissa)
+Message.create(content: "Oops, I meant Melissa...", connection: km, user: melissa)
 
-Meeting.create(connection: dk, location: "Barcelona")
-Meeting.create(connection: km, location: "Badalona")
+Meeting.create(connection: dk, location: "Barcelona", date: Date.new(2019, 9, rand(1..30)))
+Meeting.create(connection: km, location: "Berlin", date: Date.new(2019, 9, rand(1..30)))
 
 puts "Finish connections, meetings and messages!"
 
