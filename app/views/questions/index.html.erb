@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center my-4 font-weight-bold">Your Profile</h1>
+  <h1 class="text-center my-5 font-weight-bold">Your Profile</h1>
   <h4 class="mb-4 font-weight-lighter">Now tell us a few more details about yourself!</h4>
   <p class ="mb-4 response-header">The quality of your matches depends on the quality of your input. Please let us know what your interests are.</p>
     <% @questions.each do |question| %>
@@ -35,12 +35,12 @@
         <p class="response-header"><%= question.description %></p>
         <%= simple_form_for(@user_response, method: :post, url: response_user_responses_path(question.responses.first.id)) do |f| %>
           <%= f.input :free_response, class: "form-control", label: false %>
-          <%= f.submit 'Submit Responses', class: "btn btn-primary btn-sm slight-round" %>
+          <%= f.submit 'Submit Response', class: "btn btn-outline-primary btn-sm slight-round" %>
         <% end %>
       <% end %>
     <% end %>
-</div>
 <div class="finish">
-  <%= link_to 'Finish', root_path, class: "finish-button btn btn-primary slight-round mt-5 text-center" %>
+  <%= link_to 'Finish profile!', root_path, class: "finish-button btn bu-brand-button slight-round my-5 text-center" %>
+</div>
 </div>
 
