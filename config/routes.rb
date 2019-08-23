@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # User responses.
   resources :user_responses, only: :destroy
   # Connections.
-  resources :connections, only: [:index, :create] do
+  resources :connections, only: [:index, :create, :show] do
     # Custom route of search
     collection do
       get 'search'
