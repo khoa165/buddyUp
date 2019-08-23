@@ -11,15 +11,21 @@ class ConnectionsController < ApplicationController
     #   users = users.near([current_user.latitude, current_user.longitude], 20)
     # end
     # users = User.near([current_user.latitude, current_user.longitude], 20)
-    users = User.all
-    users = users.select { |user| user != current_user}
-    @matches = retrieve_buddies(users).first(5)
-    @connections = create_connections(@matches)
-    redirect_to connections_path
+    if current_user.in_session?
+      redirect_to connections_path
+    else
+      users = User.all
+      users = users.select { |user| user != current_user}
+      @matches = retrieve_buddies(users).first(5)
+      @connections = create_connections(@matches)
+      current_user.begin_session
+      redirect_to connections_path
+    end
   end
 
   def index
-    @connections = Connection.where(sender: current_user)
+    @connections = Connection.where.not(status: "buddied")
+    @connections = @connections.where(sender: current_user)
   end
 
   def show
