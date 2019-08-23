@@ -1,15 +1,15 @@
 <div class="container">
   <h2 class="my-5">Your top buddies in <strong>Barcelona</strong></h2>
-  <% @connections.each do |c| %>
-    <%= link_to root_path do %>
+  <% @connections.each do |connection| %>
+    <%= link_to connection_path(connection) do %>
     <div class="card-buddy">
-      <%= cl_image_tag c.receiver.photo, class: "avatar-medium" %>
+      <%= cl_image_tag connection.receiver.photo, class: "avatar-medium" %>
       <div class="card-buddy-infos">
-        <h3><%= c.receiver.first_name %></h3>
-        <p><%= c.receiver.intro %></p>
+        <h3><%= connection.receiver.first_name %></h3>
+        <p><%= connection.receiver.intro %></p>
       </div>
       <div class="card-buddy-score">
-        <h6><%= c.score %>%</h6>
+        <h6><%= connection.score %>%</h6>
         <p>MATCH</p>
       </div>
     </div>
