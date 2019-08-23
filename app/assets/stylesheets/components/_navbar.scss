@@ -5,6 +5,12 @@
   border-bottom: 1px solid rgb(210, 210, 210);
 }
 
+.navbar-buddyup-transparent {
+  justify-content: space-between;
+  background: transparent;
+  color: white;
+}
+
 .navbar-buddyup .navbar-collapse {
   flex-grow: 0;
 }
