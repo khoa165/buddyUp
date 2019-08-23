@@ -14,7 +14,7 @@ responses.forEach(response => {
 const responsesText = document.querySelectorAll(".responses");
 const questions = document.querySelectorAll(".question");
 const toggleResponsesText = (event) => {
-  if (event.target.classList.contains("question") && event.target.nextSibling.nextSibling.classList.contains("responses")) {
+  if (event.target.classList.contains("questions") && event.target.nextSibling.nextSibling.classList.contains("responses")) {
     event.target.nextSibling.nextSibling.classList.toggle('hide');
     event.target.firstElementChild.classList.toggle('fa-chevron-down')
     event.target.firstElementChild.classList.toggle('fa-chevron-up') }
