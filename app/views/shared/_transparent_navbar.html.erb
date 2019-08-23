@@ -3,7 +3,11 @@
     <%= image_tag "buddyup_logo.png" %>
     <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <% if user_signed_in? %>
     <span class="navbar-toggler-icon" style="background-image: url('<%= cl_image_path current_user.photo %>')"></span>
+    <% else %>
+    <span class="navbar-toggler-icon"></span>
+    <% end %>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
