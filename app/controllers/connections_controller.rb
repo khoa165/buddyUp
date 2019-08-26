@@ -4,11 +4,11 @@ class ConnectionsController < ApplicationController
       # Fetch user with valid/map-searchable address.
       users = User.geocoded
       query = params[:location]
-      # if query.present?
-      #   users = User.near(query, 20)
-      # else
-      #   users = User.near([current_user.latitude, current_user.longitude], 20)
-      # end
+      if query.present?
+        users = User.near(query, 20)
+      else
+        users = User.near([current_user.latitude, current_user.longitude], 20)
+      end
       # Remove current user.
       users = users.select { |user| user != current_user}
       @matches = retrieve_buddies(users)
