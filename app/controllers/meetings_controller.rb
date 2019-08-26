@@ -37,7 +37,7 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_strong_params
-    params.require(:meeting).permit(:start_date, :end_date)
+    params.require(:meeting).permit(:date, :location, :category, :activities, :notes)
   end
 
   def set_connection
