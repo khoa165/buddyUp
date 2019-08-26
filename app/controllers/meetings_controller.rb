@@ -2,6 +2,7 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:edit, :update, :destroy]
 
   def new
+    @connection = Connection.find(params[:connection_id])
     @meeting = Meeting.new
   end
 
