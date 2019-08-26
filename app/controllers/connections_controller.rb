@@ -1,7 +1,6 @@
 class ConnectionsController < ApplicationController
 
   def search
-    raise
     if current_user.in_session?
       redirect_to connections_path
     else
@@ -15,7 +14,7 @@ class ConnectionsController < ApplicationController
       end
       # Remove current user.
       users = users.select { |user| user != current_user}
-      @matches = retrieve_buddies(users).first(5)
+      @matches = retrieve_buddies(users)
       @connections = create_connections(@matches)
       current_user.begin_session
       redirect_to connections_path
@@ -34,11 +33,23 @@ class ConnectionsController < ApplicationController
   private
 
   def create_connections(matches)
+    num = 0
+    i = 0
     connections = []
-    matches.each do |match|
-      connections << Connection.create(sender: current_user, receiver: match[0], score: match[1], status: "currently_connected")
+    while num < 5 && i < matches.size
+      connection = Connection.connection_of(current_user, matches[i][0])
+      if connection.present?
+        if connection.status == "connected"
+          connections << connection
+          num += 1
+        end
+      else
+        connections << Connection.create(sender: current_user, receiver: matches[i][0], score: matches[i][1], status: "currently_connected")
+        num += 1
+      end
+      i += 1
     end
-    return connections
+    connections
   end
 
   def retrieve_buddies(users)
