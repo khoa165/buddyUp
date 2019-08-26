@@ -31,6 +31,13 @@ class ConnectionsController < ApplicationController
   def show
     @connection = Connection.find(params[:id])
     @buddy = @connection.receiver
+    @questions = Question.all
+    @buddy_user_responses = @buddy.user_responses.map do |user_response|
+      user_response.response.answer
+    end
+    @current_user_responses = current_user.user_responses.map do |user_response|
+      user_response.response.answer
+    end
   end
 
   private
