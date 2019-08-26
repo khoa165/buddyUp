@@ -1,8 +1,7 @@
 class ConnectionsController < ApplicationController
-
   def search
     if current_user.in_session?
-      redirect_to connections_path
+      # redirect_to connections_path(location: params[:location])
     else
       # Fetch user with valid/map-searchable address.
       # users = User.geocoded
@@ -17,8 +16,17 @@ class ConnectionsController < ApplicationController
       @matches = retrieve_buddies(users)
       @connections = create_connections(@matches)
       current_user.begin_session
-      redirect_to connections_path
     end
+    redirect_to connections_path(location: params[:location])
+  end
+
+  def cancel
+    @connections = Connection.where(status: "currently_connected")
+    @connections.each do |connection|
+      connection.update(status: "connected")
+    end
+    current_user.cancel_session
+    redirect_to root_path
   end
 
   def index

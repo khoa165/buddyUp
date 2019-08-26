@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     # Custom route of search
     collection do
       get 'search'
+      get 'cancel'
     end
     # Nested create of user responses
     resources :messages, only: [:index, :create]

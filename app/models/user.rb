@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def mark_user_visited
-    first_time_visit = false
+    update(first_time_visit: false)
   end
 
   def in_session?
