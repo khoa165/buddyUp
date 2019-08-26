@@ -4,6 +4,7 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
+    @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender
   end
 
   def create
