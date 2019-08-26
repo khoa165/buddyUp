@@ -18,10 +18,14 @@ Rails.application.routes.draw do
     # Custom route of search
     collection do
       get 'search'
+      get 'cancel'
     end
     # Nested create of user responses
     resources :messages, only: [:index, :create]
+    resources :meetings, only: [:new, :create]
   end
+  # Meetings
+  resources :meetings, only: [:edit, :update, :destroy]
   # Dashboard.
   get '/dashboard', to: 'dashboard#index'
   get '/dashboard/profile', to: 'dashboard#show'

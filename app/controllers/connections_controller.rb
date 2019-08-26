@@ -1,36 +1,39 @@
 class ConnectionsController < ApplicationController
-
   def search
-    # users = User.geocoded
-
-    # query = params[:location]
-    # if query.present?
-    #   # users = users.where("species ILIKE ?", "%#{query}%")
-    #   users = users.near(query, 20)
-    # else
-    #   users = users.near([current_user.latitude, current_user.longitude], 20)
-    # end
-    # users = User.near([current_user.latitude, current_user.longitude], 20)
-    if current_user.in_session?
-      redirect_to connections_path
-    else
-      users = User.all
+    unless current_user.in_session?
+      # Fetch user with valid/map-searchable address.
+      users = User.geocoded
+      query = params[:location]
+      if query.present?
+        users = User.near(query, 20)
+      else
+        users = User.near([current_user.latitude, current_user.longitude], 20)
+      end
+      # Remove current user.
       users = users.select { |user| user != current_user}
-      @matches = retrieve_buddies(users).first(5)
+      @matches = retrieve_buddies(users)
       @connections = create_connections(@matches)
       current_user.begin_session
-      redirect_to connections_path
     end
+    redirect_to connections_path(location: params[:location])
+  end
+
+  def cancel
+    @connections = current_user.connections.where(status: "currently_connected")
+    @connections.each do |connection|
+      connection.update(status: "connected")
+    end
+    current_user.cancel_session
+    redirect_to root_path
   end
 
   def index
-    @connections = Connection.where.not(status: "buddied")
-    @connections = @connections.where(sender: current_user)
+    @connections = current_user.connections.where(status: "currently_connected")
   end
 
   def show
     @connection = Connection.find(params[:id])
-    @buddy = @connection.receiver
+    @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender
     @questions = Question.all
     @buddy_user_responses = @buddy.user_responses.map do |user_response|
       user_response.response.answer
@@ -43,11 +46,24 @@ class ConnectionsController < ApplicationController
   private
 
   def create_connections(matches)
+    num = 0
+    i = 0
     connections = []
-    matches.each do |match|
-      connections << Connection.create(sender: current_user, receiver: match[0], score: match[1], status: "connected")
+    while num < 5 && i < matches.size
+      connection = Connection.connection_of(current_user, matches[i][0])
+      if connection.present?
+        if connection.status == "connected"
+          connection.update(status: "currently_connected")
+          connections << connection
+          num += 1
+        end
+      else
+        connections << Connection.create(sender: current_user, receiver: matches[i][0], score: matches[i][1], status: "currently_connected")
+        num += 1
+      end
+      i += 1
     end
-    return connections
+    connections
   end
 
   def retrieve_buddies(users)
