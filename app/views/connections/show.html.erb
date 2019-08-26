@@ -4,41 +4,46 @@
       <i class="fas fa-long-arrow-alt-left"> Back to your buddies</i>
     <% end %>
   </div>
-  <div class="card">
-    <div class="d-flex flex-column align-items-center">
-      <%= cl_image_tag @buddy.photo, class: "round-img my-3" %>
-      <h3 class="card-dashboard"><%= @buddy.first_name %> <%= @buddy.last_name %></h3>
+  <div class="profile-buddyup-header pb-5">
+    <div class="profile-header-buddy-score">
+      <h6><%= @connection.score %>%</h6>
+      <p>MATCH</p>
     </div>
-    <div class="card-body my-0 py-0">
-      <hr class="my-0">
+    <img src="<%= @buddy.photo %>" class="avatar-large mb-3"/>
+    <div class="profile-header-infos">
+      <h3><%= @buddy.first_name %>, <%= @buddy.age %></h3>
+      <h6><%= @buddy.city %></h6>
+      <p><%= @buddy.intro %></p>
     </div>
-    <div class="card-body py-2">
-      <div class="card-item d-flex justify-content-between my-3 px-1">
-        <h5 class="m-0 p-0">Age</h5>
-        <p class="m-0 p-0"><%= @buddy.age %></p>
-      </div>
-      <div class="card-item d-flex justify-content-between my-3 px-1">
-        <h5 class="m-0 p-0">Gender</h5>
-        <p class="m-0 p-0"><%= @buddy.gender %></p>
-      </div>
-      <div class="card-item d-flex justify-content-between my-3 px-1">
-        <h5 class="m-0 p-0">Address</h5>
-        <p class="m-0 p-0"><%= @buddy.address %></p>
-      </div>
-      <div class="card-item d-flex justify-content-between my-3 px-1">
-        <h5 class="m-0 p-0">City</h5>
-        <p class="m-0 p-0"><%= @buddy.city %></p>
-      </div>
-      <div class="card-item d-flex justify-content-between my-3 px-1">
-        <h5 class="m-0 p-0">Country</h5>
-        <p class="m-0 p-0"><%= @buddy.country %></p>
-      </div>
-    </div>
-    <div class="card-body my-0 py-0">
-      <hr class="my-0">
-    </div>
-    <div class="d-flex justify-content-center m-0 p-3">
-      <%= link_to "Messages", connection_messages_path(@connection), class: "bu-brand-button bu-button-lg" %>
-    </div>
+  </div>
+  <hr class="mt-4 mb-2">
+  <div class="card-body py-2">
+    <p>We've highlighted shared interests between you and <%= @buddy.first_name %> for you!</p>
+    <% @questions.each do |question| %>
+      <% unless question.id == 9 %>
+        <div class="question mt-3">
+          <% responses = question.responses.map do |response| %>
+            <% response.answer %>
+          <% end %>
+          <% overlap = responses & @buddy_user_responses %>
+          <% unless overlap.empty? %>
+            <h5 class="px-1 m-0"><%= question.description %></h5>
+            <div class="pt-2">
+              <% overlap.each do |i| %>
+                <% if @current_user_responses.include?(i) %>
+                  <button class="btn btn-primary btn-sm round mb-2 mr-1 p-2"><%= i %></button>
+                <% else %>
+                  <button class="btn btn-outline-primary btn-sm round mb-2 mr-1 p-2"><%= i %></button>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <hr class="mt-2 mb-2">
+  <div class="d-flex justify-content-center m-0 p-3">
+    <a href="#" class="bu-brand-button bu-button-lg">Chat with <%= @buddy.first_name %></a>
   </div>
 </div>
