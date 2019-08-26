@@ -96,7 +96,6 @@ puts "---------------------------------------------------"
 puts "---> Option field area for freely words"
 optional_field_question = Question.create(description: "Tell us whatever you have not got a chance to mention. It's best to put in keywords separated by comma.")
 Response.create(answer: "Write whatever you want!!!", question: optional_field_question)
-
 puts "---------------------------------------------------"
 
 puts "Finish questions and responses!"
@@ -111,50 +110,50 @@ puts "Creating team members..."
 
 puts "---------------------------------------------------"
 
-khoa = User.create!(intro: "member of an amazing team", first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", age: 19, occupation: "Student", gender: "Male", address: "Barcelona")
-danko = User.create!(intro: "member of an amazing team", first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", age: 29, occupation: "Inspector", gender: "Male", address: "Barcelona")
-arman = User.create!(intro: "member of an amazing team", first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", age: 21, occupation: "Student", gender: "Male", address: "Barcelona")
-melissa = User.create!(intro: "member of an amazing team", first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", age: 31, gender: "Female", address: "Barcelona")
+khoa = User.create!(intro: "member of an amazing team", first_name: "Khoa", last_name: "Le", email: "khoa@gmail.com", password: "khoa123", age: 19, occupation: "Student", gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+danko = User.create!(intro: "member of an amazing team", first_name: "Danko", last_name: "Beribak", email: "danko@gmail.com", password: "danko123", age: 29, occupation: "Inspector", gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+arman = User.create!(intro: "member of an amazing team", first_name: "Arman", last_name: "Balani", email: "arman@gmail.com", password: "arman123", age: 21, occupation: "Student", gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+melissa = User.create!(intro: "member of an amazing team", first_name: "Melissa", last_name: "Lobuescher", email: "melissa@gmail.com", password: "melissa123", age: 31, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
 
 puts "Creating teachers and TAs..."
 
 puts "---------------------------------------------------"
 
-ellyn = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Ellyn", last_name: "Bouscasse", email: "ellyn@gmail.com", password: "ellyn123", age: 25, gender: "Female", address: "Barcelona")
-avalon = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Avalon", last_name: "Van Der Horst", email: "avalon@gmail.com", password: "avalon123", age: 25, gender: "Female", address: "Barcelona")
-gus = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Gus", last_name: "De Vita", email: "gus@gmail.com", password: "gus123", age: 25, gender: "Male", address: "Barcelona")
-daniel = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Daniel", last_name: "Gordon", email: "daniel@gmail.com", password: "daniel123", age: 25, gender: "Male", address: "Barcelona")
+ellyn = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Ellyn", last_name: "Bouscasse", email: "ellyn@gmail.com", password: "ellyn123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
+avalon = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Avalon", last_name: "Van Der Horst", email: "avalon@gmail.com", password: "avalon123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
+gus = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Gus", last_name: "De Vita", email: "gus@gmail.com", password: "gus123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+daniel = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Daniel", last_name: "Gordon", email: "daniel@gmail.com", password: "daniel123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
 inou = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Inou", last_name: "Ridder", email: "inou@gmail.com", password: "inou123", age: 25, gender: "Male", address: "Barcelona")
-valerie = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Valerie", last_name: "Schraauwers", email: "valerie@gmail.com", password: "valerie123", age: 25, gender: "Female", address: "Barcelona")
-mirha = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Mirha", last_name: "Masala", email: "mirha@gmail.com", password: "mirha123", age: 25, gender: "Female", address: "Barcelona")
+valerie = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Valerie", last_name: "Schraauwers", email: "valerie@gmail.com", password: "valerie123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
+mirha = User.create!(intro: "amazing coding bootcamp teacher", first_name: "Mirha", last_name: "Masala", email: "mirha@gmail.com", password: "mirha123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
 
 puts "Creating classmates..."
 
 puts "---------------------------------------------------"
 
-abs = User.create!(intro: "amazing coding bootcamp student", first_name: "Abs", last_name: "Yade", email: "abs@gmail.com", password: "abs123", age: 25, gender: "Male", address: "Barcelona")
-amine = User.create!(intro: "amazing coding bootcamp student", first_name: "Amine", last_name: "Boukhriss", email: "amine@gmail.com", password: "amine123", age: 25, gender: "Male", address: "Barcelona")
-barbara = User.create!(intro: "member of the cool car", first_name: "Barbara", last_name: "Peric", email: "barbara@gmail.com", password: "barbara123", age: 25, gender: "Female", address: "Barcelona")
+abs = User.create!(intro: "amazing coding bootcamp student", first_name: "Abs", last_name: "Yade", email: "abs@gmail.com", password: "abs123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+amine = User.create!(intro: "amazing coding bootcamp student", first_name: "Amine", last_name: "Boukhriss", email: "amine@gmail.com", password: "amine123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+barbara = User.create!(intro: "member of the cool car", first_name: "Barbara", last_name: "Peric", email: "barbara@gmail.com", password: "barbara123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
 cihad = User.create!(intro: "member of the cool car", first_name: "Cihad", last_name: "Saglam", email: "cihad@gmail.com", password: "cihad123", age: 25, gender: "Male", address: "Barcelona")
 fahad = User.create!(intro: "amazing coding bootcamp student", first_name: "Fahad", last_name: "Al Rasheed", email: "fahad@gmail.com", password: "fahad123", age: 25, gender: "Male", address: "Barcelona")
-ferdinand = User.create!(intro: "amazing coding bootcamp student", first_name: "Ferdinand", last_name: "Croy", email: "ferdinand@gmail.com", password: "ferdinand123", age: 25, gender: "Male", address: "Barcelona")
-francois = User.create!(intro: "amazing coding bootcamp student", first_name: "Francois", last_name: "Adrien", email: "francois@gmail.com", password: "francois123", age: 25, gender: "Male", address: "Barcelona")
-glen = User.create!(intro: "amazing coding bootcamp student", first_name: "Glen", last_name: "Warren", email: "glen@gmail.com", password: "glen123", age: 25, gender: "Male", address: "Barcelona")
-jaime = User.create!(intro: "amazing coding bootcamp student", first_name: "Jaime", last_name: "Cruz", email: "jaime@gmail.com", password: "jaime123", age: 25, gender: "Male", address: "Barcelona")
-josephine = User.create!(intro: "amazing coding bootcamp student", first_name: "Josephine", last_name: "Geoghegan", email: "josephine@gmail.com", password: "josephine123", age: 25, gender: "Female", address: "Barcelona")
-kaveh = User.create!(intro: "amazing coding bootcamp student", first_name: "Kaveh", last_name: "Jalilian", email: "kaveh@gmail.com", password: "kaveh123", age: 25, gender: "Male", address: "Barcelona")
-maria = User.create!(intro: "amazing coding bootcamp student", first_name: "Maria", last_name: "Manninen", email: "maria@gmail.com", password: "maria123", age: 25, gender: "Female", address: "Barcelona")
-matthis = User.create!(intro: "amazing coding bootcamp student", first_name: "Matthis", last_name: "Parisot", email: "matthis@gmail.com", password: "matthis123", age: 25, gender: "Male", address: "Barcelona")
-mehdi = User.create!(intro: "amazing coding bootcamp student", first_name: "Mehdi", last_name: "Idrissi Kaitouni", email: "mehdi@gmail.com", password: "mehdi123", age: 25, gender: "Male", address: "Barcelona")
+ferdinand = User.create!(intro: "amazing coding bootcamp student", first_name: "Ferdinand", last_name: "Croy", email: "ferdinand@gmail.com", password: "ferdinand123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+francois = User.create!(intro: "amazing coding bootcamp student", first_name: "Francois", last_name: "Adrien", email: "francois@gmail.com", password: "francois123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+glen = User.create!(intro: "amazing coding bootcamp student", first_name: "Glen", last_name: "Warren", email: "glen@gmail.com", password: "glen123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+jaime = User.create!(intro: "amazing coding bootcamp student", first_name: "Jaime", last_name: "Cruz", email: "jaime@gmail.com", password: "jaime123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+josephine = User.create!(intro: "amazing coding bootcamp student", first_name: "Josephine", last_name: "Geoghegan", email: "josephine@gmail.com", password: "josephine123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
+kaveh = User.create!(intro: "amazing coding bootcamp student", first_name: "Kaveh", last_name: "Jalilian", email: "kaveh@gmail.com", password: "kaveh123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+maria = User.create!(intro: "amazing coding bootcamp student", first_name: "Maria", last_name: "Manninen", email: "maria@gmail.com", password: "maria123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
+matthis = User.create!(intro: "amazing coding bootcamp student", first_name: "Matthis", last_name: "Parisot", email: "matthis@gmail.com", password: "matthis123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+mehdi = User.create!(intro: "amazing coding bootcamp student", first_name: "Mehdi", last_name: "Idrissi Kaitouni", email: "mehdi@gmail.com", password: "mehdi123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
 nicolas = User.create!(intro: "member of the cool car", first_name: "Nicolas", last_name: "Proto", email: "nicolas@gmail.com", password: "nicolas123", age: 25, gender: "Male", address: "Barcelona")
-nikita = User.create!(intro: "amazing coding bootcamp student", first_name: "Nikita", last_name: "Bandarevich", email: "nikita@gmail.com", password: "nikita123", age: 25, gender: "Male", address: "Barcelona")
-sy = User.create!(intro: "amazing coding bootcamp student", first_name: "Sy", last_name: "Rashid", email: "sy@gmail.com", password: "sy1234", age: 25, gender: "Male", address: "Barcelona")
-thomas = User.create!(intro: "amazing coding bootcamp student", first_name: "Thomas", last_name: "Bonnet", email: "thomas@gmail.com", password: "thomas123", age: 25, gender: "Male", address: "Barcelona")
-uri = User.create!(intro: "amazing coding bootcamp student", first_name: "Uri", last_name: "Serra", email: "uri@gmail.com", password: "uri123", age: 25, gender: "Male", address: "Barcelona")
-victor = User.create!(intro: "amazing coding bootcamp student", first_name: "Victor", last_name: "Padilla", email: "victor@gmail.com", password: "victor123", age: 25, gender: "Male", address: "Barcelona")
-wendela = User.create!(intro: "member of the cool car", first_name: "Wendela", last_name: "Lovgren", email: "wendela@gmail.com", password: "wendela123", age: 25, gender: "Female", address: "Barcelona")
-xinyi = User.create!(intro: "amazing coding bootcamp student", first_name: "Xinyi", last_name: "Wu", email: "xinyi@gmail.com", password: "xinyi123", age: 25, gender: "Female", address: "Barcelona")
-zach = User.create!(intro: "amazing coding bootcamp student", first_name: "Zach", last_name: "Alvstad", email: "zach@gmail.com", password: "zach123", age: 25, gender: "Male", address: "Barcelona")
+nikita = User.create!(intro: "amazing coding bootcamp student", first_name: "Nikita", last_name: "Bandarevich", email: "nikita@gmail.com", password: "nikita123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+sy = User.create!(intro: "amazing coding bootcamp student", first_name: "Sy", last_name: "Rashid", email: "sy@gmail.com", password: "sy1234", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+thomas = User.create!(intro: "amazing coding bootcamp student", first_name: "Thomas", last_name: "Bonnet", email: "thomas@gmail.com", password: "thomas123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+uri = User.create!(intro: "amazing coding bootcamp student", first_name: "Uri", last_name: "Serra", email: "uri@gmail.com", password: "uri123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+victor = User.create!(intro: "amazing coding bootcamp student", first_name: "Victor", last_name: "Padilla", email: "victor@gmail.com", password: "victor123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
+wendela = User.create!(intro: "member of the cool car", first_name: "Wendela", last_name: "Lovgren", email: "wendela@gmail.com", password: "wendela123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
+xinyi = User.create!(intro: "amazing coding bootcamp student", first_name: "Xinyi", last_name: "Wu", email: "xinyi@gmail.com", password: "xinyi123", age: 25, gender: "Female", address: "Barcelona", country: "Spain", city: "Barcelona")
+zach = User.create!(intro: "amazing coding bootcamp student", first_name: "Zach", last_name: "Alvstad", email: "zach@gmail.com", password: "zach123", age: 25, gender: "Male", address: "Barcelona", country: "Spain", city: "Barcelona")
 
 puts "Creating random profiles..."
 
