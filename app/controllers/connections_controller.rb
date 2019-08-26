@@ -1,20 +1,19 @@
 class ConnectionsController < ApplicationController
 
   def search
-    # users = User.geocoded
-
-    # query = params[:location]
-    # if query.present?
-    #   # users = users.where("species ILIKE ?", "%#{query}%")
-    #   users = users.near(query, 20)
-    # else
-    #   users = users.near([current_user.latitude, current_user.longitude], 20)
-    # end
-    # users = User.near([current_user.latitude, current_user.longitude], 20)
+    raise
     if current_user.in_session?
       redirect_to connections_path
     else
-      users = User.all
+      # Fetch user with valid/map-searchable address.
+      # users = User.geocoded
+      query = params[:location]
+      if query.present?
+        users = User.near(query, 20)
+      else
+        users = User.near([current_user.latitude, current_user.longitude], 20)
+      end
+      # Remove current user.
       users = users.select { |user| user != current_user}
       @matches = retrieve_buddies(users).first(5)
       @connections = create_connections(@matches)
@@ -24,8 +23,7 @@ class ConnectionsController < ApplicationController
   end
 
   def index
-    @connections = Connection.where.not(status: "buddied")
-    @connections = @connections.where(sender: current_user)
+    @connections = Connection.where(status: "currently_connected")
   end
 
   def show
@@ -38,7 +36,7 @@ class ConnectionsController < ApplicationController
   def create_connections(matches)
     connections = []
     matches.each do |match|
-      connections << Connection.create(sender: current_user, receiver: match[0], score: match[1], status: "connected")
+      connections << Connection.create(sender: current_user, receiver: match[0], score: match[1], status: "currently_connected")
     end
     return connections
   end
