@@ -49,11 +49,11 @@ class User < ApplicationRecord
   end
 
   def begin_session
-    in_session = true
+    update(in_session: true)
   end
 
   def cancel_session
-    in_session = false
+    update(in_session: false)
   end
 
   private
