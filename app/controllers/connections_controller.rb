@@ -1,16 +1,14 @@
 class ConnectionsController < ApplicationController
   def search
-    if current_user.in_session?
-      # redirect_to connections_path(location: params[:location])
-    else
+    unless current_user.in_session?
       # Fetch user with valid/map-searchable address.
-      # users = User.geocoded
+      users = User.geocoded
       query = params[:location]
-      if query.present?
-        users = User.near(query, 20)
-      else
-        users = User.near([current_user.latitude, current_user.longitude], 20)
-      end
+      # if query.present?
+      #   users = User.near(query, 20)
+      # else
+      #   users = User.near([current_user.latitude, current_user.longitude], 20)
+      # end
       # Remove current user.
       users = users.select { |user| user != current_user}
       @matches = retrieve_buddies(users)
@@ -21,7 +19,7 @@ class ConnectionsController < ApplicationController
   end
 
   def cancel
-    @connections = Connection.where(status: "currently_connected")
+    @connections = current_user.connections.where(status: "currently_connected")
     @connections.each do |connection|
       connection.update(status: "connected")
     end
@@ -30,7 +28,7 @@ class ConnectionsController < ApplicationController
   end
 
   def index
-    @connections = Connection.where(status: "currently_connected")
+    @connections = current_user.connections.where(status: "currently_connected")
   end
 
   def show
@@ -48,6 +46,7 @@ class ConnectionsController < ApplicationController
       connection = Connection.connection_of(current_user, matches[i][0])
       if connection.present?
         if connection.status == "connected"
+          connection.update(status: "currently_connected")
           connections << connection
           num += 1
         end
