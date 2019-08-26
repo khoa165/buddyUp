@@ -1,14 +1,42 @@
 <div class="container py-3" style="">
-  <div class="" id="messages" style="">
+  <div class="" id="messages" style="padding-bottom: 20px;">
     <% @messages.each do |message| %>
       <% if message.user == current_user %>
-      <%= render 'messages/show', message: message %>
+      <%= render 'messages/show', message: message, class: "message" %>
       <% else%>
-      <p class="message-bubles text-left bg-info p-3" style="margin-right: 30vw;"><%= message.content %></p>
+      <%= render 'messages/ariving_message', message: message, class: "message" %>
       <% end %>
     <% end %>
   </div>
-  <div class="">
+  <div class="messages" style="position: fixed; bottom:0%;";>
     <%= render 'messages/form', connection: @connection, message: @message %>
   </div>
 </div>
+
+<% content_for :after_js do %>
+  <script>
+    App['connection_<%= @connection.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ConnectionsChannel', connection_id: <%= @connection.id %> },
+      {
+        received: (data) => {
+          const messagesContainer = document.querySelector('#messages');
+          if (data.current_user_id !== <%= current_user.id %>) {
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+          }
+          messagesContainer.scrollIntoView(false)
+        }
+      }
+    )
+
+    // function scrollLastMessageIntoView() {
+    //   const messages = document.querySelectorAll('.message');
+    //   const lastMessage = messages[messages.length - 1];
+
+    //   if (lastMessage !== undefined) {
+    //     lastMessage.scrollIntoView();
+    //   }
+    // }
+
+    // scrollLastMessageIntoView();
+  </script>
+<% end %>

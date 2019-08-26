@@ -1,6 +1,6 @@
 #message_content {
-   height: 35px;
-   width: 70vw;
+   height: 32px;
+   width: 80vw;
    background-color: $bu-grey;
  }
 
@@ -12,6 +12,11 @@
 
 .message-bubles {
   border-radius: 20px;
+}
+
+.right {
+  word-wrap: break-word;
+  margin-left: 30vw;
 }
 
 

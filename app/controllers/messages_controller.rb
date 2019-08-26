@@ -13,11 +13,11 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to connection_messages_path(@connection) }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js  # <-- will render `app/views/messages/create.js.erb`
       end
     else
       respond_to do |format|
-        format.html { render 'messages/show' }
+        format.html { render 'messages/index' }
         format.js  # <-- idem
       end
     end
