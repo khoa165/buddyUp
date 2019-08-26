@@ -1,17 +1,16 @@
 class MeetingsController < ApplicationController
+  before_action :set_connection, only: [:new, :create]
   before_action :set_meeting, only: [:edit, :update, :destroy]
 
   def new
-    @connection = Connection.find(params[:connection_id])
     @meeting = Meeting.new
   end
 
   def create
     @meeting = Meeting.new(meeting_strong_params)
-    connection = Connection.find(params[:connection_id])
-    @meeting.connection = connection
+    @meeting.connection = @connection
     if @meeting.save
-      redirect_to connection_path(connection)
+      redirect_to connection_path(@connection)
     else
       @meeting = Meeting.new
       render :new
@@ -39,6 +38,10 @@ class MeetingsController < ApplicationController
 
   def meeting_strong_params
     params.require(:meeting).permit(:start_date, :end_date)
+  end
+
+  def set_connection
+    @connection = Connection.find(params[:connection_id])
   end
 
   def set_meeting
