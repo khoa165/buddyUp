@@ -30,7 +30,7 @@ class ConnectionsController < ApplicationController
 
   def show
     @connection = Connection.find(params[:id])
-    @buddy = @connection.receiver
+    @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender
   end
 
   private
