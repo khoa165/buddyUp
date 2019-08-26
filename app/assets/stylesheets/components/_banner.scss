@@ -1,7 +1,9 @@
 .banner {
-  background-size: cover;
+  object-fit: cover;
+  // background-size: cover;
   background-position: center;
   height: 70vh;
+
 }
 
 .banner-lg {
@@ -13,7 +15,7 @@
 }
 
 .banner-sm {
-  height: 50vh;
+  height: 45vh;
 }
 
 .banner h1 {

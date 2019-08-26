@@ -11,7 +11,8 @@
   </head>
   <body>
     <% if params[:controller] == "pages" %>
-        <%= render 'shared/transparent_navbar' %>
+        <%#= render 'shared/transparent_navbar' %>
+        <%= render 'shared/navbar' %>
       <% else %>
         <%= render 'shared/navbar' %>
       <% end %>

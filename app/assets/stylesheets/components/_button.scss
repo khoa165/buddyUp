@@ -10,6 +10,14 @@
   border-radius: 3px;
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .button-bottom-sticky {
+      display: inline;
+      position: fixed;
+      bottom: 0;
+  }
+}
+
 .bu-brand-button-sm {
   background: rgb(156,26,235);
   background: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
