@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="col-12 col-lg-8 col-centered">
+    <div class="card p-3">
+      <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
+      <% current_user.meetings.each do |meeting| %>
+        <% buddy = meeting.connection.sender == current_user ? meeting.connection.receiver : meeting.connection.sender %>
+        <h1 class="text-center">Your meeting with <%= buddy.first_name %></h1>
+      <div class="card-meeting">
+        <%= cl_image_tag buddy.photo, class: "avatar-square-lg" %>
+        <div class="card-meeting-info-left ml-2 ml-lg-3">
+          <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
+          <p class="card-meeting-date"><%= meeting.date.strftime("%A, %b %d") %></p>
+          <p class="card-meeting-location"><%= meeting.location %></p>
+          <p class="card-meeting-category"><%= meeting.category %></p>
+          <p class="card-meeting-activities"><%= meeting.activities %></p>
+        </div>
+        <div class="card-meeting-info-right pl-2 pl-lg-3 border-left">
+          <div class="card-meeting-score">
+            <h6><%= meeting.connection.score %></h6>
+            <p>MATCH</p>
+          </div>
+        </div>
+      </div>
+      <h4 class="text-center">Here are some local event suggestions for you and <%= buddy.first_name %></h4>
+      <div class="event">
+        <p class="event-title"></p>
+        <p class="event-description"></p>
+        <p class="event-category"></p>
+        <p class="event-date"></p>
+        <p class="event-country"></p>
+      </div>
+      <div class="event">
+        <p class="event-title"></p>
+        <p class="event-description"></p>
+        <p class="event-category"></p>
+        <p class="event-date"></p>
+        <p class="event-country"></p>
+      </div>
+      <div class="event">
+        <p class="event-title"></p>
+        <p class="event-description"></p>
+        <p class="event-category"></p>
+        <p class="event-date"></p>
+        <p class="event-country"></p>
+      </div>
+      <div class="event">
+        <p class="event-title"></p>
+        <p class="event-description"></p>
+        <p class="event-category"></p>
+        <p class="event-date"></p>
+        <p class="event-country"></p>
+      </div>
+      <div class="event">
+        <p class="event-title"></p>
+        <p class="event-description"></p>
+        <p class="event-category"></p>
+        <p class="event-date"></p>
+        <p class="event-country"></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- api_secret - B_NsnC8m7ZBsHxLSmalKyhLSpLUsYC-zVQQguy99evwYfgbXF4oJ8Q -->
+<!-- access_token - ll_m1nQWoVShuSxrV5yRZQlhZUHszh9jyo4_pfQ_ -->
