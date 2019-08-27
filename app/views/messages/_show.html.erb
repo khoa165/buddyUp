@@ -1,1 +1,4 @@
-<p class="message-bubles bg-primary p-3 text-white right"><%= message.content %></p>
+<div align="right">
+  <%= cl_image_tag message.user.photo, class: "avatar" %>
+  <p class="message-bubles bg-primary p-3 text-white right" style="margin-left: 30vw;"><%= message.content %></p>
+</div>
