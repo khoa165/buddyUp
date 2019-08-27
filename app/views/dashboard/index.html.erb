@@ -75,12 +75,14 @@
           <% current_user.connections.each do |connection| %>
             <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
               <div class="col-4 col-lg-4 p-0 m-0">
-                <div class="mx-1 my-2 card" style="height: 125px; background-color: #f6f6f6;">
-                  <%= cl_image_tag buddy.photo, class: "card-img-top" %>
-                  <div class="p-2" style="word-wrap: break-word;">
-                    <h6 class="text-center"><%= buddy.first_name %>
-                    <%= buddy.last_name %></h6>
-                  </div>
+                  <%= link_to connection_path(connection) do %>
+                    <div class="mx-1 my-2 card" style="height: 125px; background-color: #f6f6f6;">
+                    <%= cl_image_tag buddy.photo, class: "card-img-top" %>
+                    <div class="p-2" style="word-wrap: break-word;">
+                      <h6 class="text-center"><%= buddy.first_name %>
+                      <%= buddy.last_name %></h6>
+                    </div>
+                  <% end %>
                 </div>
               </div>
           <% end %>
