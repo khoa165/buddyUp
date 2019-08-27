@@ -44,28 +44,29 @@
         <h1>Upcoming meetings</h1>
         <% current_user.meetings.each do |meeting| %>
         <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
-        <% buddy = meeting.connection.sender == current_user ? meeting.connection.receiver : meeting.connection.sender %>
-        <div class="card-meeting">
-        <%= cl_image_tag buddy.photo, class: "avatar-square-lg" %>
-        <div class="card-meeting-info-left ml-2 ml-lg-3">
-          <p class="card-meeting-date"><%= meeting.date.strftime("%A, %b %d") %></p>
-          <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
-        </div>
-        <div class="card-meeting-info-right pl-2 pl-lg-3 border-left">
-          <div class="card-meeting-score">
-            <h6><%= meeting.connection.score %></h6>
-            <p>MATCH</p>
+          <% buddy = meeting.connection.sender == current_user ? meeting.connection.receiver : meeting.connection.sender %>
+          <div class="card-meeting">
+            <%= cl_image_tag buddy.photo, class: "avatar-square-lg" %>
+            <div class="card-meeting-info-left ml-2 ml-lg-3">
+              <p class="card-meeting-date"><%= meeting.date.strftime("%A, %b %d") %></p>
+              <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
+            </div>
+            <div class="card-meeting-info-right pl-2 pl-lg-3 border-left">
+              <div class="card-meeting-score">
+                <h6><%= meeting.connection.score %></h6>
+                <p>MATCH</p>
+              </div>
+              <%= link_to root_path, class: 'text-secondary' do %>
+                <div class="card-meeting-detail">
+                  <i class="far fa-eye"></i>
+                  <p>Details</p>
+                </div>
+              <% end %>
+            </div>
           </div>
-          <%= link_to root_path, class: 'text-secondary' do %>
-          <div class="card-meeting-detail">
-            <i class="far fa-eye"></i>
-            <p>Details</p>
-          </div>
-          <% end %>
-        </div>
-      </div>
         <% end %>
       </div>
+
     </div>
   </div>
 </div>
