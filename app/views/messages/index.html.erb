@@ -15,7 +15,7 @@
 
 <% content_for :after_js do %>
   <script>
-    global.scrollLastMessageIntoView();
+    // global.scrollLastMessageIntoView();
     App['connection_<%= @connection.id %>'] = App.cable.subscriptions.create(
       { channel: 'ConnectionsChannel', connection_id: <%= @connection.id %> },
       {
@@ -28,16 +28,5 @@
         }
       }
     )
-
-    // function scrollLastMessageIntoView() {
-    //   const messages = document.querySelectorAll('.message');
-    //   const lastMessage = messages[messages.length - 1];
-
-    //   if (lastMessage !== undefined) {
-    //     lastMessage.scrollIntoView();
-    //   }
-    // }
-
-    // scrollLastMessageIntoView();
   </script>
 <% end %>
