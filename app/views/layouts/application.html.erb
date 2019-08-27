@@ -12,12 +12,16 @@
   </head>
   <body>
     <% if params[:controller] == "pages" %>
-        <%= render 'shared/transparent_navbar' %>
-      <% else %>
-        <%= render 'shared/navbar' %>
-      <% end %>
+      <%= render 'shared/transparent_navbar' %>
+    <% elsif params[:controller] == "messages" && params[:action] == "index" %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
+
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= yield(:after_js) %>

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @connection = Connection.find(params[:connection_id])
+    @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender
     @messages = @connection.messages
     @message = Message.new
   end
