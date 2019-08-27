@@ -1,10 +1,10 @@
 <div class="container py-3" style="">
-  <div class="" id="messages" style="padding-bottom: 20px;">
+  <div class="messages-container" id="messages" style="padding-bottom: 20px;">
     <% @messages.each do |message| %>
       <% if message.user == current_user %>
       <%= render 'messages/show', message: message, class: "message" %>
-      <% else%>
-      <%= render 'messages/ariving_message', message: message, class: "message" %>
+      <% else %>
+      <%= render 'messages/arriving_message', message: message, class: "message" %>
       <% end %>
     <% end %>
   </div>
@@ -15,6 +15,15 @@
 
 <% content_for :after_js do %>
   <script>
+    function scrollLastMessageIntoView() {
+      const messages = document.querySelectorAll('.message');
+      const lastMessage = messages[messages.length - 1];
+
+      if (lastMessage !== undefined) {
+        lastMessage.scrollIntoView(false);
+      }
+    }
+    scrollLastMessageIntoView();
     App['connection_<%= @connection.id %>'] = App.cable.subscriptions.create(
       { channel: 'ConnectionsChannel', connection_id: <%= @connection.id %> },
       {
