@@ -7,7 +7,7 @@ class Message < ApplicationRecord
   def broadcast_message
     ActionCable.server.broadcast("connection_#{connection.id}", {
       message_partial: ApplicationController.renderer.render(
-        partial: "messages/ariving_message",
+        partial: "messages/arriving_message",
         locals: { message: self, user_is_messages_author: false }
       ),
       current_user_id: user.id
