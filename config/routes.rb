@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   # Default pages provided from the devise.
   devise_for :users
   # Set root for the website.
