@@ -1,10 +1,10 @@
 function refreshForm(innerHTML) {
-  const newReviewForm = document.getElementById('new_message');
+  var newReviewForm = document.getElementById('new_message');
   newReviewForm.innerHTML = innerHTML;
 }
 
 function addMessage(messageHTML) {
-  const messages = document.getElementById('messages');
+  var messages = document.getElementById('messages');
   messages.insertAdjacentHTML('beforeend', messageHTML);
   messages.scrollIntoView(false)
 }
