@@ -2,6 +2,10 @@ class MeetingsController < ApplicationController
   before_action :set_connection, only: [:new, :create]
   before_action :set_meeting, only: [:edit, :update, :destroy]
 
+  def show
+    @meeting = Meeting.find(params[:id])
+  end
+
   def new
     @meeting = Meeting.new
     @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender

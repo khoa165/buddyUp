@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :meetings, only: [:new, :create]
   end
   # Meetings
-  resources :meetings, only: [:edit, :update, :destroy]
+  resources :meetings, only: [:edit, :update, :destroy, :show]
   # Dashboard.
   get '/dashboard', to: 'dashboard#index'
   get '/dashboard/profile', to: 'dashboard#show'

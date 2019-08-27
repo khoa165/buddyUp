@@ -2052,6 +2052,11 @@ core-js-compat@^3.1.1:
     browserslist "^4.6.6"
     semver "^6.3.0"
 
+core-js@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
+  integrity sha1-TekR5mew6ukSTjQlS1OupvxhjT4=
+
 core-js@^3.1.3:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.2.1.tgz#cd41f38534da6cc59f7db050fe67307de9868b09"
@@ -2701,6 +2706,11 @@ es-to-primitive@^1.2.0:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
+es6-promise@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.2.1.tgz#ec56233868032909207170c39448e24449dd1fc4"
+  integrity sha1-7FYjOGgDKQkgcXDDlEjiREndH8Q=
 
 es6-promise@^4.1.0:
   version "4.2.8"
@@ -4149,6 +4159,11 @@ json5@^2.1.0:
   dependencies:
     minimist "^1.2.0"
 
+jsonschema@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.1.0.tgz#039cc219ed524b06e71daf12ca60d02639faf29a"
+  integrity sha1-A5zCGe1SSwbnHa8SymDQJjn68po=
+
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -4327,6 +4342,11 @@ lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.5, lodash@~4.17.10
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+loglevel@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.4.1.tgz#95b383f91a3c2756fd4ab093667e4309161f2bcd"
+  integrity sha1-lbOD+Ro8J1b9SrCTZn5DCRYfK80=
 
 loglevel@^1.6.3:
   version "1.6.3"
@@ -6097,6 +6117,18 @@ potpack@^1.0.1:
   resolved "https://registry.yarnpkg.com/potpack/-/potpack-1.0.1.tgz#d1b1afd89e4c8f7762865ec30bd112ab767e2ebf"
   integrity sha512-15vItUAbViaYrmaB/Pbw7z6qX2xENbFSTA7Ii4tgbPtasxm5v6ryKhKtL91tpWovDJzTiZqdwzhcFBCwiMVdVw==
 
+predicthq@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/predicthq/-/predicthq-0.0.19.tgz#52236564cef4c14b269dc7a1debb6ed5c7a2ca01"
+  integrity sha1-UiNlZM70wUsmnceh3rtu1ceiygE=
+  dependencies:
+    core-js "2.4.1"
+    es6-promise "3.2.1"
+    jsonschema "1.1.0"
+    loglevel "1.4.1"
+    whatwg-fetch "1.0.0"
+    youarei "1.0.2"
+
 prepend-http@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
@@ -7850,6 +7882,11 @@ wgs84@0.0.0:
   resolved "https://registry.yarnpkg.com/wgs84/-/wgs84-0.0.0.tgz#34fdc555917b6e57cf2a282ed043710c049cdc76"
   integrity sha1-NP3FVZF7blfPKigu0ENxDASc3HY=
 
+whatwg-fetch@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-1.0.0.tgz#01c2ac4df40e236aaa18480e3be74bd5c8eb798e"
+  integrity sha1-AcKsTfQOI2qqGEgOO+dL1cjreY4=
+
 which-module@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
@@ -8018,3 +8055,8 @@ yargs@^7.0.0:
     which-module "^1.0.0"
     y18n "^3.2.1"
     yargs-parser "^5.0.0"
+
+youarei@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/youarei/-/youarei-1.0.2.tgz#d2c2fffc7b7037fb4f184445eb0df58e58f13c04"
+  integrity sha1-0sL//HtwN/tPGERF6w31jljxPAQ=
