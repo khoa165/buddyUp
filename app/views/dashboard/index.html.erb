@@ -41,7 +41,7 @@
     </div>
     <div class="col-12 col-lg-8">
       <div class="card p-3">
-        <h1>Upcoming meetings</h1>
+        <h3>Upcoming meetings</h3>
         <% current_user.meetings.each do |meeting| %>
         <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
           <% buddy = meeting.connection.sender == current_user ? meeting.connection.receiver : meeting.connection.sender %>
@@ -66,7 +66,26 @@
           </div>
         <% end %>
       </div>
-
+      <div class="card p-3">
+        <div class="px-1">
+          <h3>Buddies</h3>
+          <h5><%=  current_user.connections.size %> buddies</h5>
+        </div>
+        <div class="row px-3">
+          <% current_user.connections.each do |connection| %>
+            <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
+              <div class="col-4 col-lg-4 p-0 m-0">
+                <div class="mx-1 my-2 card" style="height: 125px; background-color: #f6f6f6;">
+                  <%= cl_image_tag buddy.photo, class: "card-img-top" %>
+                  <div class="p-2" style="word-wrap: break-word;">
+                    <h6 class="text-center"><%= buddy.first_name %>
+                    <%= buddy.last_name %></h6>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
