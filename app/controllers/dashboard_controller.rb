@@ -2,9 +2,6 @@ class DashboardController < ApplicationController
   def index
   end
 
-  def show
-  end
-
   def edit
   end
 
@@ -19,7 +16,9 @@ class DashboardController < ApplicationController
   end
 
   def messages
-    @connections = current_user.connections
+    current = current_user.connections.where(status: "currently_connected")
+    buddied = current_user.connections.where(status: "buddied")
+    @connections = current + buddied
   end
 
   private

@@ -4,6 +4,9 @@ class MessagesController < ApplicationController
     @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender
     @messages = @connection.messages
     @message = Message.new
+    # respond_to do |format|
+    #   format.js  # <-- render `app/views/messages/index.js.erb`
+    # end
   end
 
   def create
