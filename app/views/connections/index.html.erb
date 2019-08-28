@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="d-lg-flex justify-content-lg-between align-items-lg-center">
-    <h2 class="my-5">Your top buddies in <strong><%= params[:location] %></strong></h2>
-    <%= link_to "Cancel session", cancel_connections_path, class: "btn btn-primary" %>
+<div class="container py-3">
+  <div class="mb-3">
+    <h3>Top 5 buddies near</h3>
+    <h3><strong><%= current_user.search_term.capitalize %></strong></h3>
   </div>
   <% @connections.each do |connection| %>
     <%= link_to connection_path(connection) do %>
@@ -18,6 +18,13 @@
     </div>
     <% end %>
   <% end %>
+  <div role="tooltip" class="tooltip top custom-tooltip">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-inner">Tooltip on the top</div>
+  </div>
+  <div class="pt-5 pb-2">
+    <%= link_to "Refresh buddies", cancel_connections_path, class: "btn btn-outline-primary", title: "You already put effort to get to know your buddies but you are not satisfied? Let's search again!!!", "data-toggle" => "tooltip", "data-placement" => "top", data: {confirm: 'Are you sure you want to refresh your search? All of your current connections (including your messages with them) will no longer be available except your pending buddy request.'} %>
+  </div>
 </div>
 
 

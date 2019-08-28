@@ -8,9 +8,11 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { loadDynamicBannerText } from '../components/banner';
 import { dynamicResponses } from '../components/response';
 import "../plugins/predicthq";
+import { initTooltip } from '../components/tooltip';
 
 initMapbox();
 delegator();
 loadDynamicBannerText();
 dynamicResponses();
 scrollLastMessageIntoView();
+initTooltip();

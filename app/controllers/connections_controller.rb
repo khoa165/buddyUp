@@ -5,8 +5,10 @@ class ConnectionsController < ApplicationController
       users = User.geocoded
       query = params[:location]
       if query.present?
+        current_user.update(search_term: query)
         users = User.near(query, 20)
       else
+        current_user.update(search_term: current_user.address)
         users = User.near([current_user.latitude, current_user.longitude], 20)
       end
       # Remove current user.
