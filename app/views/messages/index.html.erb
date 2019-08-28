@@ -1,20 +1,21 @@
 <div>
-  <div align="center" class="message-buddy-name sticky-top bg-secondary px-1 py-3">
+  <div class="message-buddy-name sticky-top bg-secondary px-1 py-3">
     <div class="container">
       <%= link_to messages_path, class: "d-flex align-items-center" do %>
         <i class="fas fa-chevron-left mr-4"></i>
-        <%= cl_image_tag @buddy.photo, class: "avatar mr-2" %>
-        <div>
-          <p class="m-0 text-dark font-weight-bold"><%= @buddy.first_name %></p>
-          <% last_si = @buddy.current_sign_in_at %>
+        <%= cl_image_tag @buddy.photo, class: "avatar-md mr-2" %>
+        <div class="d-flex flex-column justify-content-start align-items-start">
+          <p class="m-0 p-0 text-dark font-weight-bold"><%= @buddy.first_name %></p>
+          <% last_si = @buddy.current_sign_in_at.localtime %>
           <% if last_si.to_date.year < Date.today.year %>
-            <p>Last online in <%= last_si.to_date.year %></p>
-          <% elsif Date.today - last_si.to_date <= 10 || (Date.today - last_si.to_date > 10 && last_si.to_date == Date.today.month) %>
-            <p>Last online <%= Date.today - last_si.to_date %> days ago</p>
+            <p class="m-0 p-0">Last online in <%= last_si.to_date.year %></p>
+          <% elsif (Date.today - last_si.to_date <= 10 && Date.today > last_si.to_date) || (Date.today - last_si.to_date > 10 && last_si.to_date == Date.today.month) %>
+            <p class="m-0 p-0">Last online <%= (Date.today - last_si.to_date).to_i %> days ago</p>
           <% elsif Date.today - last_si.to_date > 10 && last_si.to_date != Date.today.month %>
-            <p>Last online in <%= last_si.strftime("%B") %> days ago</p>
+            <p class="m-0 p-0">Last online in <%= last_si.strftime("%B") %> days ago</p>
           <% else %>
-            <p>Last online at <%= last_si.strftime("%-l:%M %p") %></p>
+            <p class="m-0 p-0">Last online at <%= last_si.strftime("%-l:%M %p") %></p>
+          <% end %>
         </div>
       <% end %>
     </div>
