@@ -12,7 +12,7 @@
           <% elsif (Date.today - last_si.to_date <= 10 && Date.today > last_si.to_date) || (Date.today - last_si.to_date > 10 && last_si.to_date == Date.today.month) %>
             <p class="m-0 p-0">Last online <%= (Date.today - last_si.to_date).to_i %> days ago</p>
           <% elsif Date.today - last_si.to_date > 10 && last_si.to_date != Date.today.month %>
-            <p class="m-0 p-0">Last online in <%= last_si.strftime("%B") %> days ago</p>
+            <p class="m-0 p-0">Last online in <%= last_si.strftime("%B") %></p>
           <% else %>
             <p class="m-0 p-0">Last online at <%= last_si.strftime("%-l:%M %p") %></p>
           <% end %>
