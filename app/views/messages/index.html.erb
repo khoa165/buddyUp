@@ -4,7 +4,18 @@
       <%= link_to messages_path, class: "d-flex align-items-center" do %>
         <i class="fas fa-chevron-left mr-4"></i>
         <%= cl_image_tag @buddy.photo, class: "avatar mr-2" %>
-        <p class="m-0 text-dark font-weight-bold"><%= @buddy.first_name %></p>
+        <div>
+          <p class="m-0 text-dark font-weight-bold"><%= @buddy.first_name %></p>
+          <% last_si = @buddy.current_sign_in_at %>
+          <% if last_si.to_date.year < Date.today.year %>
+            <p>Last online in <%= last_si.to_date.year %></p>
+          <% elsif Date.today - last_si.to_date <= 10 || (Date.today - last_si.to_date > 10 && last_si.to_date == Date.today.month) %>
+            <p>Last online <%= Date.today - last_si.to_date %> days ago</p>
+          <% elsif Date.today - last_si.to_date > 10 && last_si.to_date != Date.today.month %>
+            <p>Last online in <%= last_si.strftime("%B") %> days ago</p>
+          <% else %>
+            <p>Last online at <%= last_si.strftime("%-l:%M %p") %></p>
+        </div>
       <% end %>
     </div>
   </div>
