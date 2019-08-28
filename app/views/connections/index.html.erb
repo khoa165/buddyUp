@@ -1,5 +1,8 @@
 <div class="container">
-  <h2 class="my-5">Your top buddies in <strong>Barcelona</strong></h2>
+  <div class="d-lg-flex justify-content-lg-between align-items-lg-center">
+    <h2 class="my-5">Your top buddies in <strong><%= params[:location] %></strong></h2>
+    <%= link_to "Cancel session", cancel_connections_path, class: "btn btn-primary" %>
+  </div>
   <% @connections.each do |connection| %>
     <%= link_to connection_path(connection) do %>
     <div class="card-buddy">

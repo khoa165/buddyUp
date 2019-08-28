@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2019_08_20_095016) do
   create_table "meetings", force: :cascade do |t|
     t.string "location"
     t.date "date"
+    t.string "category"
+    t.string "activities"
+    t.text "notes"
     t.float "latitude"
     t.float "longitude"
     t.bigint "connection_id"

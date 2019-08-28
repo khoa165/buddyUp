@@ -1,11 +1,12 @@
 function refreshForm(innerHTML) {
-  const newReviewForm = document.getElementById('new_message');
+  var newReviewForm = document.getElementById('new_message');
   newReviewForm.innerHTML = innerHTML;
 }
 
 function addMessage(messageHTML) {
-  const messages = document.getElementById('messages');
+  var messages = document.getElementById('messages');
   messages.insertAdjacentHTML('beforeend', messageHTML);
+  messages.scrollIntoView(false)
 }
 
 <% if @message.errors.any? %>
@@ -14,3 +15,5 @@ function addMessage(messageHTML) {
   addMessage('<%= j render "messages/show", message: @message %>');
   refreshForm('<%= j render "messages/form", connection: @connection, message: Message.new %>');
 <% end %>
+
+

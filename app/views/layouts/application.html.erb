@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag asset_path('buddyup_logo.png') %>
     <title>BuddyUP</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -10,16 +11,16 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <% if params[:controller] == "pages" %>
-        <%#= render 'shared/transparent_navbar' %>
-        <%= render 'shared/navbar' %>
-      <% else %>
-        <%= render 'shared/navbar' %>
-      <% end %>
+    <% unless params[:controller] == "messages" && params[:action] == "index" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
+
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= yield(:after_js) %>
     <!-- <script>'../../assets/javascripts/response.js</script> -->
   </body>
 </html>

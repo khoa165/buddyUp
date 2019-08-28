@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   # Default pages provided from the devise.
   devise_for :users
   # Set root for the website.
@@ -18,13 +19,16 @@ Rails.application.routes.draw do
     # Custom route of search
     collection do
       get 'search'
+      get 'cancel'
     end
     # Nested create of user responses
     resources :messages, only: [:index, :create]
+    resources :meetings, only: [:new, :create]
   end
+  # Meetings
+  resources :meetings, only: [:edit, :update, :destroy, :show]
   # Dashboard.
   get '/dashboard', to: 'dashboard#index'
-  get '/dashboard/profile', to: 'dashboard#show'
   get '/dashboard/profile/edit', to: 'dashboard#edit'
   patch '/dashboard', to: 'dashboard#update'
   get '/messages', to: 'dashboard#messages'

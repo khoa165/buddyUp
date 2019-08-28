@@ -41,6 +41,4 @@ const initMapbox = () => {
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
   }
 };
-
-
 export { initMapbox };

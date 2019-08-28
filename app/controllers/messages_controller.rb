@@ -1,8 +1,12 @@
 class MessagesController < ApplicationController
   def index
     @connection = Connection.find(params[:connection_id])
+    @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender
     @messages = @connection.messages
     @message = Message.new
+    # respond_to do |format|
+    #   format.js  # <-- render `app/views/messages/index.js.erb`
+    # end
   end
 
   def create
@@ -13,11 +17,11 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to connection_messages_path(@connection) }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js  # <-- will render `app/views/messages/create.js.erb`
       end
     else
       respond_to do |format|
-        format.html { render 'messages/show' }
+        format.html { render 'messages/index' }
         format.js  # <-- idem
       end
     end

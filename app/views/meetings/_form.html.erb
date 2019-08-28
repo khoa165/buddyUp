@@ -1,0 +1,10 @@
+<%= simple_form_for [@connection, @meeting] do |f| %>
+<div class="form-group">
+  <%= f.input :date, as: :string, required: false, input_html: {id: "range_start", class: "datepicker form-control"} %>
+  <%= f.input :location %>
+  <%= f.input :category %>
+  <%= f.input :activities %>
+  <%= f.input :notes %>
+</div>
+<%= f.button :submit, "buddyUp", class: "btn btn-lg btn-primary" %>
+<% end %>
