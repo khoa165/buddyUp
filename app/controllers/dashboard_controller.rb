@@ -2,6 +2,14 @@ class DashboardController < ApplicationController
   def index
   end
 
+  def show
+    @user = current_user
+    @questions = Question.all
+    @current_user_responses = current_user.user_responses.map do |user_response|
+      user_response.response.answer
+    end
+  end
+
   def edit
   end
 
