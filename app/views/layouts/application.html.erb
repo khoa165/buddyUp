@@ -11,13 +11,9 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <% if params[:controller] == "pages" %>
-      <%= render 'shared/transparent_navbar' %>
-    <% elsif params[:controller] == "messages" && params[:action] == "index" %>
-    <% else %>
+    <% unless params[:controller] == "messages" && params[:action] == "index" %>
       <%= render 'shared/navbar' %>
     <% end %>
-
     <%= render 'shared/flashes' %>
 
     <%= yield %>
