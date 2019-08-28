@@ -1,16 +1,31 @@
-#message_content {
-   height: 32px;
-   width: 80vw;
-   background-color: $bu-grey;
- }
+// #message_content {
+//   height: 32px;
+//   width: 100vw;
+//   background-color: $light-gray;
+// }
 
- .chat-field {
-    .form-group {
-      margin: 0;
-    }
- }
-
-.message-bubles {
-  border-radius: 20px;
+.input-message-field, textarea.form-control {
+  height: 10vh;
+  width: 85vw;
 }
 
+.input-message-field textarea {
+  // resize: none;
+}
+
+textarea.form-control {
+  border-radius: 10px;
+}
+
+.chat-field {
+  .form-group {
+    margin: 0;
+  }
+  .overflow-auto {
+    min-height: 15vh;
+  }
+}
+
+.message-bubles {
+  border-radius: 15px;
+}

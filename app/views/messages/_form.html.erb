@@ -1,8 +1,8 @@
-<%= simple_form_for [connection, message], remote: true, url: "#{connection_messages_path(@connection)}#message_field" do |f| %>
-  <div class="d-flex justify-content-between align-items-center chat-field">
+<%= simple_form_for [connection, message], remote: true, url: "#{connection_messages_path(@connection)}#input_message" do |f| %>
+  <div align="center" class="d-flex justify-content-center align-items-center chat-field input-message-field">
     <%= f.input :content, label: false %>
     <!-- <%#= f.submit 'send',  class: 'btn btn-warning btn-sm text-white' %> -->
-    <button name="button" type="submit" class="btn btn-danger btn-sm text-white">
+    <button name="button" type="submit" class="btn btn-danger btn-sm text-white ml-2">
       <i class="fas fa-paper-plane"></i>
     </button>
   </div>

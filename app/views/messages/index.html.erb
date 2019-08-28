@@ -1,34 +1,37 @@
-<div class="container py-3" style="">
-  <div class="messages-container" id="messages" style="padding-bottom: 20px;">
-    <% @messages.each do |message| %>
-      <% if message.user == current_user %>
-      <%= render 'messages/show', message: message, class: "message" %>
-      <% else %>
-      <%= render 'messages/arriving_message', message: message, class: "message" %>
+<div>
+  <div align="center" class="message-buddy-name sticky-top bg-secondary px-1 py-3">
+    <div class="container">
+      <%= link_to messages_path, class: "d-flex align-items-center" do %>
+        <i class="fas fa-chevron-left mr-4"></i>
+        <%= cl_image_tag @buddy.photo, class: "avatar mr-2" %>
+        <p class="m-0 text-dark font-weight-bold"><%= @buddy.first_name %></p>
       <% end %>
-    <% end %>
+    </div>
   </div>
-  <div class="messages" style="position: fixed; bottom:0%;";>
-    <%= render 'messages/form', connection: @connection, message: @message %>
+  <div class="messages-container">
+    <div class="container" id="messages" style="padding-bottom: 12vh;">
+      <% @messages.each do |message| %>
+        <% if message.user == current_user %>
+        <%= render 'messages/show', message: message, class: "message" %>
+        <% else %>
+        <%= render 'messages/arriving_message', message: message, class: "message" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div id="input_message" align="center" class="messages py-2" style="position: fixed; bottom: 0; background-color: rgb(235, 235, 235); width: 100%;">
+      <%= render 'messages/form', connection: @connection, message: @message %>
   </div>
 </div>
 
 <% content_for :after_js do %>
   <script>
-    function scrollLastMessageIntoView() {
-      const messages = document.querySelectorAll('.message');
-      const lastMessage = messages[messages.length - 1];
-
-      if (lastMessage !== undefined) {
-        lastMessage.scrollIntoView(false);
-      }
-    }
-    scrollLastMessageIntoView();
+    // global.scrollLastMessageIntoView();
     App['connection_<%= @connection.id %>'] = App.cable.subscriptions.create(
       { channel: 'ConnectionsChannel', connection_id: <%= @connection.id %> },
       {
-        received: (data) => {
-          const messagesContainer = document.querySelector('#messages');
+        received: function(data) {
+          var messagesContainer = document.querySelector('#messages');
           if (data.current_user_id !== <%= current_user.id %>) {
             messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
           }
@@ -36,16 +39,5 @@
         }
       }
     )
-
-    // function scrollLastMessageIntoView() {
-    //   const messages = document.querySelectorAll('.message');
-    //   const lastMessage = messages[messages.length - 1];
-
-    //   if (lastMessage !== undefined) {
-    //     lastMessage.scrollIntoView();
-    //   }
-    // }
-
-    // scrollLastMessageIntoView();
   </script>
 <% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   # Default pages provided from the devise.
   devise_for :users
   # Set root for the website.
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
   resources :meetings, only: [:edit, :update, :destroy, :show]
   # Dashboard.
   get '/dashboard', to: 'dashboard#index'
-  get '/dashboard/profile', to: 'dashboard#show'
   get '/dashboard/profile/edit', to: 'dashboard#edit'
   patch '/dashboard', to: 'dashboard#update'
   get '/messages', to: 'dashboard#messages'
