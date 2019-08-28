@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_095016) do
     t.boolean "first_time_visit", default: true
     t.boolean "in_session", default: false
     t.string "photo", default: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    t.string "search_term"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
