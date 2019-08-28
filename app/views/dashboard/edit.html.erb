@@ -8,18 +8,16 @@
           <div class="btn btn-outline-primary justify-content-center" style="width: 100%;"id="imgBtn"><i class="fas fa-camera"></i> Upload Photo</div>
           <%= f.input :photo, label: false %>
           <%= f.input :photo_cache, as: :hidden %>
-          </div>
-          <%= f.input :intro, label: "INTRO", placeholder: 'Describe yourself in 5 words',class: 'form-control' %>
-          <%= f.input :first_name, label: "FIRST NAME", placeholder: 'First Name',class: 'form-control' %>
-          <%= f.input :last_name, label: "LAST NAME", placeholder: 'Last Name', class: 'form-control' %>
-          <%= f.input :gender, label: "GENDER", collection: User::GENDERS, prompt: "Choose gender", class: 'form-control' %>
-          <%= f.input :age, label: "AGE", class: 'form-control' %>
-          <%= f.input :occupation, label: "OCCUPATION", collection: User::OCCUPATIONS, prompt: "Choose occupation", class: 'form-control' %>
-          <%= f.input :address, label: "ADDRESS", placeholder: 'Address',class: 'form-control' %>
-          <%= f.input :city, label: "CITY", placeholder: 'City', class: 'form-control' %>
-          <%= f.input :country, label: "COUNTRY", prompt: "Choose country", class: 'form-control' %>
-
-          <!-- <%#= f.input  :country, label: "COUNTRY", class: 'form-control' %> -->
+        </div>
+        <%= f.input :intro, label: "INTRO", placeholder: 'Describe yourself in 5 words',class: 'form-control' %>
+        <%= f.input :first_name, label: "FIRST NAME", placeholder: 'First Name',class: 'form-control' %>
+        <%= f.input :last_name, label: "LAST NAME", placeholder: 'Last Name', class: 'form-control' %>
+        <%= f.input :gender, label: "GENDER", collection: User::GENDERS, prompt: "Choose gender", class: 'form-control' %>
+        <%= f.input :age, label: "AGE", class: 'form-control' %>
+        <%= f.input :occupation, label: "OCCUPATION", collection: User::OCCUPATIONS, prompt: "Choose occupation", class: 'form-control' %>
+        <%= f.input :address, label: "ADDRESS", placeholder: 'Address',class: 'form-control' %>
+        <%= f.input :city, label: "CITY", placeholder: 'City', class: 'form-control' %>
+        <%= f.input :country, label: "COUNTRY", prompt: "Choose country", class: 'form-control' %>
         <%= f.submit "Update info", class: 'btn bu-brand-button mt-3' %>
       <% end %>
     </div>
