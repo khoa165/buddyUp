@@ -1,16 +1,29 @@
-<div class="home banner banner-lg d-flex flex-column justify-content-center" style="background-image: linear-gradient(81deg, rgba(156,26,235,0.3) 0%, rgba(76,112,242,0.3) 47%, rgba(2,195,154,0.3) 100%), url(https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
-  <div class="home container">
-    <h1 class="home-brand-proposition font-weight-light">Find a <span class="font-weight-bold mr-2">buddy</span> Rock <span class="font-weight-bold">together</span>!</h4>
-    <p class="home-brand-catch-phrase"><span id="banner-typed-text"></span></p>
-    <% if user_signed_in? %>
-      <form class="form-inline my-2 my-lg-0 d-flex align-items-center" action="/connections/search" method="get">
-        <input class="form-control-lg mr-2" type="text" name="location" placeholder="Enter location..." aria-label="Search">
-        <button class="btn btn-primary btn-lg bu-brand-button-sm" type="submit">Search</button>
-      </form>
-    <% else %>
-      <div class="d-flex justify-content-center">
-        <%= link_to "Register now", dashboard_profile_edit_path, class: "btn-register btn btn-primary btn-lg btn-register-block bu-brand-button-sm" %>
+<div>
+    <div class="d-flex flex-column justify-content-between home-body">
+      <div>
+        <h1 class="mx-2 mt-3  home-tagline">Find a <span class="font-weight-bold mr-2">buddy</span> <br>Rock <span class="font-weight-bold">together</span>!</h1>
+        <%= image_tag "friends_banner.jpg", class: "home-banner banner-sm mx-0" %>
       </div>
-    <% end %>
-  </div>
+      <% if user_signed_in? %>
+        <% if current_user.in_session? %>
+          <div class="mx-2 mb-2 home-session-results">
+          <%= link_to "My search results", connections_path, class:"bu-brand-button" %>
+          </div>
+        <% else %>
+          <form novalidate="novalidate" class="simple_form search mx-2 home-search" action="/connections/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <div class="search-form-control form-group">
+              <input class="form-control form-search string required" type="text" name="search[query]" placeholder="Enter location..." aria-label="Search"/>
+              <button name="button" type="submit" class="bu-brand-button-sm bu-button-search mt-3 float-right">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </div>
+          </form>
+        <% end %>
+      <% else %>
+        <div class="mx-2 mb-2">
+          <%= link_to "Log in", new_user_session_path, class: "bu-brand-button-outline" %>
+          <%= link_to "Register now", new_user_registration_path, class: "bu-brand-button" %>
+        </div>
+      <% end %>
+    </div>
 </div>
