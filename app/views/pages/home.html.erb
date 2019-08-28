@@ -1,18 +1,12 @@
-
-
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-">
-
-    <h1>Find a <span class="font-weight-bold mr-2">buddy</span></h1>
-    <h1> Rock <span class="font-weight-bold">together</span>!</h1>
-    <%= image_tag "friends_banner.jpg", class: "banner-sm mx-0", style:"object-fit: cover;" %>
-
-    <div class="d-flex justify-content-center align-items-end">
-        <%= link_to "Register now", dashboard_profile_edit_path, class: "bu-brand-button button-bottom-sticky" %>
+<div>
+    <div class="d-flex flex-column justify-content-between home-body">
+      <div>
+        <h1 class="mx-2 mt-3  home-tagline">Find a <span class="font-weight-bold mr-2">buddy</span> <br>Rock <span class="font-weight-bold">together</span>!</h1>
+        <%= image_tag "friends_banner.jpg", class: "home-banner banner-sm mx-0" %>
+      </div>
+      <div class="mx-2">
+        <%= link_to "Log in", new_user_session_path, class: "bu-brand-button-outline" %>
+        <%= link_to "Register now", dashboard_profile_edit_path, class: "bu-brand-button" %>
+      </div>
     </div>
-  </div>
 </div>

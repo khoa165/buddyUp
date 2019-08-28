@@ -15,7 +15,8 @@
 }
 
 .banner-sm {
-  height: 45vh;
+  object-fit: cover;
+  max-width: 100vw;
 }
 
 .banner h1 {

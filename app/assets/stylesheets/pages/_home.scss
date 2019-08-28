@@ -1,24 +1,42 @@
-// Specific CSS for your home-page
-h1.home-brand-proposition {
-  font-size: 25px;
-  color: white;
-  text-shadow: 2px 2px 5px black;
-}
+// // Specific CSS for your home-page
+// h1.home-brand-proposition {
+//   font-size: 25px;
+//   color: white;
+//   text-shadow: 2px 2px 5px black;
+// }
 
-p.home-brand-catch-phrase {
-  font-size: 18px;
-  text-shadow: 1px 1px 5px black;
-}
+// p.home-brand-catch-phrase {
+//   font-size: 18px;
+//   text-shadow: 1px 1px 5px black;
+// }
 
-.home.banner {
-  position: relative;
-}
+// .home.banner {
+//   position: relative;
+// }
 
-.btn-register {
+// .btn-register {
+//   position: absolute;
+//   bottom: 20px;
+// }
+
+// .btn-register-block {
+//   width: 90%;
+// }
+
+
+.home-banner {
   position: absolute;
-  bottom: 20px;
+
 }
 
-.btn-register-block {
-  width: 90%;
+.home-tagline {
+  position: relative;
+  top: 30%;
+  right: -3%;
+  z-index: +1;
+
+}
+
+.home-body {
+  height: calc(100vh - 67px);
 }
