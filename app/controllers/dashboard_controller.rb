@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
   end
 
   def messages
-    current = current_user.connections.where(status: "currently_connected")
+    current = current_user.connections.where(status: "messaged")
     buddied = current_user.connections.where(status: "buddied")
     @connections = current + buddied
   end

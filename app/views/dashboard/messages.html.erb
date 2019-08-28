@@ -1,21 +1,23 @@
 <div class="container my-3">
   <div class="row">
     <div class="col-12 col-lg-8">
-      <div class="card p-3">
-        <h1>Messages</h1>
+        <h1 class="text-center my-5 font-weight-bold">Your Messages</h1>
         <% @connections.each do |connection| %>
+
         <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
         <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
         <div class="card-buddy" style="height: 180px;">
           <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
           <div class="card-buddy-infos">
             <h3><%= buddy.first_name %></h3>
-            <p><%= buddy.intro %></p>
+            <p><%= connection.messages.last.content %></p>
+            <p><%=  connection.messages.last %></p>
+
             <%= link_to "Messages", connection_messages_path(connection), class: "bu-brand-button bu-button-lg" %>
           </div>
         </div>
+
         <% end %>
-      </div>
     </div>
   </div>
 </div>
