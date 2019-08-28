@@ -3,6 +3,11 @@ class DashboardController < ApplicationController
     @buddies = current_user.connections.where(status: "buddied")
   end
 
+  def show
+    @user = current_user
+    @questions = Question.all
+  end
+
   def edit
   end
 
@@ -12,7 +17,7 @@ class DashboardController < ApplicationController
       current_user.mark_user_visited
       redirect_to questions_path
     else
-      redirect_to dashboard_path
+      redirect_to dashboard_profile_path
     end
   end
 
