@@ -6,16 +6,16 @@
 
         <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
         <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
-        <div class="card-buddy" style="height: 180px;">
-          <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
-          <div class="card-buddy-infos">
+        <%= link_to connection_messages_path(connection) do %>
+        <div class="card-message" >
+          <%= cl_image_tag buddy.photo, class: "avatar-small" %>
+          <div class="card-message-detail flex-grow-1">
+            <p class="float-right" style="font-size: 10px;"><%=  connection.messages.last.created_at.strftime("%a, %H:%M") %></p>
             <h3><%= buddy.first_name %></h3>
-            <p><%= connection.messages.last.content %></p>
-            <p><%=  connection.messages.last %></p>
-
-            <%= link_to "Messages", connection_messages_path(connection), class: "bu-brand-button bu-button-lg" %>
+            <p>"<%=connection.messages.last.content.truncate(30)%>"</p>
           </div>
         </div>
+        <% end %>
 
         <% end %>
     </div>

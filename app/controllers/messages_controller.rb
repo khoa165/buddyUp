@@ -15,7 +15,11 @@ class MessagesController < ApplicationController
     @message.connection = @connection
     @message.user = current_user
     if @message.save
-      @connection.update(status: "messaged")
+      if current_user == @connection.sender
+        @connection.update(sender_status: "messaged")
+      else
+        @connection.update(receiver_status: "messaged")
+      end
       respond_to do |format|
         format.html { redirect_to connection_messages_path(@connection) }
         format.js  # <-- will render `app/views/messages/create.js.erb`

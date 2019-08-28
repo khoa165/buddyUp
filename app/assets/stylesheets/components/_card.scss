@@ -152,3 +152,33 @@
 .card-buddy-score > h6 {
   margin: 0px;
 }
+
+
+
+.card-message {
+  overflow: hidden;
+  background: white;
+  display: flex;
+  // align-items: flex-start;
+  background-color: $bu-light-grey;
+  padding: 8px;
+  margin: 12px 0px;
+  color: black !important;
+}
+
+.card-message h3 {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 21px;
+}
+
+.card-message p {
+  opacity: .7;
+  margin: 0;
+}
+.card-message-detail {
+  padding: 0px 8px;
+
+}
+
+
