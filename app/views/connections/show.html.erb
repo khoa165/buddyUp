@@ -16,7 +16,9 @@
     </div>
     <hr class="my-2">
     <div class="d-flex justify-content-center m-0 px-3 py-0">
-      <a href="#" class="bu-brand-button bu-button-lg">Chat with <%= @buddy.first_name %></a>
+      <%= link_to connection_messages_path(@connection), class: "bu-brand-button bu-button-lg" do %>
+        <p>Chat with <%= @buddy.first_name %></p>
+      <% end %>
     </div>
   </div>
   <div class="card-body py-2">
