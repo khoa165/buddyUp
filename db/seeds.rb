@@ -192,8 +192,8 @@ puts "Creating connections, meetings, messages..."
 
 puts "---------------------------------------------------"
 
-dk = Connection.create(sender: danko, receiver: khoa, status: "buddied")
-km = Connection.create(sender: khoa, receiver: melissa, status: "buddied")
+dk = Connection.create(sender: danko, receiver: khoa, status: "buddied", score: 100)
+km = Connection.create(sender: khoa, receiver: melissa, status: "buddied", score: 80)
 # Connection.create(sender: danko, receiver: arman)
 # Connection.create(sender: danko, receiver: melissa)
 # Connection.create(sender: arman, receiver: melissa)
