@@ -69,10 +69,10 @@
       <div class="card p-3 overflow-auto" style="max-height: 440px;">
         <div class="px-1">
           <h3>Buddies</h3>
-          <h5><%=  current_user.connections.size %> buddies</h5>
+          <h5><%= @buddies.size %> buddies</h5>
         </div>
         <div class="row px-3">
-          <% current_user.connections.where(status: "buddied").each do |connection| %>
+          <% @buddies.each do |connection| %>
             <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
             <div class="col-4 col-lg-4 p-0 m-0">
               <%= link_to connection_path(connection) do %>
