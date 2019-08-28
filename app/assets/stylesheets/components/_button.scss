@@ -2,7 +2,7 @@
   display: block;
   background: rgb(156,26,235);
   background: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
-  padding: 16px 32px;
+  padding: 12px 32px;
   width: 100%;
   color: white;
   font-weight: bold;
@@ -10,6 +10,7 @@
   font-size: 16px;
   border-radius: 2px;
   margin: 7px 0px;
+  border: 0px;
 }
 
 .bu-brand-button-outline {
@@ -19,13 +20,15 @@
   border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
   border-image-slice: 1;
   color: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
-  font-weight: bold;
-  padding: 16px 32px;
+  padding: 12px 32px;
   width: 100%;
   text-align: center;
   font-size: 16px;
   border-radius: 3px;
   margin: 7px 0px;
+  p {
+
+  }
 }
 
 // @media(max-width: 768px) {
