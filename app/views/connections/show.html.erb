@@ -4,19 +4,21 @@
       <i class="fas fa-long-arrow-alt-left"> Back to your buddies</i>
     <% end %>
   </div>
-  <div class="profile-buddyup-header pb-5">
+  <div class="profile-buddyup-header">
     <div class="profile-header-buddy-score">
       <h6><%= @connection.score %>%</h6>
       <p>MATCH</p>
     </div>
     <img src="<%= @buddy.photo %>" class="avatar-large mb-3"/>
-    <div class="profile-header-infos">
+    <div class="text-center">
       <h3><%= @buddy.first_name %>, <%= @buddy.age %></h3>
-      <h6><%= @buddy.city %></h6>
-      <p><%= @buddy.intro %></p>
+      <h6 class="text-primary"><%= @buddy.intro.upcase %></h6>
+    </div>
+    <hr class="my-2">
+    <div class="d-flex justify-content-center m-0 px-3 py-0">
+      <a href="#" class="bu-brand-button bu-button-lg">Chat with <%= @buddy.first_name %></a>
     </div>
   </div>
-  <hr class="mt-4 mb-2">
   <div class="card-body py-2">
     <p>We've highlighted shared interests between you and <%= @buddy.first_name %> for you!</p>
     <% @questions.each do |question| %>
@@ -41,9 +43,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-  <hr class="mt-2 mb-2">
-  <div class="d-flex justify-content-center m-0 p-3">
-    <a href="#" class="bu-brand-button bu-button-lg">Chat with <%= @buddy.first_name %></a>
   </div>
 </div>
