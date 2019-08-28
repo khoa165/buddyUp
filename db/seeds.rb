@@ -178,6 +178,10 @@ popular_ln = ["Smith", "Johson", "Williams", "Jones", "Brown", "Davis", "Miller"
 #   User.create!(first_name: fn, last_name: ln, email: "#{fn}#{ln}@gmail.com", password: "#{fn}#{ln}123", age: 30, gender: gender, address: ["Barcelona", "Madrid"].sample, country: "Spain", city: ["Barcelona", "Madrid"].sample)
 # end
 
+User.all.each do |user|
+  user.mark_user_visited
+end
+
 puts "---------------------------------------------------"
 
 puts "Finish users!"
