@@ -16,9 +16,9 @@ class MessagesController < ApplicationController
     @message.user = current_user
     if @message.save
       if current_user == @connection.sender
-        @connection.update(sender_status: "messaged")
+        @connection.update(status_sender: "messaged")
       else
-        @connection.update(receiver_status: "messaged")
+        @connection.update(status_receiver: "messaged")
       end
       respond_to do |format|
         format.html { redirect_to connection_messages_path(@connection) }

@@ -17,10 +17,11 @@ class DashboardController < ApplicationController
   end
 
   def messages
-    sender_messaged = current_user.connections.where(sender_status: "messaged")
-    receiver_messaged = current_user.connections.where(receiver_status: "messaged")
+    sender_messaged = current_user.connections.where(status_sender: "messaged")
+    receiver_messaged = current_user.connections.where(status_receiver: "messaged")
     buddied = current_user.connections.where(status: "buddied")
-    total = sender_messaged + receiver_messaged + buddied
+    total = sender_messaged + receiver_messaged
+    total += buddied
     @connections = total.uniq
   end
 
