@@ -15,25 +15,26 @@ responses.forEach(response => {
 })
 const responsesText = document.querySelectorAll(".responses");
 console.log(responsesText)
-const toggleOtherResponses = (responsesText) => {
-  responsesText.forEach(response => {
-    if (response.classList.contains("hide") == false) {
-      response.classList.toggle("hide");
-    }
-  })
-}
+// const toggleOtherResponses = (responsesText) => {
+//   responsesText.forEach(response => {
+//     if (response.classList.contains("hide") == false) {
+//       response.classList.toggle("hide");
+//     }
+//   })
+// }
 
 const questions = document.querySelectorAll(".questions");
 const toggleResponsesText = (event) => {
   if (event.target.parentElement.classList.contains("questions")) {
+    console.log(event)
     event.target.parentElement.nextElementSibling.classList.toggle('hide');
     event.target.parentElement.lastElementChild.classList.toggle('fa-chevron-down');
     event.target.parentElement.lastElementChild.classList.toggle('fa-chevron-up')
   }
+
 }
 
 questions.forEach(question => {
-  console.log(event)
   addEventListener("click", toggleResponsesText);
 })
 

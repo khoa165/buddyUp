@@ -47,6 +47,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :first_time_visit, default: true
       t.boolean :in_session, default: false
       t.string :photo, default: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+      t.string :search_term
 
       t.timestamps null: false
     end

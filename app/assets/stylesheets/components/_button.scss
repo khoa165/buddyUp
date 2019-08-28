@@ -1,14 +1,43 @@
 .bu-brand-button {
+  display: block;
   background: rgb(156,26,235);
   background: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
-  padding: 16px 32px;
+  padding: 12px 32px;
   width: 100%;
   color: white;
   font-weight: bold;
   text-align: center;
   font-size: 16px;
-  border-radius: 3px;
+  border-radius: 2px;
+  margin: 7px 0px;
+  border: 0px;
 }
+
+.bu-brand-button-outline {
+  display: block;
+  background-color: white;
+  border: 1px solid $bu-teal;
+  border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
+  border-image-slice: 1;
+  color: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
+  padding: 12px 32px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 3px;
+  margin: 7px 0px;
+  p {
+
+  }
+}
+
+// @media(max-width: 768px) {
+//   .button-bottom-sticky {
+//       display: inline;
+//       position: fixed;
+//       bottom: 0;
+//   }
+// }
 
 .bu-brand-button-sm {
   background: rgb(156,26,235);
@@ -17,12 +46,17 @@
   font-weight: bold;
   text-align: center;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 2px;
   padding: 12px 18px;
 }
 
 .bu-button-lg {
   display: inline-block;
+}
+
+.bu-button-search {
+  padding: 8px 20px;
+  border: 0px;
 }
 
 .bu-brand-button:hover, .bu-brand-button-sm:hover  {

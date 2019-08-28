@@ -1,0 +1,14 @@
+.custom-tooltip {
+    display: inline-block;
+    margin: 10px 20px;
+    opacity: 1;
+    position: relative;
+}
+
+.custom-tooltip .tooltip-inner {
+  background: #0088cc;
+}
+
+.custom-tooltip.top .tooltip-arrow {
+  border-top-color: #0088cc;
+}
