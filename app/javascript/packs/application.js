@@ -7,10 +7,11 @@ import { scrollLastMessageIntoView } from '../functions/scrollToLastMessage';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { loadDynamicBannerText } from '../components/banner';
 import { dynamicResponses } from '../components/response';
-import "../plugins/predicthq";
+import { predicthq } from "../plugins/predicthq";
 
 initMapbox();
 delegator();
 loadDynamicBannerText();
 dynamicResponses();
+predicthq();
 scrollLastMessageIntoView();
