@@ -20,7 +20,7 @@
           <h5 style="font-size: 16px;">There is no pending request.</h5>
         <% else %>
           <% if @requested.size > 0 %>
-            <h6>Pending requests waiting for you to accept.</h6>
+            <h5>Pending requests waiting for you to accept.</h5>
           <% end %>
           <div class="row">
             <% @requested.each do |c|%>
@@ -30,7 +30,7 @@
                   <div class="">
                     <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
                     <div class="card-meeting-info-left ml-2 ml-lg-3">
-                      <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
+                      <h5 class="card-meeting-name"><%= buddy.first_name %></h5>
                     </div>
                   </div>
                 <% end %>
@@ -38,7 +38,7 @@
             <% end %>
           </div>
           <% if @requesting.size > 0 %>
-            <h6>Waiting for your future buddies to accept your request</h6>
+            <h5>Waiting for your future buddies to accept your request</h5>
           <% end %>
           <div class="row">
             <% @requesting.each do |c|%>
@@ -48,7 +48,7 @@
                   <div class="">
                     <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
                     <div class="card-meeting-info-left ml-2 ml-lg-3">
-                      <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
+                      <h5 class="card-meeting-name"><%= buddy.first_name %></h5>
                     </div>
                   </div>
                 <% end %>
@@ -103,7 +103,7 @@
         <div class="p-3 d-flex flex-column align-items-center" style="height: 160px; width: 108px;">
           <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
           <div class="p-2" style="word-wrap: break-word;">
-           <h6 class="text-center"><%= buddy.first_name %></h6>
+           <h5 class="text-center"><%= buddy.first_name %></h5>
           </div>
         </div>
         <% end %>
