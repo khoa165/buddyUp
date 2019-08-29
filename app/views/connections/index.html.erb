@@ -3,18 +3,20 @@
     <h3 class="my-5" style="line-height: 1.6;">Top 5 buddies near <br><strong><%= current_user.search_term.capitalize %></strong></h3>
   </div>
   <% @connections.each do |connection| %>
-    <%= link_to connection_path(connection) do %>
-    <div class="card-buddy">
-      <%= cl_image_tag connection.receiver.photo, class: "avatar-small" %>
-      <div class="card-buddy-infos">
-        <h3><%= connection.receiver.first_name %></h3>
-        <p><%= connection.receiver.intro %></p>
+    <% if connection.sender == current_user %>
+      <%= link_to connection_path(connection) do %>
+      <div class="card-buddy">
+        <%= cl_image_tag connection.receiver.photo, class: "avatar-small" %>
+        <div class="card-buddy-infos">
+          <h3><%= connection.receiver.first_name %></h3>
+          <p><%= connection.receiver.intro %></p>
+        </div>
+        <div class="card-buddy-score">
+          <h6><strong><%= connection.score %>%</strong></h6>
+          <p>MATCH</p>
+        </div>
       </div>
-      <div class="card-buddy-score">
-        <h6><strong><%= connection.score %>%</strong></h6>
-        <p>MATCH</p>
-      </div>
-    </div>
+      <% end %>
     <% end %>
   <% end %>
   <div class="p-4 mt-3 mb-2" role="alert" style="background-color: #E5FFF4; border-radius: 10px;">
