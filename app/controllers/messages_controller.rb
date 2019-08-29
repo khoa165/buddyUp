@@ -3,6 +3,11 @@ class MessagesController < ApplicationController
     @connection = Connection.find(params[:connection_id])
     @buddy = @connection.sender == current_user ? @connection.receiver : @connection.sender
     @messages = @connection.messages
+    @messages.each do |m|
+      unless m.user == current_user
+        m.mark_seen!
+      end
+    end
     @message = Message.new
     # respond_to do |format|
     #   format.js  # <-- render `app/views/messages/index.js.erb`

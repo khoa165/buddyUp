@@ -14,7 +14,7 @@ class DashboardController < ApplicationController
   def update
     current_user.update(user_strong_params)
     if current_user.new_user?
-      current_user.mark_user_visited
+      # current_user.mark_user_visited
       redirect_to questions_path
     else
       redirect_to dashboard_profile_path
@@ -27,7 +27,10 @@ class DashboardController < ApplicationController
     buddied = current_user.connections.where(status: "buddied")
     total = sender_messaged + receiver_messaged
     total += buddied
-    @connections = total.uniq
+    @connections = total.uniq.sort_by do |c|
+      c.messages.last.created_at
+    end
+    @connections = @connections.reverse
   end
 
   private

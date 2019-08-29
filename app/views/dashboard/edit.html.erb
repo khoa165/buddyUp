@@ -4,9 +4,10 @@
   <div class="row">
     <div class="col-10 offset-1 col-lg-6 offset-lg-3 p-3 my-3">
       <%= simple_form_for current_user, url: dashboard_path do |f| %>
-        <div class="form-group">
-          <div class="btn btn-outline-primary justify-content-center" style="width: 100%;"id="imgBtn"><i class="fas fa-camera"></i> Upload Photo</div>
-          <%= f.input :photo, label: false %>
+        <div class="form-group text-center">
+          <%= image_tag "", width: 200, height: 200, class: "hidden", id: "photo-preview" %>
+          <!-- <div class="btn btn-outline-primary justify-content-center" style="width: 100%;"id="imgBtn"><i class="fas fa-camera"></i> Upload Photo</div> -->
+          <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'btn btn-outline-primary btn-block mt-1'}, label: 'Upload a photo' %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
         <%= f.input :intro, label: "INTRO", placeholder: 'Describe yourself in 5 words',class: 'form-control' %>

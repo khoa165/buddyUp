@@ -179,7 +179,7 @@ popular_ln = ["Smith", "Johson", "Williams", "Jones", "Brown", "Davis", "Miller"
 # end
 
 User.all.each do |user|
-  user.mark_user_visited
+  user.mark_user_visited!
 end
 
 puts "---------------------------------------------------"

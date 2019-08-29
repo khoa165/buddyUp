@@ -40,7 +40,12 @@
       <% end %>
     <% end %>
 <div class="finish">
-  <%= link_to 'Finish profile!', root_path, class: "finish-button btn bu-brand-button slight-round my-5 text-center" %>
+  <% if current_user.new_user? %>
+    <% current_user.mark_user_visited %>
+    <%= link_to 'Finish profile!', search_connections_path(location: current_user.address), class: "finish-button btn bu-brand-button slight-round my-5 text-center"%>
+  <% else %>
+  <%= link_to 'Update preference!', dashboard_profile_path, class: "finish-button btn bu-brand-button slight-round my-5 text-center" %>
+  <% end %>
 </div>
 </div>
 

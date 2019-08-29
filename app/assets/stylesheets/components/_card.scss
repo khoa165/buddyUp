@@ -1,17 +1,13 @@
-
 // ################################################################
 // This is the code for the meeting cards
 // ################################################################
 
-.thumbnail {
-  width: 100px;
-}
 
 .card-meeting {
   overflow: hidden;
   background: white;
   background-color: $bu-light-grey;
-  border-radius: 10px;
+  // border-radius: 10px;
   margin: 0.5rem 0;
   padding: 1rem;
   display: flex;
@@ -27,10 +23,12 @@
     .card-meeting-date {
       margin: 0;
       padding: 0;
+      font-size: 12px;
     }
 
     .card-meeting-name {
       opacity: 0.6;
+      font-size: 21px;
     }
   }
 
@@ -41,26 +39,26 @@
     align-items: center;
     height: 100%;
 
-    .card-meeting-score {
-      display: flex;
-      align-self: flex-start;
-      justify-content: space-between;
-      width: 48px;
-      height: 40px;
-      opacity: 0.8;
-      flex-direction: column;
-      align-items: center;
-      background: $bu-white;
-      font-size: 16px;
-      margin-left: auto;
-      padding: 0px;
-      border: 2px solid $bu-teal;
-      border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
-      border-image-slice: 1;
-      p {
-        font-size: 12px;
-      }
-    }
+    // .card-meeting-score {
+    //   display: flex;
+    //   align-self: flex-start;
+    //   justify-content: space-between;
+    //   width: 48px;
+    //   height: 40px;
+    //   opacity: 0.8;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   background: $bu-white;
+    //   font-size: 16px;
+    //   margin-left: auto;
+    //   padding: 0px;
+    //   border: 2px solid $bu-teal;
+    //   border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
+    //   border-image-slice: 1;
+    //   p {
+    //     font-size: 12px;
+    //   }
+    // }
 
     .card-meeting-detail {
       margin-top: 0.5rem;
@@ -70,7 +68,9 @@
       p {
         margin: 0;
         margin-left: 0.5rem;
+      border: 0px;
       }
+      color: $bu-teal;
     }
   }
 }
@@ -95,7 +95,6 @@
   display: flex;
   align-items: flex-start;
   background-color: $bu-light-grey;
-  height: 104px;
   padding: 8px;
   margin: 12px 0px;
   color: black !important;
@@ -113,18 +112,19 @@
 .card-buddy h3 {
   font-weight: bold;
   margin-bottom: 4px;
+  font-size: 21px;
 }
 
 .card-buddy p {
   opacity: .7;
   margin: 0;
+  line-height: 1.3;
+  font-size: 14px;
 }
 
 
 .card-buddy .card-buddy-infos {
   padding: 0px 8px;
-  justify-content: space-between;
-  align-self: flex-start;
   width: 200px;
 }
 
@@ -133,7 +133,6 @@
   display: flex;
   align-self: flex-start;
   justify-content: space-between;
-  width: 48px;
   height: 40px;
   opacity: 0.8;
   flex-direction: column;
@@ -141,7 +140,7 @@
   background: $bu-white;
   font-size: 16px;
   margin-left: auto;
-  padding: 0px;
+  padding: 0px 2px;
   border: 2px solid $bu-teal;
   border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
   border-image-slice: 1;
@@ -154,8 +153,6 @@
 .card-buddy-score > h6 {
   margin: 0px;
 }
-
-
 
 .card-message {
   overflow: hidden;

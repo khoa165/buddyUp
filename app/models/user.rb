@@ -41,7 +41,7 @@ class User < ApplicationRecord
     first_time_visit
   end
 
-  def mark_user_visited
+  def mark_user_visited!
     update(first_time_visit: false)
   end
 
@@ -49,11 +49,11 @@ class User < ApplicationRecord
     in_session
   end
 
-  def begin_session
+  def begin_session!
     update(in_session: true)
   end
 
-  def cancel_session
+  def cancel_session!
     update(in_session: false)
   end
 
