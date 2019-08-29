@@ -11,7 +11,8 @@
     "places.js": "^1.16.4",
     "popper.js": "^1.15.0",
     "predicthq": "^0.0.19",
-    "typed.js": "^2.0.10"
+    "typed.js": "^2.0.10",
+    "unsplash-js": "^5.0.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.8.0"
