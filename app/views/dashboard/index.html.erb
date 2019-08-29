@@ -1,10 +1,11 @@
 <div class="container my-3">
+
   <div class="row">
     <div class="col-12 col-lg-4 mb-1">
-      <div class="card">
+      <div class="profile-buddyup-header">
         <div class="d-flex flex-column align-items-center">
           <%= cl_image_tag current_user.photo, class: "round-img my-3" %>
-          <h3 class="card-dashboard"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+          <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
         </div>
         <!-- <div class="card-body my-0 py-0">
           <hr class="my-0">
@@ -39,23 +40,20 @@
         </div>
       </div>
     </div>
+
     <div class="col-12 col-lg-8">
-      <div class="card p-3 mb-1">
+      <div class="mb-3">
         <h3>Upcoming meetings</h3>
         <% current_user.meetings.each do |meeting| %>
         <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
           <% buddy = meeting.connection.sender == current_user ? meeting.connection.receiver : meeting.connection.sender %>
           <div class="card-meeting">
-            <%= cl_image_tag buddy.photo, class: "avatar-square-lg" %>
+            <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
             <div class="card-meeting-info-left ml-2 ml-lg-3">
               <p class="card-meeting-date"><%= meeting.date.strftime("%A, %b %d") %></p>
               <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
             </div>
-            <div class="card-meeting-info-right pl-2 pl-lg-3 border-left">
-              <div class="card-meeting-score">
-                <h6><%= meeting.connection.score %></h6>
-                <p>MATCH</p>
-              </div>
+            <div class="card-meeting-info-right pl-2 pl-lg-3">
               <%= link_to meeting_path(meeting), class: 'text-secondary' do %>
                 <div class="card-meeting-detail">
                   <i class="far fa-eye"></i>
@@ -66,28 +64,30 @@
           </div>
         <% end %>
       </div>
-      <div class="card p-3 overflow-auto" style="max-height: 440px;">
-        <div class="px-1">
-          <h3>Buddies</h3>
-          <h5><%= @buddies.size %> buddies</h5>
-        </div>
-        <div class="row px-3">
-          <% @buddies.each do |connection| %>
-            <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
-            <div class="col-4 col-lg-4 p-0 m-0">
-              <%= link_to connection_path(connection) do %>
-                <div class="mx-1 my-2 card" style="height: 160px; background-color: #f6f6f6;">
-                  <%= cl_image_tag buddy.photo, class: "card-img-top buddy-avatar" %>
-                  <div class="p-2" style="word-wrap: break-word;">
-                     <h6 class="text-center"><%= buddy.first_name %>
-                    <%= buddy.last_name %></h6>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
     </div>
+  </div>
+
+  <div class="" style="max-height: 440px;">
+    <div class="px-1">
+      <h3>Buddies</h3>
+      <h5 style="font-size: 16px"><%= @buddies.size %> buddies</h5>
+    </div>
+    <div class="row">
+      <% @buddies.each do |connection| %>
+      <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
+      <div class="col-4 col-lg-4">
+        <%= link_to connection_path(connection) do %>
+        <div class="p-3 d-flex flex-column align-items-center" style="height: 160px; width: 108px;">
+          <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
+          <div class="p-2" style="word-wrap: break-word;">
+           <h6 class="text-center"><%= buddy.first_name %></h6>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
   </div>
 </div>
