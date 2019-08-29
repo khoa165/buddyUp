@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount ActionCable.server => "/cable"
   # Default pages provided from the devise.
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   # Set root for the website.
   root to: 'pages#home'
   get '/components', to: 'pages#components'
