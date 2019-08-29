@@ -2,3 +2,34 @@
   float: none;
   margin: 0 auto;
 }
+
+.card-meeting-show {
+  overflow: hidden;
+  background: white;
+  background-color: $bu-light-grey;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+.event-labels {
+  border-width: 1px;
+  border-style: groove;
+  text-align: center;
+  font-size: 8px
+}
+
+.event-square {
+  height: 60px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.img-with-content {
+  display: flex;
+  align-items: start;
+}
