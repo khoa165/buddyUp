@@ -20,6 +20,16 @@ class ConnectionsController < ApplicationController
     redirect_to connections_path(location: params[:location])
   end
 
+  def update
+    @connection = Connection.find(params[:id])
+    if current_user == @connection.sender
+      @connection.update(status_sender: "buddy_requested")
+    else
+      @connection.update(status_receiver: "buddy_requested")
+    end
+    redirect_to connection_path(@connection)
+  end
+
   def cancel
     @connections = current_user.connections.where(status: "currently_connected")
     @connections.each do |connection|
