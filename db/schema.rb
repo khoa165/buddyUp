@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_095016) do
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
+    t.boolean "seen", default: false
     t.bigint "connection_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

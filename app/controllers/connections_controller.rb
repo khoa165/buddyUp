@@ -15,7 +15,7 @@ class ConnectionsController < ApplicationController
       users = users.select { |user| user != current_user}
       @matches = retrieve_buddies(users)
       @connections = create_connections(@matches)
-      current_user.begin_session
+      current_user.begin_session!
     end
     redirect_to connections_path(location: params[:location])
   end
@@ -25,7 +25,7 @@ class ConnectionsController < ApplicationController
     @connections.each do |connection|
       connection.update(status: "connected")
     end
-    current_user.cancel_session
+    current_user.cancel_session!
     redirect_to root_path
   end
 
