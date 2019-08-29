@@ -21,8 +21,8 @@
     </div>
   </div>
   <div class="messages-container mt-3">
-    <div class="container" id="messages" style="padding-bottom: 12vh;">
-      <% @messages.each do |message| %>
+    <div class="container" id="messages" style="padding-bottom: 14vh;">
+      <% @messages.each_with_index do |message, index| %>
         <% if message.user == current_user %>
         <%= render 'messages/show', message: message, class: "message" %>
         <% else %>
@@ -30,7 +30,7 @@
         <% end %>
       <% end %>
       <% if @messages.last.user == current_user && @messages.last.seen? %>
-        <p class="float-right px-3" style="margin-left: 30vw; color: grey;">seen</p>
+        <p class="float-right px-3 mb-3" style="margin-left: 30vw; color: grey;">seen</p>
       <% end %>
     </div>
   </div>
