@@ -4,7 +4,6 @@
 // ################################################################
 
 
-
 .card-meeting {
   overflow: hidden;
   background: white;
@@ -93,7 +92,6 @@
   display: flex;
   align-items: flex-start;
   background-color: $bu-light-grey;
-  height: 104px;
   padding: 8px;
   margin: 12px 0px;
   color: black !important;
@@ -111,18 +109,19 @@
 .card-buddy h3 {
   font-weight: bold;
   margin-bottom: 4px;
+  font-size: 21px;
 }
 
 .card-buddy p {
   opacity: .7;
   margin: 0;
+  line-height: 1.3;
+  font-size: 14px;
 }
 
 
 .card-buddy .card-buddy-infos {
   padding: 0px 8px;
-  justify-content: space-between;
-  align-self: flex-start;
   width: 200px;
 }
 
