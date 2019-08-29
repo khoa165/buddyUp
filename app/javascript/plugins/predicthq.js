@@ -20,6 +20,20 @@ const predicthq = () => {
     // })
   })
 
+  var text_truncate = function(str, length, ending) {
+    if (length == null) {
+      length = 100;
+    }
+    if (ending == null) {
+      ending = '...';
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    } else {
+      return str;
+    }
+  };
+
   phq.events.search({q: query, limit: 5, offset: 1})
       .then(function(results){
         let i=0
@@ -28,13 +42,14 @@ const predicthq = () => {
           eventElements.forEach((element) => {
             var imgWithContentDiv = element.children[0]
             console.info(imgWithContentDiv)
-            const img = `<img src='https://loremflickr.com/320/240/${events[i].category}' class='event-square'>`
+            const img = `<img src='https://loremflickr.com/320/240/${events[i].category}'class='avatar-medium'>`
             imgWithContentDiv.insertAdjacentHTML('afterbegin', img)
             const contentDiv = imgWithContentDiv.children[1]
             console.info(contentDiv)
             var contentChildren = contentDiv.children
             console.info(contentChildren)
-            contentChildren[0].innerHTML = events[i].title
+            const title = events[i].title
+            contentChildren[0].innerHTML = text_truncate(title, 40)
             contentChildren[1].innerHTML = events[i].start.substring(0, 10)
             contentChildren[1].innerHTML += ', '
             contentChildren[1].innerHTML += events[i].start.substring(11, 19)

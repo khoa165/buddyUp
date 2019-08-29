@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="card p-3 mt-3">
+
       <!-- Check if current user is sender. If yes, buddy is receiver, otherwise buddy is sender -->
         <% buddy = @meeting.connection.sender == current_user ? @meeting.connection.receiver : @meeting.connection.sender %>
-        <h1 class="text-center">Your meeting with <%= buddy.first_name %></h1>
-      <div class="card-meeting">
-        <%= cl_image_tag buddy.photo, class: "avatar-square-lg" %>
+        <h1 class="my-5 " style="line-height: 1.3;">Your meeting with <br> <strong><%= buddy.first_name %></strong></h1>
+      <div class="card-meeting mb-5 align-items-center">
+        <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
         <div class="card-meeting-info-left ml-2 ml-lg-3">
-          <h3 class="meeting-name font-weight-bold"><%= buddy.first_name %></h3>
+          <h3 class="meeting-name mb-0"><%= buddy.first_name %></h3>
           <p class="card-meeting-date"><%= @meeting.date.strftime("%A, %b %d") %></p>
           <p class="card-meeting-location"><%= @meeting.location %></p>
           <p class="card-meeting-category"><%= @meeting.category %></p>
@@ -19,10 +19,10 @@
           </div>
         </div>
       </div>
-      <h5>Here are some local event suggestions for you and <%= buddy.first_name %></h5>
-     <div class="card-meeting-show event">
+      <h class="my-5">Here are some local event suggestions for you and <%= buddy.first_name %></h5>
+     <div class="card-meeting-show event my-3">
         <div class="img-with-content">
-          <div class="content d-flex flex-column align-items-start">
+          <div class="content d-flex flex-column align-items-start ml-3">
             <p class="mb-1 event-title font-weight-bold"></p>
             <p class="mb-1 event-date"></p>
             <div class="labels d-flex float-right">
@@ -31,9 +31,9 @@
           </div>
         </div>
       </div>
-    <div class="card-meeting-show event">
+    <div class="card-meeting-show event my-3">
         <div class="img-with-content">
-          <div class="content d-flex flex-column align-items-start">
+          <div class="content d-flex flex-column align-items-start ml-3">
             <p class="mb-1 event-title font-weight-bold"></p>
             <p class="mb-1 event-date"></p>
             <div class="labels d-flex float-right">
@@ -42,9 +42,9 @@
           </div>
         </div>
       </div>
-     <div class="card-meeting-show event">
+     <div class="card-meeting-show event my-3">
         <div class="img-with-content">
-          <div class="content d-flex flex-column align-items-start">
+          <div class="content d-flex flex-column align-items-start ml-3">
             <p class="mb-1 event-title font-weight-bold"></p>
             <p class="mb-1 event-date"></p>
             <div class="labels d-flex float-right">
@@ -53,9 +53,9 @@
           </div>
         </div>
       </div>
-     <div class="card-meeting-show event">
+     <div class="card-meeting-show event my-3">
         <div class="img-with-content">
-          <div class="content d-flex flex-column align-items-start">
+          <div class="content d-flex flex-column align-items-start ml-3">
             <p class="mb-1 event-title font-weight-bold"></p>
             <p class="mb-1 event-date"></p>
             <div class="labels d-flex float-right">
@@ -64,9 +64,9 @@
           </div>
         </div>
       </div>
-      <div class="card-meeting-show event">
+      <div class="card-meeting-show event my-3">
         <div class="img-with-content">
-          <div class="content d-flex flex-column align-items-start">
+          <div class="content d-flex flex-column align-items-start ml-3">
             <p class="mb-1 event-title font-weight-bold"></p>
             <p class="mb-1 event-date"></p>
             <div class="labels d-flex float-right">
@@ -75,7 +75,7 @@
           </div>
         </div>
       </div>
-   </div>
+
 </div>
 <!-- api_secret - B_NsnC8m7ZBsHxLSmalKyhLSpLUsYC-zVQQguy99evwYfgbXF4oJ8Q -->
 <!-- access_token - ll_m1nQWoVShuSxrV5yRZQlhZUHszh9jyo4_pfQ_ -->
