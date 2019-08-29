@@ -29,6 +29,9 @@
         <%= render 'messages/arriving_message', message: message, class: "message" %>
         <% end %>
       <% end %>
+      <% if @messages.last.user == current_user && @messages.last.seen? %>
+        <p class="float-right px-3" style="margin-left: 30vw; color: grey;">seen</p>
+      <% end %>
     </div>
   </div>
   <div id="input_message" align="center" class="messages py-2" style="position: fixed; bottom: 0; background-color: rgb(235, 235, 235); width: 100%;">

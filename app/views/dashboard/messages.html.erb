@@ -11,13 +11,13 @@
           <%= cl_image_tag buddy.photo, class: "avatar-small" %>
           <div class="card-message-detail flex-grow-1">
             <% m = connection.messages.last %>
-            <% if m.seen? %>
-              <p class="float-right" style="font-size: 10px;"><%= connection.messages.last.created_at.localtime.strftime("%a, %H:%M") %></p>
-            <% else %>
-              <p class="float-right" style="font-size: 10px; font-weight: bold;"><%= connection.messages.last.created_at.localtime.strftime("%a, %H:%M") %></p>
-            <% end %>
+            <p class="float-right" style="font-size: 10px;"><%= m.created_at.localtime.strftime("%a, %H:%M") %></p>
             <h3><%= buddy.first_name %></h3>
-            <p><%=connection.messages.last.content.truncate(30)%></p>
+            <% if m.seen? %>
+              <p><%= m.content.truncate(30) %></p>
+            <% else %>
+              <p style="font-weight: bold;"><%= m.content.truncate(30) %></p>
+            <% end %>
           </div>
         </div>
         <% end %>
