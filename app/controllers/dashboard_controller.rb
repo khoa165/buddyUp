@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   def index
     @buddies = current_user.connections.where(status: "buddied")
+    @requesting = current_user.connections.where
   end
 
   def show

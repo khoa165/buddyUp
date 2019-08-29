@@ -24,23 +24,38 @@ class ConnectionsController < ApplicationController
     @connection = Connection.find(params[:id])
     if current_user == @connection.sender
       @connection.update(status_sender: "buddy_requested")
+      if @connection.status_receiver == "buddy_requested"
+        @connection.update(status: "buddied")
+      else
+        @connection.update(status: "currently_buddy_requested")
+      end
     else
       @connection.update(status_receiver: "buddy_requested")
+      if @connection.status_receiver == "buddy_requested"
+        @connection.update(status: "buddied")
+      else
+        @connection.update(status: "currently_buddy_requested")
+      end
     end
     redirect_to connection_path(@connection)
   end
 
   def cancel
-    @connections = current_user.connections.where(status: "currently_connected")
-    @connections.each do |connection|
+    current_connected = current_user.connections.where(status: "currently_connected")
+    current_connected.each do |connection|
       connection.update(status: "connected")
+    end
+    current_requested = current_user.connections.where(status: "currently_buddy_requested")
+    current_requested.each do |connection|
+      connection.update(status: "buddy_requested")
     end
     current_user.cancel_session!
     redirect_to root_path
   end
 
   def index
-    @connections = current_user.connections.where(status: "currently_connected")
+    @connections = current_user.connections.where(status: "currently_buddy_requested")
+    @connections += current_user.connections.where(status: "currently_connected")
   end
 
   def show
