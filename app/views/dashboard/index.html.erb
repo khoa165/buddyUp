@@ -22,21 +22,39 @@
           <% if @requested.size > 0 %>
             <h6>Pending requests waiting for you to accept.</h6>
           <% end %>
-          <% @requested.each do |c|%>
-            <%= link_to connection_path(c) do %>
-              <% buddy = c.sender == current_user ? c.receiver : c.sender %>
-              <p><%= buddy.first_name %> Send you a buddy request</p>
+          <div class="row">
+            <% @requested.each do |c|%>
+              <div class="col-4 text-center">
+                <%= link_to connection_path(c) do %>
+                  <% buddy = c.sender == current_user ? c.receiver : c.sender %>
+                  <div class="">
+                    <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
+                    <div class="card-meeting-info-left ml-2 ml-lg-3">
+                      <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
-          <% end %>
+          </div>
           <% if @requesting.size > 0 %>
             <h6>Waiting for your future buddies to accept your request</h6>
           <% end %>
-          <% @requesting.each do |c|%>
-            <%= link_to connection_path(c) do %>
-              <% buddy = c.sender == current_user ? c.receiver : c.sender %>
-              <p>Text <%= buddy.first_name %> to remind him to buddyUp</p>
+          <div class="row">
+            <% @requesting.each do |c|%>
+              <div class="col-4 text-center">
+                <%= link_to connection_path(c) do %>
+                  <% buddy = c.sender == current_user ? c.receiver : c.sender %>
+                  <div class="">
+                    <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
+                    <div class="card-meeting-info-left ml-2 ml-lg-3">
+                      <h3 class="card-meeting-name"><%= buddy.first_name %></h3>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
-          <% end %>
+          </div>
         <% end %>
       </div>
 
