@@ -38,7 +38,10 @@ class DashboardController < ApplicationController
     buddied = current_user.connections.where(status: "buddied")
     total = sender_messaged + receiver_messaged
     total += buddied + br + cbr
-    @connections = total.uniq.sort_by do |c|
+    total_with_message = total.uniq.select do |c|
+      c.messages.size > 0
+    end
+    @connections = total_with_message.sort_by do |c|
       c.messages.last.created_at
     end
     @connections = @connections.reverse
