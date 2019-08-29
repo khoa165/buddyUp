@@ -19,16 +19,28 @@
         <p>Chat with <%= @buddy.first_name %></p>
       <% end %>
     </div>
-    <% if (current_user == @connection.sender && @connection.status_sender == "buddy_requested") || (current_user == @connection.receiver && @connection.status_receiver == "buddy_requested") %>
-      <div class="d-flex justify-content-center m-0 px-3 py-0">
-        <a class="btn btn-outline-primary btn-block disabled">Please wait for <%= @buddy.first_name %> to accept your buddy request.</a>
+    <% if @connection.status == "buddied" %>
+      <div class="m-0 px-3 py-0">
+        <div class="btn btn-outline-primary btn-block disabled"><%= @buddy.first_name %> and you are buddies.</div>
       </div>
     <% else %>
-      <div class="d-flex justify-content-center m-0 px-3 py-0">
-        <%= link_to connection_path(@connection), method: :patch, class: "btn btn-outline-primary btn-block" do %>
-          <p>Buddy up with <%= @buddy.first_name %></p>
-        <% end %>
-      </div>
+      <% if (current_user == @connection.sender && @connection.status_sender == "buddy_requested") || (current_user == @connection.receiver && @connection.status_receiver == "buddy_requested") %>
+        <div class="d-flex justify-content-center m-0 px-3 py-0">
+          <a class="btn btn-outline-primary btn-block disabled">Please wait for <%= @buddy.first_name %> to accept your buddy request...</a>
+        </div>
+      <% elsif (current_user == @connection.sender && @connection.status_receiver == "buddy_requested") || (current_user == @connection.receiver && @connection.status_sender == "buddy_requested") %>
+        <div class="d-flex justify-content-center m-0 px-3 py-0">
+          <%= link_to connection_path(@connection), method: :patch, class: "btn btn-outline-primary btn-block" do %>
+            <p>Confirm <%= @buddy.first_name %>'s buddy request!!!</p>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="d-flex justify-content-center m-0 px-3 py-0">
+          <%= link_to connection_path(@connection), method: :patch, class: "btn btn-outline-primary btn-block" do %>
+            <p>Buddy up with <%= @buddy.first_name %></p>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class="card-body py-2">
