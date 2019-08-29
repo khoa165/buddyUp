@@ -1,8 +1,6 @@
 <div class="container">
   <div>
-    <%= link_to connections_path, class: "nav-link m-0 px-0 py-3" do %>
-      <i class="fas fa-long-arrow-alt-left"> Back to your buddies</i>
-    <% end %>
+    <%= link_to "← Back to your buddies", connections_path, class: "nav-link m-0 px-0 py-3"%>
   </div>
   <div class="profile-buddyup-header">
     <div class="profile-header-buddy-score">
@@ -22,7 +20,7 @@
     </div>
   </div>
   <div class="card-body py-2">
-    <p>We've highlighted shared interests between you and <%= @buddy.first_name %> for you!</p>
+    <p>We've highlighted shared interests between you and <%= @buddy.first_name %>!</p>
     <% @questions.each do |question| %>
       <% unless question.id == 9 %>
         <div class="question mt-3">

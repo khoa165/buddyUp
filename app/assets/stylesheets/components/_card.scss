@@ -130,7 +130,6 @@
   display: flex;
   align-self: flex-start;
   justify-content: space-between;
-  width: 48px;
   height: 40px;
   opacity: 0.8;
   flex-direction: column;
@@ -138,7 +137,7 @@
   background: $bu-white;
   font-size: 16px;
   margin-left: auto;
-  padding: 0px;
+  padding: 0px 2px;
   border: 2px solid $bu-teal;
   border-image-source: linear-gradient(81deg, rgba(156,26,235,0.4948354341736695) 0%, rgba(76,112,242,1) 47%, rgba(2,195,154,1) 100%);
   border-image-slice: 1;

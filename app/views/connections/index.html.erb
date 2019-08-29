@@ -1,7 +1,6 @@
-<div class="container py-3">
+<div class="container">
   <div class="mb-3">
-    <h3>Top 5 buddies near</h3>
-    <h3><strong><%= current_user.search_term.capitalize %></strong></h3>
+    <h3 class="my-5" style="line-height: 1.6;">Top 5 buddies near <br><strong><%= current_user.search_term.capitalize %></strong></h3>
   </div>
   <% @connections.each do |connection| %>
     <%= link_to connection_path(connection) do %>
@@ -12,7 +11,7 @@
         <p><%= connection.receiver.intro %></p>
       </div>
       <div class="card-buddy-score">
-        <h6><%= connection.score %>%</h6>
+        <h6><strong><%= connection.score %>%</strong></h6>
         <p>MATCH</p>
       </div>
     </div>
