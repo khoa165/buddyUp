@@ -33,9 +33,11 @@ class DashboardController < ApplicationController
   def messages
     sender_messaged = current_user.connections.where(status_sender: "messaged")
     receiver_messaged = current_user.connections.where(status_receiver: "messaged")
+    br = current_user.connections.where(status: "buddy_requested")
+    cbr = current_user.connections.where(status: "currently_buddy_requested")
     buddied = current_user.connections.where(status: "buddied")
     total = sender_messaged + receiver_messaged
-    total += buddied
+    total += buddied + br + cbr
     @connections = total.uniq.sort_by do |c|
       c.messages.last.created_at
     end
