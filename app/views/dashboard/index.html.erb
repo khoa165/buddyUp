@@ -99,14 +99,14 @@
       <% @buddies.each do |connection| %>
       <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
       <div class="col-4 col-lg-4">
-        <div class="p-3 d-flex flex-column align-items-center" style="height: 192px; width: 108px;">
+        <div class="p-2 d-flex flex-column align-items-center" style="height: 180px; width: 108px;">
           <%= link_to connection_path(connection) do %>
             <%= cl_image_tag buddy.photo, class: "avatar-medium" %>
           <% end %>
         <div class="p-1" style="word-wrap: break-word;">
          <h5 class="text-center"><%= buddy.first_name %></h5>
         </div>
-        <%= link_to "Meet", new_connection_meeting_path(connection), class:"btn btn-outline-info py-0 pz-1"  %>
+        <%= link_to "Meet", new_connection_meeting_path(connection), class:"btn btn-outline-info py-0 pz-1", style: "font-size: 12px;"  %>
         </div>
      </div>
      <% end %>
