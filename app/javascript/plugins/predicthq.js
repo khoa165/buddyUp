@@ -49,10 +49,18 @@ const predicthq = () => {
             var contentChildren = contentDiv.children
             console.info(contentChildren)
             const title = events[i].title
+            // const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thusrday", "Friday", "Saturday"];
+            // const months = ["Jan", "Feb". "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            // var dateTimeString = events[i].start;
+            // const d = new Date(dateTimeString.substring(0, 4).to_);
+            // const eventDate = days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate();
             contentChildren[0].innerHTML = text_truncate(title, 40)
-            contentChildren[1].innerHTML = events[i].start.substring(0, 10)
+            contentChildren[1].innerHTML = events[i].start.substring(8, 10)
+            contentChildren[1].innerHTML += '/'
+            contentChildren[1].innerHTML += events[i].start.substring(5, 7)
             contentChildren[1].innerHTML += ', '
-            contentChildren[1].innerHTML += events[i].start.substring(11, 19)
+            contentChildren[1].innerHTML += events[i].start.substring(11, 16)
+            contentChildren[1].innerHTML += ' am'
             events[i].labels.forEach((label) => {
               console.info(label)
               contentDiv.children[2].insertAdjacentHTML('beforeend', `<p class="event-labels p-2 mr-2">${label}</p>`)
