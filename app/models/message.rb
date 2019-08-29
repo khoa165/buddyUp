@@ -14,4 +14,12 @@ class Message < ApplicationRecord
       current_user_id: user.id
     })
   end
+
+  def seen?
+    seen
+  end
+
+  def mark_seen!
+    update(seen: true)
+  end
 end
