@@ -10,7 +10,12 @@
         <div class="card-message" >
           <%= cl_image_tag buddy.photo, class: "avatar-small" %>
           <div class="card-message-detail flex-grow-1">
-            <p class="float-right" style="font-size: 10px;"><%= connection.messages.last.created_at.localtime.strftime("%a, %H:%M") %></p>
+            <% m = connection.messages.last %>
+            <% if m.seen? %>
+              <p class="float-right" style="font-size: 10px;"><%= connection.messages.last.created_at.localtime.strftime("%a, %H:%M") %></p>
+            <% else %>
+              <p class="float-right" style="font-size: 10px; font-weight: bold;"><%= connection.messages.last.created_at.localtime.strftime("%a, %H:%M") %></p>
+            <% end %>
             <h3><%= buddy.first_name %></h3>
             <p><%=connection.messages.last.content.truncate(30)%></p>
           </div>
