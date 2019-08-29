@@ -11,13 +11,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <% if current_user.in_session? %>
+        <% if current_user.in_session? %>
+          <li class="nav-item">
             <%= link_to "Discovery", connections_path, class: "nav-link" %>
-          <% else %>
-            <%= link_to "Discovery", connections_path, class: "nav-link disabled" %>
-          <% end %>
-        </li>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "Messages", messages_path, class: "nav-link" %>
         </li>
