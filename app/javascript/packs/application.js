@@ -10,6 +10,7 @@ import { dynamicResponses } from '../components/response';
 import "../plugins/predicthq";
 import { initTooltip } from '../components/tooltip';
 import { predicthq } from "../plugins/predicthq";
+import { previewImageOnFileSelect } from "../components/photo_preview"
 
 initMapbox();
 delegator();
@@ -18,3 +19,4 @@ dynamicResponses();
 scrollLastMessageIntoView();
 initTooltip();
 predicthq();
+previewImageOnFileSelect();
