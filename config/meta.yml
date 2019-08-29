@@ -2,3 +2,4 @@ meta_product_name: "buddyUp"
 meta_title: "buddyUp - Find a buddy | Rock together"
 meta_description: "buddyUp is a platform that connects people with similar interests on a 1-on-1 basis."
 meta_image: "friends_banner.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
