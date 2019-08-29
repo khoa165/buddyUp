@@ -54,8 +54,8 @@ class ConnectionsController < ApplicationController
   end
 
   def index
-    # @connections = current_user.connections.where(status: "currently_buddy_requested")
-    @connections = current_user.connections.where(status: "currently_connected")
+    @connections = current_user.connections.where(status: "currently_buddy_requested")
+    @connections += current_user.connections.where(status: "currently_connected")
   end
 
   def show
