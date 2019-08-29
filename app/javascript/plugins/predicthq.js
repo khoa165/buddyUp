@@ -11,15 +11,12 @@ const predicthq = () => {
 
   var query = cards.innerHTML
   var eventElements = document.querySelectorAll('.event')
-  console.info(eventElements)
-  console.info(query)
   eventElements.forEach((element) => {
-    console.info(element.children[0])
     // var childrenElements = element.children
     // var arr = Array.prototype.slice.call(childrenElements)
-    // console.info(arr)
+    // (arr)
     // arr.forEach((child) => {
-    //   console.info(child)
+    //   (child)
     // })
   })
 
@@ -29,12 +26,23 @@ const predicthq = () => {
         var events = results.toArray()
         while(i < 5) {
           eventElements.forEach((element) => {
-            var childrenElements = element.children
-            childrenElements[0].innerHTML = events[i].title
-            childrenElements[1].innerHTML = events[i].description
-            childrenElements[2].innerHTML = events[i].category
-            childrenElements[3].innerHTML = events[i].start
-            childrenElements[4].innerHTML = events[i].country
+            var imgWithContentDiv = element.children[0]
+            console.info(imgWithContentDiv)
+            const img = `<img src='https://loremflickr.com/320/240/${events[i].category}' class='event-square'>`
+            imgWithContentDiv.insertAdjacentHTML('afterbegin', img)
+            const contentDiv = imgWithContentDiv.children[1]
+            console.info(contentDiv)
+            var contentChildren = contentDiv.children
+            console.info(contentChildren)
+            contentChildren[0].innerHTML = events[i].title
+            contentChildren[1].innerHTML = events[i].start.substring(0, 10)
+            contentChildren[1].innerHTML += ', '
+            contentChildren[1].innerHTML += events[i].start.substring(11, 19)
+            events[i].labels.forEach((label) => {
+              console.info(label)
+              contentDiv.children[2].insertAdjacentHTML('beforeend', `<p class="event-labels p-2 mr-2">${label}</p>`)
+            })
+            // contentChildren[3].innerHTML = events[i].description
             i++
           })
         }
