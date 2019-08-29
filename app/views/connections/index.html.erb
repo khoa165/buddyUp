@@ -1,6 +1,6 @@
 <div class="container">
   <div class="mb-3">
-    <h3 class="my-5" style="line-height: 1.6;">Top 5 buddies near <br><strong><%= current_user.search_term.capitalize %></strong></h3>
+    <h3 class="my-5" style="line-height: 1.6;">Top <%= @connections.size %> buddies near <br><strong><%= current_user.search_term.capitalize %></strong></h3>
   </div>
   <% @connections.each do |connection| %>
     <% if connection.sender == current_user %>
