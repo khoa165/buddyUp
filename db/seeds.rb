@@ -150,7 +150,7 @@ kaveh = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].samp
 maria = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "amazing coding bootcamp student", first_name: "Maria", last_name: "Manninen", email: "maria@gmail.com", password: "maria123", age: 25, gender: "Female", address: "Valencia", country: "Spain", city: "Valencia", remote_photo_url: "https://avatars1.githubusercontent.com/u/50732002?v=4")
 matthis = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "amazing coding bootcamp student", first_name: "Matthis", last_name: "Parisot", email: "matthis@gmail.com", password: "matthis123", age: 25, gender: "Male", address: "Valencia", country: "Spain", city: "Valencia", remote_photo_url: "https://avatars1.githubusercontent.com/u/52250484?v=4")
 mehdi = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "amazing coding bootcamp student", first_name: "Mehdi", last_name: "Idrissi Kaitouni", email: "mehdi@gmail.com", password: "mehdi123", age: 25, gender: "Male", address: "Valencia", country: "Spain", city: "Valencia", remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/wi1aedmjvhykylpeywj1.jpg")
-nicolas = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "member of the cool car", first_name: "Nicolas", last_name: "Proto", email: "nicolas@gmail.com", password: "nicolas123", age: 25, gender: "Male", address: "Frankfurt", country: "Germany", city: "Frankfurt", remote_photo_url: "https://avatars0.githubusercontent.com/u/43278026?v=4")
+# nicolas = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "member of the cool car", first_name: "Nicolas", last_name: "Proto", email: "nicolas@gmail.com", password: "nicolas123", age: 25, gender: "Male", address: "Frankfurt", country: "Germany", city: "Frankfurt", remote_photo_url: "https://avatars0.githubusercontent.com/u/43278026?v=4")
 nikita = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "amazing coding bootcamp student", first_name: "Nikita", last_name: "Bandarevich", email: "nikita@gmail.com", password: "nikita123", age: 25, gender: "Male", address: "Valencia", country: "Spain", city: "Valencia", remote_photo_url: "https://avatars2.githubusercontent.com/u/34006151?v=4")
 sy = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "amazing coding bootcamp student", first_name: "Sy", last_name: "Rashid", email: "sy@gmail.com", password: "sy1234", age: 25, gender: "Male", address: "Frankfurt", country: "Germany", city: "Frankfurt", remote_photo_url: "https://avatars2.githubusercontent.com/u/6656014?v=4")
 thomas = User.create!(current_sign_in_at: DateTime.new(2019, [7, 8, 8, 8, 8].sample, rand(1..28)), intro: "amazing coding bootcamp student", first_name: "Thomas", last_name: "Bonnet", email: "thomas@gmail.com", password: "thomas123", age: 25, gender: "Male", address: "Valencia", country: "Spain", city: "Valencia", remote_photo_url: "https://avatars3.githubusercontent.com/u/49944627?v=4")
@@ -194,6 +194,9 @@ puts "---------------------------------------------------"
 
 dk = Connection.create(sender: danko, receiver: khoa, status: "buddied", score: 100)
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied", score: 80)
+dm = Connection.create(sender: danko, receiver: melissa, status: "buddied", score: 80)
+ma = Connection.create(sender: melissa, receiver: arman, status: "buddied", score: 80)
+
 # Connection.create(sender: danko, receiver: arman)
 # Connection.create(sender: danko, receiver: melissa)
 # Connection.create(sender: arman, receiver: melissa)
@@ -201,17 +204,23 @@ km = Connection.create(sender: khoa, receiver: melissa, status: "buddied", score
 
 Message.create(content: "Hi, I'm Danko - master of JavaScript and jQuery!", connection: dk, user: danko)
 Message.create(content: "Weren't you the guy mistaken string interpolation of JS as jQuery symbol :P", connection: dk, user: khoa)
-Message.create(content: "Hmmm you a******", connection: dk, user: danko)
-Message.create(content: "You suck :\">", connection: dk, user: khoa)
+Message.create(content: "Wow, you mock me now", connection: dk, user: danko)
+Message.create(content: "Hehe :>", connection: dk, user: khoa)
+
 Message.create(content: "Hi I am Khoa :\">", connection: km, user: khoa)
-Message.create(content: "Ohhhhh Khoa, don't you know I trash talking you everyday? Hehe :>", connection: km, user: melissa)
-Message.create(content: "Btw, just so you know, I'm gonna overthrow your leadership and take over the BuddyUppppppp", connection: km, user: melissa)
-Message.create(content: "Awwwww, scary!?. Said who?", connection: km, user: khoa)
-Message.create(content: "Said Medussaaaaaa, master of front end!!!!", connection: km, user: melissa)
-Message.create(content: "Oops, I meant Melissa...", connection: km, user: melissa)
+Message.create(content: "Ohhhhh Khoa, how are you?", connection: km, user: melissa)
+Message.create(content: "You want to hang out this weekend?", connection: km, user: melissa)
+Message.create(content: "Sure, you like coding?", connection: km, user: khoa)
+Message.create(content: "Yeah, let's meet up", connection: km, user: melissa)
+Message.create(content: "Maybe Saturday?", connection: km, user: melissa)
+
+Message.create(content: "Hi Danko", connection: dm, user: melissa)
+Message.create(content: "Hi Melissa!!", connection: dm, user: danko)
 
 Meeting.create(connection: dk, location: "Barcelona", date: Date.new(2019, 9, rand(1..30)))
 Meeting.create(connection: km, location: "Berlin", date: Date.new(2019, 9, rand(1..30)))
+Meeting.create(connection: dm, location: "Madrid", date: Date.new(2019, 9, rand(1..30)))
+Meeting.create(connection: ma, location: "Barcelona", date: Date.new(2019, 9, rand(1..30)))
 
 puts "Finish connections, meetings and messages!"
 
