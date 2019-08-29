@@ -16,10 +16,18 @@
     <div class="col-12 col-lg-8">
       <div class="mb-3 mt-1">
         <h3>Buddy pending request</h3>
-        <% current_user.connections.each do |connection|%>
-          <% if (current_user == connection.sender && connection.status_sender == "buddy_requested") || (current_user == connection.receiver && connection.status_receiver == "buddy_requested") %>
-            <% buddy = connection.sender == current_user ? connection.receiver : connection.sender %>
-            <p><%= buddy.first_name %></p>
+        <h6>Pending requests waiting for you to accept.</h6>
+        <% @requested.each do |c|%>
+          <%= link_to connection_path(c) do %>
+            <% buddy = c.sender == current_user ? c.receiver : c.sender %>
+            <p><%= buddy.first_name %> Send you a buddy request</p>
+          <% end %>
+        <% end %>
+        <h6>Waiting for your future buddies to accept your request</h6>
+        <% @requesting.each do |c|%>
+          <%= link_to connection_path(c) do %>
+            <% buddy = c.sender == current_user ? c.receiver : c.sender %>
+            <p>Text <%= buddy.first_name %> to remind him to buddyUp</p>
           <% end %>
         <% end %>
       </div>

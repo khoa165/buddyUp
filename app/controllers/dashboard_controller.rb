@@ -1,7 +1,15 @@
 class DashboardController < ApplicationController
   def index
     @buddies = current_user.connections.where(status: "buddied")
-    @requesting = current_user.connections.where
+    c = current_user.connections.where.not(status: "buddied")
+    sender_c = c.where(sender: current_user)
+    receiver_c = c.where(receiver: current_user)
+    sender_c_requesting = sender_c.where(status_sender: "buddy_requested")
+    sender_c_requested = sender_c.where(status_receiver: "buddy_requested")
+    receiver_c_requesting = sender_c.where(status_receiver: "buddy_requested")
+    receiver_c_requested = sender_c.where(status_sender: "buddy_requested")
+    @requesting = sender_c_requesting + receiver_c_requesting
+    @requested = sender_c_requested + receiver_c_requested
   end
 
   def show

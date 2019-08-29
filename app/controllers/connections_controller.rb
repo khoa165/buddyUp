@@ -31,7 +31,7 @@ class ConnectionsController < ApplicationController
       end
     else
       @connection.update(status_receiver: "buddy_requested")
-      if @connection.status_receiver == "buddy_requested"
+      if @connection.status_sender == "buddy_requested"
         @connection.update(status: "buddied")
       else
         @connection.update(status: "currently_buddy_requested")
