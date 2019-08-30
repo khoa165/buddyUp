@@ -50,6 +50,6 @@ class DashboardController < ApplicationController
   private
 
   def user_strong_params
-    params.require(:user).permit(:first_name, :last_name, :age, :occupation, :gender, :address, :city, :photo, :country)
+    params.require(:user).permit(:first_name, :last_name, :age, :occupation, :gender, :address, :city, :photo, :country, :intro)
   end
 end
