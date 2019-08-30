@@ -201,11 +201,6 @@ mb = Connection.create(sender: melissa, receiver: barbara, status: "buddy_reques
 me = Connection.create(sender: melissa, receiver: ellyn, status_sender: "buddy_requested", status: "buddy_requested", score: 95)
 am = Connection.create(sender: amine, receiver: melissa, status_sender: "buddy_requested", status: "buddy_requested", score: 67)
 
-# Connection.create(sender: danko, receiver: arman)
-# Connection.create(sender: danko, receiver: melissa)
-# Connection.create(sender: arman, receiver: melissa)
-# Connection.create(sender: arman, receiver: khoa)
-
 Message.create(content: "Hi, I'm Danko - master of JavaScript and jQuery!", connection: dk, user: danko)
 Message.create(content: "Weren't you the guy mistaken string interpolation of JS as jQuery symbol :P", connection: dk, user: khoa)
 Message.create(content: "Wow, you mock me now", connection: dk, user: danko)
@@ -220,6 +215,22 @@ Message.create(content: "Maybe Saturday?", connection: km, user: melissa)
 
 Message.create(content: "Hi Danko", connection: dm, user: melissa)
 Message.create(content: "Hi Melissa!!", connection: dm, user: danko)
+
+Message.create(content: "Hi Barbara, I really like crossfit, too. But I'm new to Barcelona. Do you know a nice place?", connection: mb, user: melissa)
+Message.create(content: "Hey Melissa, nice to meet you here! I like Alphalink. You can join some time!", connection: mb, user: barbara)
+Message.create(content: "I'm planning to go tomorrow night at 7pm, do you want to join?", connection: mb, user: barbara)
+Message.create(content: "I'd love to. Shall we just meet there?", connection: mb, user: melissa)
+Message.create(content: "Yes perfect! See you there!", connection: mb, user: barbara)
+
+Message.create(content: "Hej Melissa, I saw you like electronic music. Have you been to brunch in the park?", connection: wm, user: wendela)
+Message.create(content: "Hi Wendela, yes I have. I really loved FatboySlim last weekend. It was sooo fun!", connection: wm, user: melissa)
+Message.create(content: "Yes, it was soooo cool!", connection: wm, user: wendela)
+Message.create(content: "I really like outdoor dance events in the summer! Barcelona is the best place for that!", connection: wm, user: wendela)
+Message.create(content: "You're so right, but I really want to check out other places too.", connection: wm, user: melissa)
+Message.create(content: "There is this outdoor club in Montjuïc, have you been?", connection: wm, user: melissa)
+Message.create(content: "No, I don't know it.", connection: wm, user: wendela)
+Message.create(content: "We should go to together! I'm going to send you a buddyUp request!", connection: wm, user: wendela)
+
 
 Meeting.create(connection: dk, location: "Barcelona", date: Date.new(2019, 9, rand(1..30)))
 Meeting.create(connection: km, location: "Berlin", date: Date.new(2019, 9, rand(1..30)))
