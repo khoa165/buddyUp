@@ -196,6 +196,10 @@ dk = Connection.create(sender: danko, receiver: khoa, status: "buddied", score: 
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied", score: 80)
 dm = Connection.create(sender: danko, receiver: melissa, status: "buddied", score: 80)
 ma = Connection.create(sender: melissa, receiver: arman, status: "buddied", score: 80)
+wm = Connection.create(sender: wendela, receiver: melissa, status_sender: "buddy_requested", status: "buddy_requested", score: 87)
+mb = Connection.create(sender: melissa, receiver: barbara, status: "buddy_requested", status_sender: "buddy_requested", score: 83)
+me = Connection.create(sender: melissa, receiver: ellyn, status_sender: "buddy_requested", status: "buddy_requested", score: 95)
+am = Connection.create(sender: amine, receiver: melissa, status_sender: "buddy_requested", status: "buddy_requested", score: 67)
 
 # Connection.create(sender: danko, receiver: arman)
 # Connection.create(sender: danko, receiver: melissa)
