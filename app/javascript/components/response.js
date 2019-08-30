@@ -35,8 +35,14 @@ const toggleResponsesText = (event) => {
 }
 
 questions.forEach(question => {
-  addEventListener("click", toggleResponsesText);
+  // question.addEventListener("click", toggleResponsesText);
+  // addEventListener("touchstart", toggleResponsesText);
 })
+$('.questions').on('click touchstart', toggleResponsesText);
+
+// $(window).load(function() {
+//   $('.questions').on('click touchstart', toggleResponsesText);
+// });
 
 // label.addEventListener("click", (event) => {
 //   console.log(event);
