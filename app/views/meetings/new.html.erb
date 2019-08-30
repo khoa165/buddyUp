@@ -1,8 +1,9 @@
 <div class="container my-3">
+  <%= link_to "← Back to your dashboard", dashboard_path, class: "nav-link m-0 px-0 py-3"%>
   <div class="row">
     <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-      <h4>Plan something...</h4>
-      <h4 class="text-right">...with <%= @buddy.first_name.capitalize %></h4>
+      <h4 class="mt-4">Plan something...</h4>
+      <h4 class="text-right mb-4">...with <%= @buddy.first_name.capitalize %></h4>
       <%= render "form" %>
     </div>
   </div>
