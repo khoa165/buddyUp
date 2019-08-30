@@ -15,7 +15,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_strong_params)
     @meeting.connection = @connection
     if @meeting.save
-      redirect_to connection_path(@connection)
+      redirect_to dashboard_path
     else
       @meeting = Meeting.new
       render :new
@@ -28,7 +28,7 @@ class MeetingsController < ApplicationController
   def update
     @meeting.update(meeting_strong_params)
     if @meeting.save
-      redirect_to connection_path(connection)
+      redirect_to dashboard_path
     else
       render :edit
     end

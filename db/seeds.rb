@@ -45,7 +45,7 @@ puts "---------------------------------------------------"
 
 puts "---> Sport question"
 sport_question = Question.create(description: "Sports")
-sports = ["American football", "Athletics", "Badminton", "Baseball", "Basketball", "Bodyboarding", "Bowling", "Bowls", "Boxing", "Canoeing", "Climbing", "Cricket", "Diving", "Football", "Go-karting", "Golf", "Gym", "Hiking", "Hockey", "Horse riding", "Martial arts", "Motorcycling", "Padel", "Pole dancing", "Rowing", "Rugby", "Running", "Skateboarding", "Skating", "Skiing", "Snowboarding", "Squash", "Surfing", "Swimming", "Table tennis", "Tennis", "Volleyball", "Water polo", "Windsurfing"]
+sports = ["American football", "Athletics", "Badminton", "Baseball", "Basketball", "Bodyboarding", "Bowling", "Bowls", "Boxing", "Canoeing", "Climbing", "Cricket", "Diving", "Football", "Go-karting", "Golf", "Gym", "Hiking", "Hockey", "Horse riding", "Martial arts", "Motorcycling", "Crossfit", "Pole dancing", "Rowing", "Rugby", "Running", "Skateboarding", "Skating", "Skiing", "Snowboarding", "Squash", "Surfing", "Swimming", "Table tennis", "Tennis", "Volleyball", "Water polo", "Windsurfing"]
 sports.each do |sport|
   Response.create(answer: sport, question: sport_question)
 end
@@ -196,11 +196,10 @@ dk = Connection.create(sender: danko, receiver: khoa, status: "buddied", score: 
 km = Connection.create(sender: khoa, receiver: melissa, status: "buddied", score: 80)
 dm = Connection.create(sender: danko, receiver: melissa, status: "buddied", score: 80)
 ma = Connection.create(sender: melissa, receiver: arman, status: "buddied", score: 80)
-
-# Connection.create(sender: danko, receiver: arman)
-# Connection.create(sender: danko, receiver: melissa)
-# Connection.create(sender: arman, receiver: melissa)
-# Connection.create(sender: arman, receiver: khoa)
+wm = Connection.create(sender: wendela, receiver: melissa, status_sender: "buddy_requested", status: "buddy_requested", score: 87)
+mb = Connection.create(sender: melissa, receiver: barbara, status: "buddy_requested", status_sender: "buddy_requested", score: 83)
+me = Connection.create(sender: melissa, receiver: ellyn, status_sender: "buddy_requested", status: "buddy_requested", score: 95)
+am = Connection.create(sender: amine, receiver: melissa, status_sender: "buddy_requested", status: "buddy_requested", score: 67)
 
 Message.create(content: "Hi, I'm Danko - master of JavaScript and jQuery!", connection: dk, user: danko)
 Message.create(content: "Weren't you the guy mistaken string interpolation of JS as jQuery symbol :P", connection: dk, user: khoa)
@@ -216,6 +215,22 @@ Message.create(content: "Maybe Saturday?", connection: km, user: melissa)
 
 Message.create(content: "Hi Danko", connection: dm, user: melissa)
 Message.create(content: "Hi Melissa!!", connection: dm, user: danko)
+
+Message.create(content: "Hi Barbara, I really like crossfit, too. But I'm new to Barcelona. Do you know a nice place?", connection: mb, user: melissa)
+Message.create(content: "Hey Melissa, nice to meet you here! I like Alphalink. You can join some time!", connection: mb, user: barbara)
+Message.create(content: "I'm planning to go tomorrow night at 7pm, do you want to join?", connection: mb, user: barbara)
+Message.create(content: "I'd love to. Shall we just meet there?", connection: mb, user: melissa)
+Message.create(content: "Yes perfect! See you there!", connection: mb, user: barbara)
+
+Message.create(content: "Hej Melissa, I saw you like electronic music. Have you been to brunch in the park?", connection: wm, user: wendela)
+Message.create(content: "Hi Wendela, yes I have. I really loved FatboySlim last weekend. It was sooo fun!", connection: wm, user: melissa)
+Message.create(content: "Yes, it was soooo cool!", connection: wm, user: wendela)
+Message.create(content: "I really like outdoor dance events in the summer! Barcelona is the best place for that!", connection: wm, user: wendela)
+Message.create(content: "You're so right, but I really want to check out other places too.", connection: wm, user: melissa)
+Message.create(content: "There is this outdoor club in Montjuïc, have you been?", connection: wm, user: melissa)
+Message.create(content: "No, I don't know it.", connection: wm, user: wendela)
+Message.create(content: "We should go to together! I'm going to send you a buddyUp request!", connection: wm, user: wendela)
+
 
 Meeting.create(connection: dk, location: "Barcelona", date: Date.new(2019, 9, rand(1..30)))
 Meeting.create(connection: km, location: "Berlin", date: Date.new(2019, 9, rand(1..30)))
@@ -245,6 +260,12 @@ categories = [music_question, sport_question, movie_question, technical_question
 #     end
 #   end
 # end
+
+UserResponse.create(user: melissa, response_id: 103)
+UserResponse.create(user: barbara, response_id: 103)
+
+UserResponse.create(user: melissa, response_id: 61)
+UserResponse.create(user: wendela, response_id: 61)
 
 User.all.each do |user|
   # Music
