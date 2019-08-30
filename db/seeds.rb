@@ -45,7 +45,7 @@ puts "---------------------------------------------------"
 
 puts "---> Sport question"
 sport_question = Question.create(description: "Sports")
-sports = ["American football", "Athletics", "Badminton", "Baseball", "Basketball", "Bodyboarding", "Bowling", "Bowls", "Boxing", "Canoeing", "Climbing", "Cricket", "Diving", "Football", "Go-karting", "Golf", "Gym", "Hiking", "Hockey", "Horse riding", "Martial arts", "Motorcycling", "Padel", "Pole dancing", "Rowing", "Rugby", "Running", "Skateboarding", "Skating", "Skiing", "Snowboarding", "Squash", "Surfing", "Swimming", "Table tennis", "Tennis", "Volleyball", "Water polo", "Windsurfing"]
+sports = ["American football", "Athletics", "Badminton", "Baseball", "Basketball", "Bodyboarding", "Bowling", "Bowls", "Boxing", "Canoeing", "Climbing", "Cricket", "Diving", "Football", "Go-karting", "Golf", "Gym", "Hiking", "Hockey", "Horse riding", "Martial arts", "Motorcycling", "Crossfit", "Pole dancing", "Rowing", "Rugby", "Running", "Skateboarding", "Skating", "Skiing", "Snowboarding", "Squash", "Surfing", "Swimming", "Table tennis", "Tennis", "Volleyball", "Water polo", "Windsurfing"]
 sports.each do |sport|
   Response.create(answer: sport, question: sport_question)
 end
@@ -260,6 +260,12 @@ categories = [music_question, sport_question, movie_question, technical_question
 #     end
 #   end
 # end
+
+UserResponse.create(user: melissa, response_id: 103)
+UserResponse.create(user: barbara, response_id: 103)
+
+UserResponse.create(user: melissa, response_id: 61)
+UserResponse.create(user: wendela, response_id: 61)
 
 User.all.each do |user|
   # Music
