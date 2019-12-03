@@ -8,5 +8,6 @@ I decided to pitch the idea of buddyUp during the bootcamp as I think it would c
 #### ***Bugs/features to be fixed***
 - App was designed to work on mobile phone browser, so user interface for laptop browser does not look nice.
 - App was seeded with data of users from Barcelona for the purpose of demo, and since it is not for use, if user attempts to try out for another area, it does not show any result when search.
+- Chat functionality is not ideal as messages are not encrypted.
 - Re-organize stylesheets.
 
