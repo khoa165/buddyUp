@@ -1,4 +1,4 @@
-# buddyUp
+# Buddy Up
 #### Created by Khoa Thien Le (Harry), contributed by Danko Beribak, Melissa Lobuescher, Arman Balani.
 
 #### ***Purpose***
